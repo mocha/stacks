@@ -1,0 +1,16 @@
+- Account management
+  - Via github
+  - Via gitlab
+  - Remove my account
+- View profile
+- Homepage
+- View stack
+- Create stack
+  - Typeahead-driven form
+    - Supports new technologies (but warns you'll need to link later)
+  - (if used) Submit links for new technologies
+    - (Background: scrapes new technologies, async approves/adds)
+  - Details form (3 questions for more flavor)
+  - Review generated summary
+  - Confirm creation
+  - (redirects) to view stack page with confetti animation on load
