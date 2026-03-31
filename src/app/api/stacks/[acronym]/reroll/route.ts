@@ -73,7 +73,7 @@ export async function POST(
   };
 
   const prompt = buildRerollPrompt({
-    technologies: stack.technologies.map((st) => ({
+    technologies: stack.technologies.map((st: { technology: { name: string; description: string | null } }) => ({
       name: st.technology.name,
       description: st.technology.description ?? "",
     })),
