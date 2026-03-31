@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum TechnologyStatus {
+  approved
+  pending
+  rejected
+}
+
+model User {
+  id               String       @id @default(uuid()) @db.Uuid
+  provider         String       // "github" or "gitlab"
+  providerUsername  String
+  displayName      String
+  avatarUrl        String?
+  profileUrl       String
+  hasStack         Boolean      @default(false)
+  githubData       Json?        // Cached GitHub profile data
+  githubDataSyncedAt DateTime?
+  createdAt        DateTime     @default(now())
+  supabaseAuthId   String       @unique // Links to Supabase Auth user
+
+  stack             Stack?
+  discoveredTechs   Technology[]
+
+  @@unique([provider, providerUsername])
+}
+
+model Technology {
+  id             String           @id @default(uuid()) @db.Uuid
+  name           String
+  slug           String           @unique
+  description    String?
+  logoUrl        String?
+  githubUrl      String
+  githubStars    Int              @default(0)
+  language       String?
+  status         TechnologyStatus @default(pending)
+  discoveredById String?          @db.Uuid
+  createdAt      DateTime         @default(now())
+
+  discoveredBy   User?            @relation(fields: [discoveredById], references: [id])
+  stacks         StackTechnology[]
+}
+
+model Stack {
+  id              String    @id @default(uuid()) @db.Uuid
+  acronym         String    @unique // Case-insensitive uniqueness enforced via migration
+  creatorId       String    @unique @db.Uuid // One stack per user
+  questionnaire   Json      // { industries, notableFeature, competitor }
+  description     String    // LLM-generated
+  rerollsToday    Int       @default(0)
+  lastRerollDate  DateTime  @default(now()) @db.Date
+  createdAt       DateTime  @default(now())
+
+  creator         User      @relation(fields: [creatorId], references: [id])
+  technologies    StackTechnology[]
+  hallOfFame      HallOfFame[]
+}
+
+model StackTechnology {
+  stackId       String @db.Uuid
+  technologyId  String @db.Uuid
+  position      Int
+
+  stack         Stack      @relation(fields: [stackId], references: [id], onDelete: Cascade)
+  technology    Technology @relation(fields: [technologyId], references: [id])
+
+  @@id([stackId, technologyId])
+}
+
+model HallOfFame {
+  id        String   @id @default(uuid()) @db.Uuid
+  stackId   String   @db.Uuid
+  pickedOn  DateTime @db.Date
+
+  stack     Stack    @relation(fields: [stackId], references: [id], onDelete: Cascade)
+}
