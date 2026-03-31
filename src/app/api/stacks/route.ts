@@ -60,14 +60,6 @@ export async function POST(request: Request) {
     );
   }
 
-  const existing = await prisma.stack.findUnique({ where: { acronym } });
-  if (existing) {
-    return NextResponse.json(
-      { error: "This acronym has already been claimed" },
-      { status: 409 }
-    );
-  }
-
   const technologies = await prisma.technology.findMany({
     where: {
       id: { in: technologyIds },
@@ -105,31 +97,41 @@ export async function POST(request: Request) {
   });
   const description = await generateDescription(prompt);
 
-  const stack = await prisma.$transaction(async (tx) => {
-    const newStack = await tx.stack.create({
-      data: {
-        acronym,
-        creatorId: dbUser.id,
-        questionnaire,
-        description,
-      },
+  try {
+    const stack = await prisma.$transaction(async (tx) => {
+      const newStack = await tx.stack.create({
+        data: {
+          acronym,
+          creatorId: dbUser.id,
+          questionnaire,
+          description,
+        },
+      });
+
+      await tx.stackTechnology.createMany({
+        data: technologyIds.map((techId, index) => ({
+          stackId: newStack.id,
+          technologyId: techId,
+          position: index,
+        })),
+      });
+
+      await tx.user.update({
+        where: { id: dbUser.id },
+        data: { hasStack: true },
+      });
+
+      return newStack;
     });
 
-    await tx.stackTechnology.createMany({
-      data: technologyIds.map((techId, index) => ({
-        stackId: newStack.id,
-        technologyId: techId,
-        position: index,
-      })),
-    });
-
-    await tx.user.update({
-      where: { id: dbUser.id },
-      data: { hasStack: true },
-    });
-
-    return newStack;
-  });
-
-  return NextResponse.json({ stack, redirect: `/s/${stack.acronym}` }, { status: 201 });
+    return NextResponse.json({ stack, redirect: `/s/${stack.acronym}` }, { status: 201 });
+  } catch (error: any) {
+    if (error?.code === "P2002") {
+      return NextResponse.json(
+        { error: "This acronym was just claimed by someone else!" },
+        { status: 409 }
+      );
+    }
+    throw error;
+  }
 }

@@ -39,6 +39,14 @@ export default function BuildPage() {
   });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setIsAuthenticated(!!user);
+    });
+  }, []);
 
   // Build acronym from selected technologies
   const acronym = entries
@@ -167,6 +175,19 @@ export default function BuildPage() {
     questionnaire.industries &&
     questionnaire.notableFeature &&
     questionnaire.competitor;
+
+  if (isAuthenticated === null) {
+    return <main><p>Loading...</p></main>;
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <main>
+        <h1>Design my Stack</h1>
+        <p>You need to sign in to invent your stack.</p>
+      </main>
+    );
+  }
 
   return (
     <main>

@@ -22,8 +22,12 @@ async function getHallOfFame() {
 
   if (entries.length === 0) {
     // Fallback: pick 5 random stacks inline
+    const randomIds = await prisma.$queryRaw<{ id: string }[]>`
+      SELECT id FROM "Stack" ORDER BY RANDOM() LIMIT 5
+    `;
+    if (randomIds.length === 0) return [];
     const stacks = await prisma.stack.findMany({
-      take: 5,
+      where: { id: { in: randomIds.map(r => r.id) } },
       include: {
         creator: { select: { providerUsername: true, avatarUrl: true } },
         technologies: {

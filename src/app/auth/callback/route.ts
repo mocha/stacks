@@ -28,7 +28,9 @@ export async function GET(request: Request) {
           providerUsername: username,
           displayName: meta.full_name ?? username,
           avatarUrl: meta.avatar_url,
-          profileUrl: `https://github.com/${username}`,
+          profileUrl: provider === "gitlab"
+            ? `https://gitlab.com/${username}`
+            : `https://github.com/${username}`,
         },
       });
 
