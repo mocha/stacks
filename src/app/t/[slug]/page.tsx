@@ -1,7 +1,16 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import type { Metadata } from "next";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Text } from "@/components/catalyst/text";
+import { TextLink } from "@/components/catalyst/text";
+import { Badge, BadgeButton } from "@/components/catalyst/badge";
+import {
+  DescriptionList,
+  DescriptionTerm,
+  DescriptionDetails,
+} from "@/components/catalyst/description-list";
+import { Divider } from "@/components/catalyst/divider";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -49,63 +58,82 @@ export default async function TechnologyPage({ params }: Props) {
   }
 
   return (
-    <main>
-      <div>
+    <div>
+      <div className="flex items-center gap-4">
         {technology.logoUrl && (
           <img
             src={technology.logoUrl}
             alt={technology.name}
             width={64}
             height={64}
+            className="rounded-lg"
           />
         )}
-        <h1>{technology.name}</h1>
+        <Heading className="!text-3xl">{technology.name}</Heading>
       </div>
 
-      {technology.description && <p>{technology.description}</p>}
+      {technology.description && (
+        <Text className="mt-4">{technology.description}</Text>
+      )}
 
-      <dl>
+      <Divider className="my-6" soft />
+
+      <DescriptionList>
         {technology.language && (
           <>
-            <dt>Language</dt>
-            <dd>{technology.language}</dd>
+            <DescriptionTerm>Language</DescriptionTerm>
+            <DescriptionDetails>{technology.language}</DescriptionDetails>
           </>
         )}
-        <dt>GitHub Stars</dt>
-        <dd>{technology.githubStars.toLocaleString()}</dd>
-        <dt>GitHub</dt>
-        <dd>
-          <a href={technology.githubUrl} target="_blank" rel="noopener noreferrer">
+        <DescriptionTerm>GitHub Stars</DescriptionTerm>
+        <DescriptionDetails>{technology.githubStars.toLocaleString()}</DescriptionDetails>
+        <DescriptionTerm>GitHub</DescriptionTerm>
+        <DescriptionDetails>
+          <a
+            href={technology.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-950 underline decoration-zinc-950/50 hover:decoration-zinc-950 dark:text-white dark:decoration-white/50 dark:hover:decoration-white"
+          >
             {technology.githubUrl}
           </a>
-        </dd>
+        </DescriptionDetails>
         {technology.discoveredBy && (
           <>
-            <dt>Discovered by</dt>
-            <dd>
-              <a href={technology.discoveredBy.profileUrl}>
+            <DescriptionTerm>Discovered by</DescriptionTerm>
+            <DescriptionDetails>
+              <TextLink href={technology.discoveredBy.profileUrl}>
                 @{technology.discoveredBy.providerUsername}
-              </a>
-            </dd>
+              </TextLink>
+            </DescriptionDetails>
           </>
         )}
-      </dl>
+      </DescriptionList>
 
       {technology.stacks.length > 0 && (
-        <section>
-          <h2>Used in these stacks</h2>
-          <ul>
-            {technology.stacks.map((st) => (
-              <li key={st.stack.acronym}>
-                <Link href={`/s/${st.stack.acronym}`}>
-                  The {st.stack.acronym} Stack
-                </Link>
-                {st.stack.creator && <span> by @{st.stack.creator.providerUsername}</span>}
-              </li>
-            ))}
-          </ul>
-        </section>
+        <>
+          <Divider className="my-6" soft />
+          <section>
+            <Subheading className="mb-4">Used in these stacks</Subheading>
+            <div className="flex flex-wrap gap-2">
+              {technology.stacks.map((st) => (
+                <BadgeButton
+                  key={st.stack.acronym}
+                  href={`/s/${st.stack.acronym}`}
+                  color="indigo"
+                >
+                  {st.stack.acronym}
+                  {st.stack.creator && (
+                    <span className="text-indigo-500/70 dark:text-indigo-400/70">
+                      {" "}by @{st.stack.creator.providerUsername}
+                    </span>
+                  )}
+                </BadgeButton>
+              ))}
+            </div>
+          </section>
+        </>
       )}
-    </main>
+    </div>
   );
 }

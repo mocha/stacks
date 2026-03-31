@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/catalyst/button";
 
 export function RerollButton({
   acronym,
@@ -29,10 +30,14 @@ export function RerollButton({
   };
 
   return (
-    <button onClick={handleReroll} disabled={loading || rerollsRemaining <= 0}>
+    <Button
+      outline
+      onClick={handleReroll}
+      disabled={loading || rerollsRemaining <= 0}
+    >
       {loading
         ? "Rerolling..."
         : `Reroll Description (${rerollsRemaining} left today)`}
-    </button>
+    </Button>
   );
 }

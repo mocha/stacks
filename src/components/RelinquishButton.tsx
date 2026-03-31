@@ -2,10 +2,18 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/catalyst/button";
+import {
+  Dialog,
+  DialogTitle,
+  DialogDescription,
+  DialogBody,
+  DialogActions,
+} from "@/components/catalyst/dialog";
 
 export function RelinquishButton({ acronym }: { acronym: string }) {
   const router = useRouter();
-  const [confirming, setConfirming] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleRelinquish = async () => {
@@ -27,19 +35,30 @@ export function RelinquishButton({ acronym }: { acronym: string }) {
     setLoading(false);
   };
 
-  if (!confirming) {
-    return (
-      <button onClick={() => setConfirming(true)}>Relinquish</button>
-    );
-  }
-
   return (
-    <div>
-      <p>Are you sure?</p>
-      <button onClick={handleRelinquish} disabled={loading}>
-        {loading ? "Relinquishing..." : "Yeah it sucks these days anyway"}
-      </button>
-      <button onClick={() => setConfirming(false)}>Never mind</button>
-    </div>
+    <>
+      <Button outline onClick={() => setIsOpen(true)}>
+        Relinquish
+      </Button>
+      <Dialog open={isOpen} onClose={setIsOpen}>
+        <DialogTitle>Relinquish your stack?</DialogTitle>
+        <DialogDescription>
+          This will permanently release the {acronym} stack. Someone else can claim it after.
+        </DialogDescription>
+        <DialogBody>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+            Are you sure you want to give this up?
+          </p>
+        </DialogBody>
+        <DialogActions>
+          <Button plain onClick={() => setIsOpen(false)}>
+            Never mind
+          </Button>
+          <Button color="red" onClick={handleRelinquish} disabled={loading}>
+            {loading ? "Relinquishing..." : "Yeah it sucks these days anyway"}
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
   );
 }

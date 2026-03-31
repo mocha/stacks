@@ -1,5 +1,9 @@
 import { prisma } from "@/lib/prisma";
-import Link from "next/link";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Text } from "@/components/catalyst/text";
+import { TextLink } from "@/components/catalyst/text";
+import { Button } from "@/components/catalyst/button";
+import { Badge } from "@/components/catalyst/badge";
 
 async function getHallOfFame() {
   const today = new Date();
@@ -63,45 +67,73 @@ export default async function HomePage() {
   ]);
 
   return (
-    <main>
-      <section>
-        <h1>Stacklist</h1>
-        <p>Claim your stack. There can be only one.</p>
-        <Link href="/build">Design my Stack</Link>
+    <div>
+      {/* Hero */}
+      <section className="text-center py-12 sm:py-16">
+        <Heading className="!text-4xl sm:!text-5xl tracking-tight">Stacklist</Heading>
+        <Text className="mt-4 text-lg">Claim your stack. There can be only one.</Text>
+        <div className="mt-8">
+          <Button href="/build" color="blue">Design my Stack</Button>
+        </div>
       </section>
 
-      <div>
+      {/* Two-column grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        {/* Hall of Fame */}
         <section>
-          <h2>Hall of Fame</h2>
-          {hallOfFame.map((stack) => (
-            <Link key={stack.id} href={`/s/${stack.acronym}`}>
-              <div>
-                <span>The {stack.acronym} Stack</span>
-                <span>by {stack.creator ? `@${stack.creator.providerUsername}` : "its canonical inventors"}</span>
-              </div>
-            </Link>
-          ))}
+          <Subheading className="mb-4">Hall of Fame</Subheading>
+          <div className="space-y-3">
+            {hallOfFame.map((stack) => (
+              <TextLink key={stack.id} href={`/s/${stack.acronym}`} className="block no-underline">
+                <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <Badge color="indigo">{stack.acronym}</Badge>
+                    <span className="font-medium text-zinc-950 dark:text-white">
+                      The {stack.acronym} Stack
+                    </span>
+                  </div>
+                  <Text className="mt-1 text-sm">
+                    by {stack.creator ? `@${stack.creator.providerUsername}` : "its canonical inventors"}
+                  </Text>
+                </div>
+              </TextLink>
+            ))}
+          </div>
         </section>
 
+        {/* Just Invented */}
         <section>
-          <h2>Just Invented</h2>
-          {recentStacks.map((stack) => {
-            const totalStars = stack.technologies.reduce(
-              (sum, st) => sum + st.technology.githubStars,
-              0
-            );
-            return (
-              <Link key={stack.id} href={`/s/${stack.acronym}`}>
-                <div>
-                  <span>The {stack.acronym} Stack</span>
-                  <span>by {stack.creator ? `@${stack.creator.providerUsername}` : "its canonical inventors"}</span>
-                  <span>{totalStars.toLocaleString()} stars</span>
-                </div>
-              </Link>
-            );
-          })}
+          <Subheading className="mb-4">Just Invented</Subheading>
+          <div className="space-y-3">
+            {recentStacks.map((stack) => {
+              const totalStars = stack.technologies.reduce(
+                (sum, st) => sum + st.technology.githubStars,
+                0
+              );
+              return (
+                <TextLink key={stack.id} href={`/s/${stack.acronym}`} className="block no-underline">
+                  <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <Badge color="zinc">{stack.acronym}</Badge>
+                        <span className="font-medium text-zinc-950 dark:text-white">
+                          The {stack.acronym} Stack
+                        </span>
+                      </div>
+                      <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                        {totalStars.toLocaleString()} stars
+                      </span>
+                    </div>
+                    <Text className="mt-1 text-sm">
+                      by {stack.creator ? `@${stack.creator.providerUsername}` : "its canonical inventors"}
+                    </Text>
+                  </div>
+                </TextLink>
+              );
+            })}
+          </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

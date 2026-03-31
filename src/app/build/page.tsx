@@ -3,6 +3,13 @@
 import { useState, useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Text } from "@/components/catalyst/text";
+import { Badge } from "@/components/catalyst/badge";
+import { Button } from "@/components/catalyst/button";
+import { Input } from "@/components/catalyst/input";
+import { Field, Label } from "@/components/catalyst/fieldset";
+import { Divider } from "@/components/catalyst/divider";
 
 interface Technology {
   id: string;
@@ -177,121 +184,168 @@ export default function BuildPage() {
     questionnaire.competitor;
 
   if (isAuthenticated === null) {
-    return <main><p>Loading...</p></main>;
+    return (
+      <div className="py-16 text-center">
+        <Text>Loading...</Text>
+      </div>
+    );
   }
 
   if (!isAuthenticated) {
     return (
-      <main>
-        <h1>Design my Stack</h1>
-        <p>You need to sign in to invent your stack.</p>
-      </main>
+      <div className="py-16 text-center">
+        <Heading>Design my Stack</Heading>
+        <Text className="mt-4">You need to sign in to invent your stack.</Text>
+        <div className="mt-6">
+          <Button href="/" color="blue">Go sign in</Button>
+        </div>
+      </div>
     );
   }
 
   return (
-    <main>
-      <h1>
+    <div>
+      {/* Live heading */}
+      <Heading className="!text-3xl sm:!text-4xl">
         {acronym ? `The ${acronym} Stack!` : "Design my Stack"}
-      </h1>
+      </Heading>
 
+      {/* Availability badge */}
       {uniqueness && (
-        <div>
+        <div className="mt-3">
           {uniqueness.available ? (
-            <span>Available!</span>
+            <Badge color="green">Available!</Badge>
           ) : (
-            <span>
+            <Badge color="red">
               Taken by{" "}
-              <a href={`/s/${uniqueness.existingStack?.acronym}`}>
+              <a
+                href={`/s/${uniqueness.existingStack?.acronym}`}
+                className="underline"
+              >
                 @{uniqueness.existingStack?.creator}
               </a>
-            </span>
+            </Badge>
           )}
         </div>
       )}
 
-      <div>
-        {entries.map((entry, index) => (
-          <div key={index}>
-            <input
-              type="text"
-              value={entry.query}
-              onChange={(e) => updateEntry(index, e.target.value)}
-              onKeyDown={(e) => handleKeyDown(index, e)}
-              onFocus={() => setActiveLine(index)}
-              placeholder="Type a technology name..."
-              autoFocus={index === activeLine}
-            />
-            {entry.selected && <span>{entry.selected.name[0]}</span>}
-            {entries.length > 1 && (
-              <button onClick={() => removeLine(index)}>x</button>
-            )}
+      <Divider className="my-6" soft />
 
+      {/* Technology entries */}
+      <div className="space-y-3">
+        {entries.map((entry, index) => (
+          <div key={index} className="relative">
+            <div className="flex items-center gap-2">
+              <div className="flex-1 relative">
+                <Input
+                  type="text"
+                  value={entry.query}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateEntry(index, e.target.value)}
+                  onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => handleKeyDown(index, e)}
+                  onFocus={() => setActiveLine(index)}
+                  placeholder="Type a technology name..."
+                  autoFocus={index === activeLine}
+                />
+              </div>
+              {entry.selected && (
+                <Badge color="blue">{entry.selected.name[0]}</Badge>
+              )}
+              {entries.length > 1 && (
+                <Button plain onClick={() => removeLine(index)} className="text-zinc-400 hover:text-zinc-600">
+                  <span aria-hidden="true">&times;</span>
+                </Button>
+              )}
+            </div>
+
+            {/* Typeahead dropdown */}
             {activeLine === index && suggestions.length > 0 && (
-              <ul>
+              <div className="absolute z-10 mt-1 w-full rounded-lg border border-zinc-950/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-lg max-h-60 overflow-y-auto">
                 {suggestions.map((tech) => (
-                  <li key={tech.id}>
-                    <button onClick={() => selectTechnology(index, tech)}>
-                      {tech.name}
-                      {tech.description && (
-                        <span> — {tech.description.slice(0, 60)}</span>
-                      )}
-                    </button>
-                  </li>
+                  <button
+                    key={tech.id}
+                    onClick={() => selectTechnology(index, tech)}
+                    className="w-full text-left px-4 py-2 text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-950 dark:text-white transition-colors first:rounded-t-lg last:rounded-b-lg"
+                  >
+                    <span className="font-medium">{tech.name}</span>
+                    {tech.description && (
+                      <span className="text-zinc-500 dark:text-zinc-400">
+                        {" "}&mdash; {tech.description.slice(0, 60)}
+                      </span>
+                    )}
+                  </button>
                 ))}
-              </ul>
+              </div>
             )}
           </div>
         ))}
 
-        <button onClick={addLine}>+ Add technology</button>
+        <Button plain onClick={addLine}>
+          + Add technology
+        </Button>
       </div>
 
+      <Divider className="my-6" soft />
+
+      {/* Questionnaire */}
       <div>
-        <h2>Tell us about your stack</h2>
-        <label>
-          What industries primarily use this stack?
-          <input
-            type="text"
-            value={questionnaire.industries}
-            onChange={(e) =>
-              setQuestionnaire({ ...questionnaire, industries: e.target.value })
-            }
-          />
-        </label>
-        <label>
-          What is its most notable feature?
-          <input
-            type="text"
-            value={questionnaire.notableFeature}
-            onChange={(e) =>
-              setQuestionnaire({
-                ...questionnaire,
-                notableFeature: e.target.value,
-              })
-            }
-          />
-        </label>
-        <label>
-          What is its biggest competitor?
-          <input
-            type="text"
-            value={questionnaire.competitor}
-            onChange={(e) =>
-              setQuestionnaire({
-                ...questionnaire,
-                competitor: e.target.value,
-              })
-            }
-          />
-        </label>
+        <Subheading className="mb-6">Tell us about your stack</Subheading>
+        <div className="space-y-6">
+          <Field>
+            <Label>What industries primarily use this stack?</Label>
+            <Input
+              type="text"
+              value={questionnaire.industries}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestionnaire({ ...questionnaire, industries: e.target.value })
+              }
+            />
+          </Field>
+          <Field>
+            <Label>What is its most notable feature?</Label>
+            <Input
+              type="text"
+              value={questionnaire.notableFeature}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestionnaire({
+                  ...questionnaire,
+                  notableFeature: e.target.value,
+                })
+              }
+            />
+          </Field>
+          <Field>
+            <Label>What is its biggest competitor?</Label>
+            <Input
+              type="text"
+              value={questionnaire.competitor}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestionnaire({
+                  ...questionnaire,
+                  competitor: e.target.value,
+                })
+              }
+            />
+          </Field>
+        </div>
       </div>
 
-      {error && <p>{error}</p>}
+      {/* Error display */}
+      {error && (
+        <div className="mt-6 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4">
+          <p className="text-sm text-red-700 dark:text-red-400">{error}</p>
+        </div>
+      )}
 
-      <button onClick={handleSave} disabled={!canSave || saving}>
-        {saving ? "Inventing..." : "Invent this Stack"}
-      </button>
-    </main>
+      {/* Submit */}
+      <div className="mt-8">
+        <Button
+          color="blue"
+          onClick={handleSave}
+          disabled={!canSave || saving}
+        >
+          {saving ? "Inventing..." : "Invent this Stack"}
+        </Button>
+      </div>
+    </div>
   );
 }

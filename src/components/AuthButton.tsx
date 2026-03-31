@@ -2,6 +2,8 @@
 
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/catalyst/button";
+import { TextLink } from "@/components/catalyst/text";
 
 export function AuthButton({
   user,
@@ -27,21 +29,23 @@ export function AuthButton({
 
   if (user) {
     return (
-      <div>
-        <a href={`/u/${user.providerUsername}`}>@{user.providerUsername}</a>
-        <button onClick={handleLogout}>Log out</button>
+      <div className="flex items-center gap-3">
+        <TextLink href={`/u/${user.providerUsername}`}>@{user.providerUsername}</TextLink>
+        <Button plain onClick={handleLogout}>
+          Log out
+        </Button>
       </div>
     );
   }
 
   return (
-    <div>
-      <button onClick={() => handleLogin("github")}>
+    <div className="flex items-center gap-2">
+      <Button outline onClick={() => handleLogin("github")}>
         Sign in with GitHub
-      </button>
-      <button onClick={() => handleLogin("gitlab")}>
+      </Button>
+      <Button outline onClick={() => handleLogin("gitlab")}>
         Sign in with GitLab
-      </button>
+      </Button>
     </div>
   );
 }

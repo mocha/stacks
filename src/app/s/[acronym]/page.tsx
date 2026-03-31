@@ -5,6 +5,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { RerollButton } from "@/components/RerollButton";
 import { RelinquishButton } from "@/components/RelinquishButton";
+import { Heading } from "@/components/catalyst/heading";
+import { Text } from "@/components/catalyst/text";
+import { TextLink } from "@/components/catalyst/text";
+import { Badge } from "@/components/catalyst/badge";
+import { Avatar } from "@/components/catalyst/avatar";
+import { Button } from "@/components/catalyst/button";
+import {
+  DescriptionList,
+  DescriptionTerm,
+  DescriptionDetails,
+} from "@/components/catalyst/description-list";
+import { Divider } from "@/components/catalyst/divider";
 
 interface Props {
   params: Promise<{ acronym: string }>;
@@ -60,11 +72,13 @@ export default async function StackDetailPage({ params }: Props) {
 
   if (!stack) {
     return (
-      <main>
-        <h1>The {acronym.toUpperCase()} Stack</h1>
-        <p>Nobody has claimed this one yet.</p>
-        <Link href="/build">Invent it yourself</Link>
-      </main>
+      <div className="text-center py-16">
+        <Heading>The {acronym.toUpperCase()} Stack</Heading>
+        <Text className="mt-4">Nobody has claimed this one yet.</Text>
+        <div className="mt-6">
+          <Button href="/build" color="blue">Invent it yourself</Button>
+        </div>
+      </div>
     );
   }
 
@@ -94,78 +108,108 @@ export default async function StackDetailPage({ params }: Props) {
   } | null;
 
   return (
-    <main>
-      <h1>The {stack.acronym} Stack</h1>
+    <div>
+      <Heading className="!text-3xl sm:!text-4xl">The {stack.acronym} Stack</Heading>
 
-      <div>
+      {/* Creator info */}
+      <div className="mt-4 flex items-center gap-3">
         {stack.creator ? (
           <>
-            <Link href={stack.creator.profileUrl}>
-              {stack.creator.avatarUrl && (
-                <img
-                  src={stack.creator.avatarUrl}
-                  alt={stack.creator.providerUsername}
-                  width={32}
-                  height={32}
-                />
-              )}
-              Invented by @{stack.creator.providerUsername}
-            </Link>
-            <time dateTime={stack.createdAt.toISOString()}>
-              {stack.createdAt.toLocaleDateString()}
-            </time>
+            <Avatar
+              src={stack.creator.avatarUrl}
+              alt={stack.creator.providerUsername}
+              className="size-8"
+            />
+            <div>
+              <TextLink href={stack.creator.profileUrl}>
+                Invented by @{stack.creator.providerUsername}
+              </TextLink>
+              <Text className="text-sm">
+                <time dateTime={stack.createdAt.toISOString()}>
+                  {stack.createdAt.toLocaleDateString()}
+                </time>
+              </Text>
+            </div>
           </>
         ) : externalAttribution ? (
-          <>
-            <span>
+          <div>
+            <Text>
               Invented by{" "}
               {externalAttribution.inventors.map((inv, i) => (
                 <span key={inv.name}>
                   {i > 0 && (i === externalAttribution.inventors.length - 1 ? " & " : ", ")}
                   {inv.url ? (
-                    <a href={inv.url} target="_blank" rel="noopener noreferrer">{inv.name}</a>
+                    <a
+                      href={inv.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-950 underline decoration-zinc-950/50 hover:decoration-zinc-950 dark:text-white dark:decoration-white/50 dark:hover:decoration-white"
+                    >
+                      {inv.name}
+                    </a>
                   ) : (
-                    inv.name
+                    <span className="font-medium text-zinc-950 dark:text-white">{inv.name}</span>
                   )}
                 </span>
               ))}
-            </span>
-            {externalAttribution.year && <span> ({externalAttribution.year})</span>}
-            {externalAttribution.source && (
-              <span> — {externalAttribution.source}</span>
+            </Text>
+            {externalAttribution.year && (
+              <Text className="text-sm">({externalAttribution.year})</Text>
             )}
-          </>
+            {externalAttribution.source && (
+              <Text className="text-sm">{externalAttribution.source}</Text>
+            )}
+          </div>
         ) : null}
       </div>
 
-      <div>
-        <span>{totalStars.toLocaleString()} stars</span>
-      </div>
+      <Divider className="my-6" soft />
 
-      <ul>
+      {/* Metadata */}
+      <DescriptionList>
+        <DescriptionTerm>Created</DescriptionTerm>
+        <DescriptionDetails>{stack.createdAt.toLocaleDateString()}</DescriptionDetails>
+        <DescriptionTerm>Total Stars</DescriptionTerm>
+        <DescriptionDetails>{totalStars.toLocaleString()}</DescriptionDetails>
+      </DescriptionList>
+
+      <Divider className="my-6" soft />
+
+      {/* Technologies */}
+      <div className="space-y-3">
         {stack.technologies.map((st) => (
-          <li key={st.technologyId}>
-            <Link href={`/t/${st.technology.slug}`}>
-              {st.technology.logoUrl && (
-                <img
-                  src={st.technology.logoUrl}
-                  alt={st.technology.name}
-                  width={24}
-                  height={24}
-                />
-              )}
+          <Link
+            key={st.technologyId}
+            href={`/t/${st.technology.slug}`}
+            className="flex items-center gap-3 rounded-lg border border-zinc-950/10 dark:border-white/10 p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors"
+          >
+            {st.technology.logoUrl && (
+              <img
+                src={st.technology.logoUrl}
+                alt={st.technology.name}
+                width={24}
+                height={24}
+                className="rounded"
+              />
+            )}
+            <span className="font-medium text-zinc-950 dark:text-white">
               {st.technology.name}
-            </Link>
-          </li>
+            </span>
+            <Badge color="zinc" className="ml-auto">
+              {st.technology.githubStars.toLocaleString()} stars
+            </Badge>
+          </Link>
         ))}
-      </ul>
-
-      <div>
-        <p>{stack.description}</p>
       </div>
 
+      {/* LLM Description */}
+      <div className="mt-8 rounded-lg bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-950/5 dark:border-white/10 p-6">
+        <Text className="!text-base leading-relaxed">{stack.description}</Text>
+      </div>
+
+      {/* Owner actions */}
       {isCreator && (
-        <div>
+        <div className="mt-8 flex items-center gap-3">
           {canReroll && (
             <RerollButton acronym={stack.acronym} rerollsRemaining={2 - rerollsUsed} />
           )}
@@ -175,6 +219,6 @@ export default async function StackDetailPage({ params }: Props) {
 
       {/* Ad placeholder for future use */}
       {/* <div className="ad-slot" data-ad-size="300x250" /> */}
-    </main>
+    </div>
   );
 }

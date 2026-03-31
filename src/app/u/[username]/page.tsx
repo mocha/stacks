@@ -1,9 +1,19 @@
 import { prisma } from "@/lib/prisma";
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SyncButton } from "@/components/SyncButton";
+import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Text } from "@/components/catalyst/text";
+import { TextLink } from "@/components/catalyst/text";
+import { Avatar } from "@/components/catalyst/avatar";
+import { Button } from "@/components/catalyst/button";
+import {
+  DescriptionList,
+  DescriptionTerm,
+  DescriptionDetails,
+} from "@/components/catalyst/description-list";
+import { Divider } from "@/components/catalyst/divider";
 
 interface Props {
   params: Promise<{ username: string }>;
@@ -47,82 +57,93 @@ export default async function UserProfilePage({ params }: Props) {
   const isOwner = user?.id === dbUser.supabaseAuthId;
 
   return (
-    <main>
-      <div>
-        {dbUser.avatarUrl && (
-          <img
-            src={dbUser.avatarUrl}
-            alt={dbUser.providerUsername}
-            width={128}
-            height={128}
-          />
-        )}
-        <h1>{dbUser.displayName}</h1>
-        <p>@{dbUser.providerUsername}</p>
+    <div>
+      {/* Profile header */}
+      <div className="flex items-center gap-6">
+        <Avatar
+          src={dbUser.avatarUrl}
+          alt={dbUser.providerUsername}
+          initials={dbUser.displayName?.[0]?.toUpperCase()}
+          className="size-24 sm:size-28"
+        />
+        <div>
+          <Heading className="!text-3xl">{dbUser.displayName}</Heading>
+          <Text className="mt-1">@{dbUser.providerUsername}</Text>
+        </div>
       </div>
 
-      {githubData?.bio && <p>{githubData.bio}</p>}
+      {githubData?.bio && (
+        <Text className="mt-4">{githubData.bio}</Text>
+      )}
 
-      <dl>
+      <Divider className="my-6" soft />
+
+      {/* Profile info */}
+      <DescriptionList>
         {githubData?.location && (
           <>
-            <dt>Location</dt>
-            <dd>{githubData.location}</dd>
+            <DescriptionTerm>Location</DescriptionTerm>
+            <DescriptionDetails>{githubData.location}</DescriptionDetails>
           </>
         )}
         {githubData?.company && (
           <>
-            <dt>Company</dt>
-            <dd>{githubData.company}</dd>
+            <DescriptionTerm>Company</DescriptionTerm>
+            <DescriptionDetails>{githubData.company}</DescriptionDetails>
           </>
         )}
         {githubData?.publicRepos != null && (
           <>
-            <dt>Public Repos</dt>
-            <dd>{githubData.publicRepos}</dd>
+            <DescriptionTerm>Public Repos</DescriptionTerm>
+            <DescriptionDetails>{githubData.publicRepos}</DescriptionDetails>
           </>
         )}
         {githubData?.followers != null && (
           <>
-            <dt>Followers</dt>
-            <dd>{githubData.followers.toLocaleString()}</dd>
+            <DescriptionTerm>Followers</DescriptionTerm>
+            <DescriptionDetails>{githubData.followers.toLocaleString()}</DescriptionDetails>
           </>
         )}
-      </dl>
+      </DescriptionList>
 
+      <Divider className="my-6" soft />
+
+      {/* Stack section */}
       {dbUser.stack ? (
-        <section>
-          <h2>
-            Inventor of{" "}
-            <Link href={`/s/${dbUser.stack.acronym}`}>
-              the {dbUser.stack.acronym} Stack
-            </Link>
-          </h2>
+        <section className="rounded-lg bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-950/5 dark:border-white/10 p-6">
+          <Subheading>Their Stack</Subheading>
+          <div className="mt-2">
+            <TextLink href={`/s/${dbUser.stack.acronym}`} className="text-lg font-semibold">
+              The {dbUser.stack.acronym} Stack
+            </TextLink>
+          </div>
         </section>
       ) : (
         <section>
-          <p>Hasn&apos;t invented a stack yet.</p>
+          <Text>Hasn&apos;t invented a stack yet.</Text>
         </section>
       )}
 
-      <div>
-        <a
+      {/* Actions */}
+      <div className="mt-6 flex items-center gap-3">
+        <Button
+          outline
           href={dbUser.profileUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
           View on GitHub
-        </a>
+        </Button>
         {isOwner && (
           <SyncButton username={dbUser.providerUsername} />
         )}
       </div>
 
       {dbUser.githubDataSyncedAt && (
-        <p>
+        <Text className="mt-3 text-sm">
           Last synced: {dbUser.githubDataSyncedAt.toLocaleDateString()}
-        </p>
+        </Text>
       )}
-    </main>
+    </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/catalyst/button";
 
 export function SyncButton({ username }: { username: string }) {
   const router = useRouter();
@@ -23,8 +24,8 @@ export function SyncButton({ username }: { username: string }) {
   };
 
   return (
-    <button onClick={handleSync} disabled={loading}>
+    <Button outline onClick={handleSync} disabled={loading}>
       {loading ? "Syncing..." : "Sync GitHub Data"}
-    </button>
+    </Button>
   );
 }
