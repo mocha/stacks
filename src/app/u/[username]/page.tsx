@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { SyncButton } from "@/components/SyncButton";
 
 interface Props {
   params: Promise<{ username: string }>;
@@ -113,7 +114,7 @@ export default async function UserProfilePage({ params }: Props) {
           View on GitHub
         </a>
         {isOwner && (
-          <button data-action="sync">Sync GitHub Data</button>
+          <SyncButton username={dbUser.providerUsername} />
         )}
       </div>
 

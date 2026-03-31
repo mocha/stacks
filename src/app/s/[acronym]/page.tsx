@@ -3,6 +3,8 @@ import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { RerollButton } from "@/components/RerollButton";
+import { RelinquishButton } from "@/components/RelinquishButton";
 
 interface Props {
   params: Promise<{ acronym: string }>;
@@ -134,11 +136,9 @@ export default async function StackDetailPage({ params }: Props) {
       {isCreator && (
         <div>
           {canReroll && (
-            <button data-action="reroll">
-              Reroll Description ({2 - rerollsUsed} left today)
-            </button>
+            <RerollButton acronym={stack.acronym} rerollsRemaining={2 - rerollsUsed} />
           )}
-          <button data-action="relinquish">Relinquish</button>
+          <RelinquishButton acronym={stack.acronym} />
         </div>
       )}
 
