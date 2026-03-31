@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/refresh-stars",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/refresh-hall-of-fame",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}
