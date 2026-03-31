@@ -27,7 +27,7 @@ export async function GET(request: Request) {
     ...(existing && {
       existingStack: {
         acronym: existing.acronym,
-        creator: existing.creator.providerUsername,
+        creator: existing.creator?.providerUsername ?? "canonical",
       },
     }),
   });

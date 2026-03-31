@@ -100,7 +100,7 @@ export default async function TechnologyPage({ params }: Props) {
                 <Link href={`/s/${st.stack.acronym}`}>
                   The {st.stack.acronym} Stack
                 </Link>
-                <span> by @{st.stack.creator.providerUsername}</span>
+                {st.stack.creator && <span> by @{st.stack.creator.providerUsername}</span>}
               </li>
             ))}
           </ul>

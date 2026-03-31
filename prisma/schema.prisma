@@ -51,14 +51,19 @@ model Technology {
 model Stack {
   id              String    @id @default(uuid()) @db.Uuid
   acronym         String    @unique // Case-insensitive uniqueness enforced via migration
-  creatorId       String    @unique @db.Uuid // One stack per user
+  creatorId       String?   @unique @db.Uuid // One stack per user; null for canonical stacks
   questionnaire   Json      // { industries, notableFeature, competitor }
   description     String    // LLM-generated
   rerollsToday    Int       @default(0)
   lastRerollDate  DateTime  @default(now()) @db.Date
   createdAt       DateTime  @default(now())
 
-  creator         User      @relation(fields: [creatorId], references: [id])
+  // For canonical stacks invented by people not on the platform.
+  // Shape: { inventors: [{ name, url? }], year?, source?, note? }
+  // e.g. { inventors: [{ name: "Michael Kunze", url: "https://en.wikipedia.org/wiki/LAMP_(software_bundle)" }], year: 1998, source: "c't magazine" }
+  externalAttribution Json?
+
+  creator         User?     @relation(fields: [creatorId], references: [id])
   technologies    StackTechnology[]
   hallOfFame      HallOfFame[]
 }

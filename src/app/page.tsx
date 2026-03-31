@@ -77,7 +77,7 @@ export default async function HomePage() {
             <Link key={stack.id} href={`/s/${stack.acronym}`}>
               <div>
                 <span>The {stack.acronym} Stack</span>
-                <span>by @{stack.creator.providerUsername}</span>
+                <span>by {stack.creator ? `@${stack.creator.providerUsername}` : "its canonical inventors"}</span>
               </div>
             </Link>
           ))}
@@ -94,7 +94,7 @@ export default async function HomePage() {
               <Link key={stack.id} href={`/s/${stack.acronym}`}>
                 <div>
                   <span>The {stack.acronym} Stack</span>
-                  <span>by @{stack.creator.providerUsername}</span>
+                  <span>by {stack.creator ? `@${stack.creator.providerUsername}` : "its canonical inventors"}</span>
                   <span>{totalStars.toLocaleString()} stars</span>
                 </div>
               </Link>

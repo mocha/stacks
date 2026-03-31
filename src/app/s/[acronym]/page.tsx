@@ -77,7 +77,7 @@ export default async function StackDetailPage({ params }: Props) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  const isCreator = user?.id === stack.creator.supabaseAuthId;
+  const isCreator = stack.creator && user?.id === stack.creator.supabaseAuthId;
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -86,25 +86,56 @@ export default async function StackDetailPage({ params }: Props) {
   const rerollsUsed = lastReroll < today ? 0 : stack.rerollsToday;
   const canReroll = isCreator && rerollsUsed < 2;
 
+  const externalAttribution = stack.externalAttribution as {
+    inventors: { name: string; url?: string }[];
+    year?: number;
+    source?: string;
+    note?: string;
+  } | null;
+
   return (
     <main>
       <h1>The {stack.acronym} Stack</h1>
 
       <div>
-        <Link href={stack.creator.profileUrl}>
-          {stack.creator.avatarUrl && (
-            <img
-              src={stack.creator.avatarUrl}
-              alt={stack.creator.providerUsername}
-              width={32}
-              height={32}
-            />
-          )}
-          Invented by @{stack.creator.providerUsername}
-        </Link>
-        <time dateTime={stack.createdAt.toISOString()}>
-          {stack.createdAt.toLocaleDateString()}
-        </time>
+        {stack.creator ? (
+          <>
+            <Link href={stack.creator.profileUrl}>
+              {stack.creator.avatarUrl && (
+                <img
+                  src={stack.creator.avatarUrl}
+                  alt={stack.creator.providerUsername}
+                  width={32}
+                  height={32}
+                />
+              )}
+              Invented by @{stack.creator.providerUsername}
+            </Link>
+            <time dateTime={stack.createdAt.toISOString()}>
+              {stack.createdAt.toLocaleDateString()}
+            </time>
+          </>
+        ) : externalAttribution ? (
+          <>
+            <span>
+              Invented by{" "}
+              {externalAttribution.inventors.map((inv, i) => (
+                <span key={inv.name}>
+                  {i > 0 && (i === externalAttribution.inventors.length - 1 ? " & " : ", ")}
+                  {inv.url ? (
+                    <a href={inv.url} target="_blank" rel="noopener noreferrer">{inv.name}</a>
+                  ) : (
+                    inv.name
+                  )}
+                </span>
+              ))}
+            </span>
+            {externalAttribution.year && <span> ({externalAttribution.year})</span>}
+            {externalAttribution.source && (
+              <span> — {externalAttribution.source}</span>
+            )}
+          </>
+        ) : null}
       </div>
 
       <div>
