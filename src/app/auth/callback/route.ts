@@ -8,33 +8,48 @@ export async function GET(request: Request) {
   const next = searchParams.get("next") ?? "/";
 
   if (code) {
-    const supabase = await createClient();
-    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+    try {
+      const supabase = await createClient();
+      const { data, error } = await supabase.auth.exchangeCodeForSession(code);
 
-    if (!error && data.user) {
-      const meta = data.user.user_metadata;
-      const provider = data.user.app_metadata.provider ?? "github";
-      const username = meta.user_name ?? meta.preferred_username;
+      if (error) {
+        console.error("Auth exchange error:", error.message);
+        return NextResponse.redirect(`${origin}/auth/auth-code-error`);
+      }
 
-      await prisma.user.upsert({
-        where: { supabaseAuthId: data.user.id },
-        update: {
-          displayName: meta.full_name ?? username,
-          avatarUrl: meta.avatar_url,
-        },
-        create: {
-          supabaseAuthId: data.user.id,
-          provider,
-          providerUsername: username,
-          displayName: meta.full_name ?? username,
-          avatarUrl: meta.avatar_url,
-          profileUrl: provider === "gitlab"
-            ? `https://gitlab.com/${username}`
-            : `https://github.com/${username}`,
-        },
-      });
+      if (data.user) {
+        const meta = data.user.user_metadata;
+        const provider = data.user.app_metadata.provider ?? "github";
+        const username = meta.user_name ?? meta.preferred_username;
 
-      return NextResponse.redirect(`${origin}${next}`);
+        try {
+          await prisma.user.upsert({
+            where: { supabaseAuthId: data.user.id },
+            update: {
+              displayName: meta.full_name ?? username,
+              avatarUrl: meta.avatar_url,
+            },
+            create: {
+              supabaseAuthId: data.user.id,
+              provider,
+              providerUsername: username,
+              displayName: meta.full_name ?? username,
+              avatarUrl: meta.avatar_url,
+              profileUrl:
+                provider === "gitlab"
+                  ? `https://gitlab.com/${username}`
+                  : `https://github.com/${username}`,
+            },
+          });
+        } catch (dbError) {
+          // Log but don't block login — user record can be created on next visit
+          console.error("DB upsert error during auth callback:", dbError);
+        }
+
+        return NextResponse.redirect(`${origin}${next}`);
+      }
+    } catch (e) {
+      console.error("Auth callback error:", e);
     }
   }
 
