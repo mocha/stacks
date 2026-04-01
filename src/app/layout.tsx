@@ -52,9 +52,9 @@ export default async function RootLayout({
                 </NavbarItem>
               </NavbarSection>
               <NavbarSpacer />
-              <NavbarSection>
+              <div className="flex items-center">
                 <AuthButton user={dbUser} />
-              </NavbarSection>
+              </div>
             </Navbar>
           }
           sidebar={<div />}
