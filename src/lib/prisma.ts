@@ -5,6 +5,7 @@ import pg from "pg";
 function createPrismaClient() {
   const pool = new pg.Pool({
     connectionString: process.env.DATABASE_URL,
+    max: 1, // Serverless: minimize connections per function instance
   });
   const adapter = new PrismaPg(pool);
   return new PrismaClient({ adapter });
