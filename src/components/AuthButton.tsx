@@ -14,12 +14,15 @@ export function AuthButton({
   const supabase = createClient();
 
   const handleLogin = async (provider: "github" | "gitlab") => {
-    await supabase.auth.signInWithOAuth({
+    console.log("[AuthButton] handleLogin called with provider:", provider);
+    console.log("[AuthButton] redirectTo:", `${window.location.origin}/auth/callback`);
+    const { data, error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
         redirectTo: `${window.location.origin}/auth/callback`,
       },
     });
+    console.log("[AuthButton] signInWithOAuth result:", { data, error });
   };
 
   const handleLogout = async () => {
