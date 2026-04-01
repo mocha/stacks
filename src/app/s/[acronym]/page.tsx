@@ -1,6 +1,4 @@
 import { prisma } from "@/lib/prisma";
-import { createClient } from "@/lib/supabase/server";
-import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { RerollButton } from "@/components/RerollButton";
@@ -51,7 +49,6 @@ export default async function StackDetailPage({ params }: Props) {
           providerUsername: true,
           avatarUrl: true,
           profileUrl: true,
-          supabaseAuthId: true,
         },
       },
       technologies: {
@@ -87,18 +84,12 @@ export default async function StackDetailPage({ params }: Props) {
     0
   );
 
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  const isCreator = stack.creator && user?.id === stack.creator.supabaseAuthId;
-
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const lastReroll = new Date(stack.lastRerollDate);
   lastReroll.setHours(0, 0, 0, 0);
   const rerollsUsed = lastReroll < today ? 0 : stack.rerollsToday;
-  const canReroll = isCreator && rerollsUsed < 2;
+  const canReroll = rerollsUsed < 2;
 
   const externalAttribution = stack.externalAttribution as {
     inventors: { name: string; url?: string }[];
@@ -207,15 +198,13 @@ export default async function StackDetailPage({ params }: Props) {
         <Text className="!text-base leading-relaxed">{stack.description}</Text>
       </div>
 
-      {/* Owner actions */}
-      {isCreator && (
-        <div className="mt-8 flex items-center gap-3">
-          {canReroll && (
-            <RerollButton acronym={stack.acronym} rerollsRemaining={2 - rerollsUsed} />
-          )}
-          <RelinquishButton acronym={stack.acronym} />
-        </div>
-      )}
+      {/* Actions */}
+      <div className="mt-8 flex items-center gap-3">
+        {canReroll && (
+          <RerollButton acronym={stack.acronym} rerollsRemaining={2 - rerollsUsed} />
+        )}
+        <RelinquishButton acronym={stack.acronym} />
+      </div>
 
       {/* Ad placeholder for future use */}
       {/* <div className="ad-slot" data-ad-size="300x250" /> */}

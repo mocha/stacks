@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
 import { Heading, Subheading } from "@/components/catalyst/heading";
 import { Text } from "@/components/catalyst/text";
 import { Badge } from "@/components/catalyst/badge";
@@ -46,14 +45,6 @@ export default function BuildPage() {
   });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const supabase = createClient();
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      setIsAuthenticated(!!user);
-    });
-  }, []);
 
   // Build acronym from selected technologies
   const acronym = entries
@@ -182,26 +173,6 @@ export default function BuildPage() {
     questionnaire.industries &&
     questionnaire.notableFeature &&
     questionnaire.competitor;
-
-  if (isAuthenticated === null) {
-    return (
-      <div className="py-16 text-center">
-        <Text>Loading...</Text>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    return (
-      <div className="py-16 text-center">
-        <Heading>Design my Stack</Heading>
-        <Text className="mt-4">You need to sign in to invent your stack.</Text>
-        <div className="mt-6">
-          <Button href="/" color="blue">Go sign in</Button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div>

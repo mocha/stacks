@@ -1,8 +1,6 @@
 import { prisma } from "@/lib/prisma";
-import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { SyncButton } from "@/components/SyncButton";
 import { Heading, Subheading } from "@/components/catalyst/heading";
 import { Text } from "@/components/catalyst/text";
 import { TextLink } from "@/components/catalyst/text";
@@ -49,12 +47,6 @@ export default async function UserProfilePage({ params }: Props) {
     following?: number;
     htmlUrl?: string;
   } | null;
-
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  const isOwner = user?.id === dbUser.supabaseAuthId;
 
   return (
     <div>
@@ -134,9 +126,6 @@ export default async function UserProfilePage({ params }: Props) {
         >
           View on GitHub
         </Button>
-        {isOwner && (
-          <SyncButton username={dbUser.providerUsername} />
-        )}
       </div>
 
       {dbUser.githubDataSyncedAt && (

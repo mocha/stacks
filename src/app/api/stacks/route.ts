@@ -1,35 +1,10 @@
-import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { buildStackPrompt, generateDescription } from "@/lib/llm";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const dbUser = await prisma.user.findUnique({
-    where: { supabaseAuthId: user.id },
-  });
-
-  if (!dbUser) {
-    return NextResponse.json({ error: "User not found" }, { status: 404 });
-  }
-
-  if (dbUser.hasStack) {
-    return NextResponse.json(
-      { error: "You've already invented your stack. This is your one shot." },
-      { status: 409 }
-    );
-  }
-
   const body = await request.json();
-  const { acronym, technologyIds, questionnaire } = body as {
+  const { acronym, technologyIds, questionnaire, creatorName } = body as {
     acronym: string;
     technologyIds: string[];
     questionnaire: {
@@ -37,6 +12,7 @@ export async function POST(request: Request) {
       notableFeature: string;
       competitor: string;
     };
+    creatorName?: string;
   };
 
   if (!acronym || !technologyIds?.length || technologyIds.length < 2) {
@@ -102,7 +78,7 @@ export async function POST(request: Request) {
       const newStack = await tx.stack.create({
         data: {
           acronym,
-          creatorId: dbUser.id,
+          creatorId: null,
           questionnaire,
           description,
         },
@@ -114,11 +90,6 @@ export async function POST(request: Request) {
           technologyId: techId,
           position: index,
         })),
-      });
-
-      await tx.user.update({
-        where: { id: dbUser.id },
-        data: { hasStack: true },
       });
 
       return newStack;

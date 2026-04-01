@@ -1,19 +1,9 @@
-import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { fetchRepoInfo } from "@/lib/github";
 import { vibeCheckUrl } from "@/lib/moderation";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   const body = await request.json();
   const { name, githubUrl } = body;
 
@@ -44,14 +34,6 @@ export async function POST(request: Request) {
 
   const vibeCheck = await vibeCheckUrl(name, githubUrl);
 
-  const dbUser = await prisma.user.findUnique({
-    where: { supabaseAuthId: user.id },
-  });
-
-  if (!dbUser) {
-    return NextResponse.json({ error: "User not found" }, { status: 404 });
-  }
-
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
   let finalSlug = slug;
@@ -71,7 +53,7 @@ export async function POST(request: Request) {
       githubStars: repoInfo.stars,
       language: repoInfo.language,
       status: vibeCheck.ok ? "pending" : "rejected",
-      discoveredById: dbUser.id,
+      discoveredById: null,
     },
   });
 

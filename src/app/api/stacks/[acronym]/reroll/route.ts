@@ -1,4 +1,3 @@
-import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import {
   buildRerollPrompt,
@@ -13,19 +12,6 @@ export async function POST(
 ) {
   const { acronym } = await params;
 
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const dbUser = await prisma.user.findUnique({
-    where: { supabaseAuthId: user.id },
-  });
-
   const stack = await prisma.stack.findUnique({
     where: { acronym },
     include: {
@@ -38,13 +24,6 @@ export async function POST(
 
   if (!stack) {
     return NextResponse.json({ error: "Stack not found" }, { status: 404 });
-  }
-
-  if (stack.creatorId !== dbUser?.id) {
-    return NextResponse.json(
-      { error: "Only the inventor can reroll" },
-      { status: 403 }
-    );
   }
 
   const today = new Date();
