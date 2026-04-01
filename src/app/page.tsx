@@ -25,7 +25,6 @@ async function getHallOfFame() {
   });
 
   if (entries.length === 0) {
-    // Fallback: pick 5 random stacks inline
     const randomIds = await prisma.$queryRaw<{ id: string }[]>`
       SELECT id FROM "Stack" ORDER BY RANDOM() LIMIT 5
     `;
@@ -60,6 +59,24 @@ async function getRecentStacks() {
   });
 }
 
+function stackAttribution(stack: {
+  creator?: { providerUsername: string } | null;
+  externalAttribution?: unknown;
+}) {
+  if (stack.creator) {
+    return `by @${stack.creator.providerUsername}`;
+  }
+  const attr = stack.externalAttribution as {
+    inventors?: { name: string }[];
+    year?: number;
+  } | null;
+  if (attr?.inventors?.length) {
+    const names = attr.inventors.map((i) => i.name).join(" & ");
+    return attr.year ? `by ${names} (${attr.year})` : `by ${names}`;
+  }
+  return null;
+}
+
 export default async function HomePage() {
   const [hallOfFame, recentStacks] = await Promise.all([
     getHallOfFame(),
@@ -83,21 +100,24 @@ export default async function HomePage() {
         <section>
           <Subheading className="mb-4">Hall of Fame</Subheading>
           <div className="space-y-3">
-            {hallOfFame.map((stack) => (
-              <TextLink key={stack.id} href={`/s/${stack.acronym}`} className="block no-underline">
-                <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <Badge color="indigo">{stack.acronym}</Badge>
-                    <span className="font-medium text-zinc-950 dark:text-white">
-                      The {stack.acronym} Stack
-                    </span>
+            {hallOfFame.map((stack) => {
+              const attribution = stackAttribution(stack);
+              return (
+                <TextLink key={stack.id} href={`/s/${stack.acronym}`} className="block no-underline">
+                  <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <Badge color="indigo">{stack.acronym}</Badge>
+                      <span className="font-medium text-zinc-950 dark:text-white">
+                        The {stack.acronym} Stack
+                      </span>
+                    </div>
+                    {attribution && (
+                      <Text className="mt-1 text-sm">{attribution}</Text>
+                    )}
                   </div>
-                  <Text className="mt-1 text-sm">
-                    by {stack.creator ? `@${stack.creator.providerUsername}` : "its canonical inventors"}
-                  </Text>
-                </div>
-              </TextLink>
-            ))}
+                </TextLink>
+              );
+            })}
           </div>
         </section>
 
@@ -110,6 +130,7 @@ export default async function HomePage() {
                 (sum, st) => sum + st.technology.githubStars,
                 0
               );
+              const attribution = stackAttribution(stack);
               return (
                 <TextLink key={stack.id} href={`/s/${stack.acronym}`} className="block no-underline">
                   <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
@@ -120,13 +141,15 @@ export default async function HomePage() {
                           The {stack.acronym} Stack
                         </span>
                       </div>
-                      <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                        {totalStars.toLocaleString()} stars
-                      </span>
+                      {totalStars > 0 && (
+                        <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                          {totalStars.toLocaleString()} stars
+                        </span>
+                      )}
                     </div>
-                    <Text className="mt-1 text-sm">
-                      by {stack.creator ? `@${stack.creator.providerUsername}` : "its canonical inventors"}
-                    </Text>
+                    {attribution && (
+                      <Text className="mt-1 text-sm">{attribution}</Text>
+                    )}
                   </div>
                 </TextLink>
               );

@@ -4,27 +4,14 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const { acronym, technologyIds, questionnaire, creatorName } = body as {
+  const { acronym, technologyIds } = body as {
     acronym: string;
     technologyIds: string[];
-    questionnaire: {
-      industries: string;
-      notableFeature: string;
-      competitor: string;
-    };
-    creatorName?: string;
   };
 
   if (!acronym || !technologyIds?.length || technologyIds.length < 2) {
     return NextResponse.json(
       { error: "Acronym and at least 2 technologies are required" },
-      { status: 400 }
-    );
-  }
-
-  if (!questionnaire?.industries || !questionnaire?.notableFeature || !questionnaire?.competitor) {
-    return NextResponse.json(
-      { error: "All three questionnaire answers are required" },
       { status: 400 }
     );
   }
@@ -52,7 +39,7 @@ export async function POST(request: Request) {
   }
 
   const orderedTechs = technologyIds.map((id) =>
-    technologies.find((t) => t.id === id)!
+    technologies.find((t: { id: string }) => t.id === id)!
   );
   const builtAcronym = orderedTechs
     .map((t) => t.name[0].toUpperCase())
@@ -69,7 +56,6 @@ export async function POST(request: Request) {
       name: t.name,
       description: t.description ?? "",
     })),
-    questionnaire,
   });
   const description = await generateDescription(prompt);
 
@@ -79,7 +65,7 @@ export async function POST(request: Request) {
         data: {
           acronym,
           creatorId: null,
-          questionnaire,
+          questionnaire: {},
           description,
         },
       });
@@ -96,8 +82,8 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ stack, redirect: `/s/${stack.acronym}` }, { status: 201 });
-  } catch (error: any) {
-    if (error?.code === "P2002") {
+  } catch (error: unknown) {
+    if (error && typeof error === "object" && "code" in error && error.code === "P2002") {
       return NextResponse.json(
         { error: "This acronym was just claimed by someone else!" },
         { status: 409 }

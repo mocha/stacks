@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     where: {
       status: "approved",
       ...(query
-        ? { name: { contains: query, mode: "insensitive" as const } }
+        ? { name: { startsWith: query, mode: "insensitive" as const } }
         : {}),
     },
     orderBy: { name: "asc" },

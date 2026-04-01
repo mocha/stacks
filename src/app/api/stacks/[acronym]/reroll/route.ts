@@ -45,18 +45,11 @@ export async function POST(
 
   const oldSummary = await summarizeDescription(stack.description);
 
-  const questionnaire = stack.questionnaire as {
-    industries: string;
-    notableFeature: string;
-    competitor: string;
-  };
-
   const prompt = buildRerollPrompt({
     technologies: stack.technologies.map((st: { technology: { name: string; description: string | null } }) => ({
       name: st.technology.name,
       description: st.technology.description ?? "",
     })),
-    questionnaire,
     oldDescriptionSummary: oldSummary,
   });
 
