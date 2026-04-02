@@ -4,24 +4,27 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
 export async function POST(request: Request) {
+  console.log("========= STACK CREATE API HIT =========");
   let creatorId: string | null = null;
   let attribution: object = { inventors: [{ name: "Anonymous" }] };
 
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const { data: { user }, error } = await supabase.auth.getUser();
+    console.log("[stack create] auth user:", user?.id ?? "none", "error:", error?.message ?? "none");
     if (user) {
       const dbUser = await prisma.user.findUnique({
         where: { supabaseAuthId: user.id },
         select: { id: true, providerUsername: true },
       });
+      console.log("[stack create] db user:", dbUser?.providerUsername ?? "not found");
       if (dbUser) {
         creatorId = dbUser.id;
         attribution = { inventors: [{ name: `@${dbUser.providerUsername}`, url: `/u/${dbUser.providerUsername}` }] };
       }
     }
-  } catch {
-    // Not logged in — that's fine
+  } catch (e) {
+    console.error("[stack create] auth error:", e);
   }
 
   const body = await request.json();

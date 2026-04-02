@@ -25,7 +25,7 @@ model User {
   createdAt        DateTime     @default(now())
   supabaseAuthId   String       @unique // Links to Supabase Auth user
 
-  stack             Stack?
+  stacks            Stack[]
   discoveredTechs   Technology[]
 
   @@unique([provider, providerUsername])
@@ -52,7 +52,7 @@ model Technology {
 model Stack {
   id              String    @id @default(uuid()) @db.Uuid
   acronym         String    @unique // Case-insensitive uniqueness enforced via migration
-  creatorId       String?   @unique @db.Uuid // One stack per user; null for canonical stacks
+  creatorId       String?   @db.Uuid // Nullable; null for canonical stacks
   questionnaire   Json      // { industries, notableFeature, competitor }
   description     String    // LLM-generated
   rerollsToday    Int       @default(0)
