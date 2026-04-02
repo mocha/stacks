@@ -16,6 +16,7 @@ export async function GET(request: Request) {
     select: {
       id: true,
       name: true,
+      vendor: true,
       slug: true,
       description: true,
       logoUrl: true,

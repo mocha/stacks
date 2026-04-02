@@ -11,6 +11,7 @@ import { Divider } from "@/components/catalyst/divider";
 interface Technology {
   id: string;
   name: string;
+  vendor: string | null;
   slug: string;
   description: string | null;
   logoUrl: string | null;
@@ -227,9 +228,14 @@ export default function BuildPage() {
                     className="w-full text-left px-4 py-2 text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-950 dark:text-white transition-colors first:rounded-t-lg last:rounded-b-lg"
                   >
                     <span className="font-medium">{tech.name}</span>
+                    {tech.vendor && (
+                      <span className="text-zinc-400 dark:text-zinc-500">
+                        {" "}by {tech.vendor}
+                      </span>
+                    )}
                     {tech.description && (
-                      <span className="text-zinc-500 dark:text-zinc-400">
-                        {" "}&mdash; {tech.description.slice(0, 60)}
+                      <span className="text-zinc-500 dark:text-zinc-400 block text-xs mt-0.5 truncate">
+                        {tech.description.slice(0, 80)}
                       </span>
                     )}
                   </button>

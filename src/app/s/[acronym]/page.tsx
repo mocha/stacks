@@ -48,6 +48,7 @@ export default async function StackDetailPage({ params }: Props) {
           technology: {
             select: {
               name: true,
+              vendor: true,
               slug: true,
               description: true,
               logoUrl: true,
@@ -175,6 +176,11 @@ export default async function StackDetailPage({ params }: Props) {
                   <span className="text-lg font-semibold text-zinc-950 dark:text-white">
                     {st.technology.name.slice(1)}
                   </span>
+                  {st.technology.vendor && (
+                    <span className="text-sm text-zinc-400 dark:text-zinc-500 ml-1">
+                      by {st.technology.vendor}
+                    </span>
+                  )}
                 </div>
                 {st.technology.description && (
                   <Text className="mt-1 text-sm line-clamp-2">

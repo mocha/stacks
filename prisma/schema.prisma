@@ -34,6 +34,7 @@ model User {
 model Technology {
   id             String           @id @default(uuid()) @db.Uuid
   name           String
+  vendor         String?          // e.g. "Atlassian", "Microsoft", "AWS"
   slug           String           @unique
   description    String?
   logoUrl        String?
