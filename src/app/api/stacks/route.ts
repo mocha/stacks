@@ -1,8 +1,29 @@
 import { prisma } from "@/lib/prisma";
 import { buildStackPrompt, generateDescription } from "@/lib/llm";
 import { NextResponse } from "next/server";
+import { createClient } from "@/lib/supabase/server";
 
 export async function POST(request: Request) {
+  let creatorId: string | null = null;
+  let attribution: object = { inventors: [{ name: "Anonymous" }] };
+
+  try {
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const dbUser = await prisma.user.findUnique({
+        where: { supabaseAuthId: user.id },
+        select: { id: true, providerUsername: true },
+      });
+      if (dbUser) {
+        creatorId = dbUser.id;
+        attribution = { inventors: [{ name: `@${dbUser.providerUsername}`, url: `/u/${dbUser.providerUsername}` }] };
+      }
+    }
+  } catch {
+    // Not logged in — that's fine
+  }
+
   const body = await request.json();
   const { acronym, technologyIds } = body as {
     acronym: string;
@@ -64,12 +85,10 @@ export async function POST(request: Request) {
       const newStack = await tx.stack.create({
         data: {
           acronym,
-          creatorId: null,
+          creatorId,
           questionnaire: {},
           description,
-          externalAttribution: {
-            inventors: [{ name: "@mocha", url: "/u/mocha" }],
-          },
+          externalAttribution: attribution,
         },
       });
 
