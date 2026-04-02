@@ -7,6 +7,7 @@ import { Text } from "@/components/catalyst/text";
 import { Badge } from "@/components/catalyst/badge";
 import { Button } from "@/components/catalyst/button";
 import { Divider } from "@/components/catalyst/divider";
+import { starColorClass } from "@/lib/stars";
 
 interface Props {
   params: Promise<{ acronym: string }>;
@@ -145,13 +146,8 @@ export default async function StackDetailPage({ params }: Props) {
         {totalStars > 0 && (
           <>
             {" "}&middot;{" "}
-            <span className={
-              totalStars > 500000 ? "font-bold text-amber-500" :
-              totalStars > 100000 ? "font-bold text-amber-500/80" :
-              totalStars > 10000 ? "font-semibold text-yellow-600 dark:text-yellow-400" :
-              "text-zinc-500 dark:text-zinc-400"
-            }>
-              {"★ "}{totalStars.toLocaleString()}
+            <span className={starColorClass(totalStars)}>
+              ★ {totalStars.toLocaleString()}
             </span>
           </>
         )}
@@ -202,12 +198,7 @@ export default async function StackDetailPage({ params }: Props) {
                   </Text>
                 )}
                 {st.technology.githubStars > 0 && (
-                  <span className={`mt-2 inline-flex items-center gap-1 text-xs font-medium ${
-                    st.technology.githubStars > 100000 ? "text-amber-500" :
-                    st.technology.githubStars > 50000 ? "text-yellow-600 dark:text-yellow-400" :
-                    st.technology.githubStars > 10000 ? "text-yellow-700/70 dark:text-yellow-500/70" :
-                    "text-zinc-400 dark:text-zinc-500"
-                  }`}>
+                  <span className={`mt-2 inline-flex items-center gap-1 text-xs ${starColorClass(st.technology.githubStars)}`}>
                     ★ {st.technology.githubStars.toLocaleString()}
                   </span>
                 )}

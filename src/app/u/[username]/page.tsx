@@ -8,6 +8,7 @@ import { Subheading } from "@/components/catalyst/heading";
 import { Text, TextLink } from "@/components/catalyst/text";
 import { Avatar } from "@/components/catalyst/avatar";
 import { Badge } from "@/components/catalyst/badge";
+import { starColorClass } from "@/lib/stars";
 import { Button } from "@/components/catalyst/button";
 import { Divider } from "@/components/catalyst/divider";
 import { DeleteStackButton } from "@/components/DeleteStackButton";
@@ -158,17 +159,7 @@ export default async function UserProfilePage({ params }: Props) {
 
         {totalStars > 0 && (
           <div className="mt-4">
-            <span
-              className={`text-lg font-bold ${
-                totalStars > 500000
-                  ? "text-amber-500"
-                  : totalStars > 100000
-                    ? "text-amber-500/80"
-                    : totalStars > 10000
-                      ? "text-yellow-600 dark:text-yellow-400"
-                      : "text-zinc-500 dark:text-zinc-400"
-              }`}
-            >
+            <span className={`text-lg ${starColorClass(totalStars)}`}>
               ★ {totalStars.toLocaleString()} total stack stars
             </span>
           </div>
@@ -191,37 +182,24 @@ export default async function UserProfilePage({ params }: Props) {
               return (
                 <div
                   key={stack.id}
-                  className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors"
+                  className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors"
                 >
                   <div className="flex items-center justify-between">
-                    <TextLink
-                      href={`/s/${stack.acronym}`}
-                      className="flex items-center gap-3 no-underline"
-                    >
-                      <Badge color="indigo">{stack.acronym}</Badge>
-                      <span className="font-medium text-zinc-950 dark:text-white">
-                        The {stack.acronym} Stack
-                      </span>
-                    </TextLink>
+                    <a href={`/s/${stack.acronym}`} className="text-lg font-black tracking-tight text-zinc-950 dark:text-white">
+                      {stack.acronym}
+                    </a>
                     <div className="flex items-center gap-2">
                       {stackStars > 0 && (
-                        <span
-                          className={`text-sm font-medium ${
-                            stackStars > 500000
-                              ? "text-amber-500"
-                              : stackStars > 100000
-                                ? "text-amber-500/80"
-                                : stackStars > 10000
-                                  ? "text-yellow-600 dark:text-yellow-400"
-                                  : "text-zinc-400 dark:text-zinc-500"
-                          }`}
-                        >
+                        <span className={`text-xs ${starColorClass(stackStars)}`}>
                           ★ {stackStars.toLocaleString()}
                         </span>
                       )}
                       {isOwner && <DeleteStackButton acronym={stack.acronym} />}
                     </div>
                   </div>
+                  {stack.summary && (
+                    <Text className="mt-0.5 !text-xs line-clamp-1">{stack.summary}</Text>
+                  )}
                 </div>
               );
             })}

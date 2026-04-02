@@ -4,6 +4,7 @@ import { Text } from "@/components/catalyst/text";
 import Link from "next/link";
 import { Button } from "@/components/catalyst/button";
 import { Badge } from "@/components/catalyst/badge";
+import { starColorClass } from "@/lib/stars";
 
 async function getHallOfFame() {
   const topStackIds = await prisma.$queryRaw<{ id: string; total_stars: number }[]>`
@@ -90,12 +91,6 @@ function stackAttribution(stack: {
   return null;
 }
 
-function starClass(stars: number) {
-  if (stars > 500000) return "text-amber-500 font-bold";
-  if (stars > 100000) return "text-amber-500/80 font-bold";
-  if (stars > 10000) return "text-yellow-600 dark:text-yellow-400 font-semibold";
-  return "text-zinc-400 dark:text-zinc-500";
-}
 
 export default async function HomePage() {
   const [hallOfFame, recentStacks, topContributors] = await Promise.all([
@@ -135,7 +130,7 @@ export default async function HomePage() {
                         {stack.acronym}
                       </span>
                       {totalStars > 0 && (
-                        <span className={`text-xs ${starClass(totalStars)}`}>
+                        <span className={`text-xs ${starColorClass(totalStars)}`}>
                           ★ {totalStars.toLocaleString()}
                         </span>
                       )}
@@ -171,7 +166,7 @@ export default async function HomePage() {
                         {stack.acronym}
                       </span>
                       {totalStars > 0 && (
-                        <span className={`text-xs ${starClass(totalStars)}`}>
+                        <span className={`text-xs ${starColorClass(totalStars)}`}>
                           ★ {totalStars.toLocaleString()}
                         </span>
                       )}
@@ -210,7 +205,7 @@ export default async function HomePage() {
                       <div className="flex items-center gap-2">
                         <Text className="!text-xs">{user.stack_count} stack{user.stack_count !== 1 ? "s" : ""}</Text>
                         {user.total_stars > 0 && (
-                          <span className={`text-xs ${starClass(user.total_stars)}`}>
+                          <span className={`text-xs ${starColorClass(user.total_stars)}`}>
                             ★ {user.total_stars.toLocaleString()}
                           </span>
                         )}
