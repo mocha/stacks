@@ -64,18 +64,29 @@ export async function POST(request: Request) {
     );
   }
 
-  const orderedTechs = technologyIds.map((id) =>
-    technologies.find((t: { id: string }) => t.id === id)!
-  );
-  const builtAcronym = orderedTechs
-    .map((t) => t.name[0].toUpperCase())
-    .join("");
-  if (builtAcronym.toUpperCase() !== acronymLetters.toUpperCase()) {
-    return NextResponse.json(
-      { error: `Technologies spell "${builtAcronym}", not "${acronym}"` },
-      { status: 400 }
-    );
+  // Reorder technologies to match the intended acronym letters.
+  // The frontend and server may disagree on order due to React state timing,
+  // so we trust the acronym as the user's intent and reorder to match.
+  const techMap = new Map(technologies.map((t: { id: string; name: string; description: string | null }) => [t.id, t]));
+  const remainingIds = [...technologyIds];
+  const orderedIds: string[] = [];
+
+  for (const letter of acronymLetters) {
+    const idx = remainingIds.findIndex((id) => {
+      const tech = techMap.get(id);
+      return tech && tech.name[0].toUpperCase() === letter.toUpperCase();
+    });
+    if (idx === -1) {
+      return NextResponse.json(
+        { error: `No technology starting with "${letter}" found for acronym "${acronym}"` },
+        { status: 400 }
+      );
+    }
+    orderedIds.push(remainingIds[idx]);
+    remainingIds.splice(idx, 1);
   }
+
+  const orderedTechs = orderedIds.map((id) => techMap.get(id)!);
 
   const prompt = buildStackPrompt({
     technologies: orderedTechs.map((t) => ({
@@ -100,7 +111,7 @@ export async function POST(request: Request) {
       });
 
       await tx.stackTechnology.createMany({
-        data: technologyIds.map((techId, index) => ({
+        data: orderedIds.map((techId, index) => ({
           stackId: newStack.id,
           technologyId: techId,
           position: index,

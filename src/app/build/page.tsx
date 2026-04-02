@@ -150,9 +150,23 @@ export default function BuildPage() {
     if (e.key === "Enter" || e.key === "+") {
       e.preventDefault();
 
-      markNewIfNeeded(index);
-
-      addLine();
+      // Use functional update to avoid stale closure — markNewIfNeeded
+      // and addLine both need to see the latest entries state
+      setEntries((prev) => {
+        const updated = [...prev];
+        const entry = updated[index];
+        if (!entry.isSeparator && entry.query && !entry.selected && !entry.isNew) {
+          if (entry.query.trim() === "-") {
+            updated[index] = { ...entry, isSeparator: true, isNew: false };
+          } else {
+            updated[index] = { ...entry, isUnknown: false, isNew: true };
+          }
+        }
+        // Add new empty line
+        updated.push({ query: "", selected: null, isUnknown: false, isNew: false, isSeparator: false });
+        return updated;
+      });
+      setActiveLine(entries.length);
     }
   };
 
