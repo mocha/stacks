@@ -315,12 +315,12 @@ export default function BuildPage() {
           </p>
           <div className="space-y-3">
             {newEntries.map((entry) => (
-              <div key={entry.query} className="flex items-center gap-3">
+              <div key={entry.query} className="grid grid-cols-[1fr_2fr] gap-3">
                 <Input
                   type="text"
                   value={entry.query}
                   disabled
-                  className="w-1/3 opacity-70"
+                  className="opacity-70"
                 />
                 <Input
                   type="url"
@@ -332,7 +332,6 @@ export default function BuildPage() {
                     })
                   }
                   placeholder="https://github.com/org/repo"
-                  className="flex-1"
                 />
               </div>
             ))}
