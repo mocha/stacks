@@ -12,6 +12,24 @@ import {
 } from "@/components/catalyst/description-list";
 import { Divider } from "@/components/catalyst/divider";
 
+function stackAttribution(stack: {
+  creator?: { providerUsername: string } | null;
+  externalAttribution?: unknown;
+}) {
+  if (stack.creator) {
+    return `by @${stack.creator.providerUsername}`;
+  }
+  const attr = stack.externalAttribution as {
+    inventors?: { name: string }[];
+    year?: number;
+  } | null;
+  if (attr?.inventors?.length) {
+    const names = attr.inventors.map((i) => i.name).join(" & ");
+    return attr.year ? `by ${names} (${attr.year})` : `by ${names}`;
+  }
+  return null;
+}
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -45,6 +63,8 @@ export default async function TechnologyPage({ params }: Props) {
           stack: {
             select: {
               acronym: true,
+              createdAt: true,
+              externalAttribution: true,
               creator: { select: { providerUsername: true } },
             },
           },
@@ -115,21 +135,27 @@ export default async function TechnologyPage({ params }: Props) {
           <Divider className="my-6" soft />
           <section>
             <Subheading className="mb-4">Used in these stacks</Subheading>
-            <div className="flex flex-wrap gap-2">
-              {technology.stacks.map((st) => (
-                <BadgeButton
-                  key={st.stack.acronym}
-                  href={`/s/${st.stack.acronym}`}
-                  color="indigo"
-                >
-                  {st.stack.acronym}
-                  {st.stack.creator && (
-                    <span className="text-indigo-500/70 dark:text-indigo-400/70">
-                      {" "}by @{st.stack.creator.providerUsername}
-                    </span>
-                  )}
-                </BadgeButton>
-              ))}
+            <div className="space-y-3">
+              {[...technology.stacks]
+                .sort((a, b) => new Date(b.stack.createdAt).getTime() - new Date(a.stack.createdAt).getTime())
+                .map((st) => {
+                  const attribution = stackAttribution(st.stack);
+                  return (
+                    <TextLink key={st.stack.acronym} href={`/s/${st.stack.acronym}`} className="block no-underline">
+                      <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <Badge color="indigo">{st.stack.acronym}</Badge>
+                          <span className="font-medium text-zinc-950 dark:text-white">
+                            The {st.stack.acronym} Stack
+                          </span>
+                        </div>
+                        {attribution && (
+                          <Text className="mt-1 text-sm">{attribution}</Text>
+                        )}
+                      </div>
+                    </TextLink>
+                  );
+                })}
             </div>
           </section>
         </>

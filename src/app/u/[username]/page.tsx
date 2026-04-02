@@ -100,7 +100,7 @@ export default async function UserProfilePage({ params }: Props) {
 
       <Divider className="my-6" soft />
 
-      {/* Stack section */}
+      {/* Stack section — created stacks */}
       {dbUser.stack ? (
         <section className="rounded-lg bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-950/5 dark:border-white/10 p-6">
           <Subheading>Their Stack</Subheading>
@@ -115,6 +115,13 @@ export default async function UserProfilePage({ params }: Props) {
           <Text>Hasn&apos;t invented a stack yet.</Text>
         </section>
       )}
+
+      {/* Stacks by this user via externalAttribution */}
+      <Divider className="my-6" soft />
+      <section>
+        <Subheading className="mb-4">Stacks by @{dbUser.providerUsername}</Subheading>
+        <Text>Attribution-based stack listing coming soon.</Text>
+      </section>
 
       {/* Actions */}
       <div className="mt-6 flex items-center gap-3">

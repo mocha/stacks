@@ -156,11 +156,15 @@ export default function BuildPage() {
     }
   };
 
+  const selectedIds = entries.filter((e) => e.selected).map((e) => e.selected!.id);
+  const hasDuplicates = new Set(selectedIds).size !== selectedIds.length;
+
   const canSave =
     acronym.length >= 2 &&
     uniqueness?.available &&
     entries.filter((e) => e.selected).length >= 2 &&
-    entries.every((e) => e.selected || !e.query);
+    entries.every((e) => e.selected || !e.query) &&
+    !hasDuplicates;
 
   return (
     <div>
@@ -201,6 +205,7 @@ export default function BuildPage() {
                   onFocus={() => setActiveLine(index)}
                   placeholder="Type a technology name..."
                   autoFocus={index === activeLine}
+                  autoComplete="off"
                 />
               </div>
               {entry.selected && (
@@ -215,7 +220,7 @@ export default function BuildPage() {
 
             {activeLine === index && suggestions.length > 0 && (
               <div className="absolute z-10 mt-1 w-full rounded-lg border border-zinc-950/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-lg max-h-60 overflow-y-auto">
-                {suggestions.map((tech) => (
+                {suggestions.filter((tech) => !entries.some((e, i) => i !== index && e.selected?.id === tech.id)).map((tech) => (
                   <button
                     key={tech.id}
                     onClick={() => selectTechnology(index, tech)}

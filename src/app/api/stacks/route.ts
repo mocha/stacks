@@ -67,6 +67,9 @@ export async function POST(request: Request) {
           creatorId: null,
           questionnaire: {},
           description,
+          externalAttribution: {
+            inventors: [{ name: "@mocha", url: "/u/mocha" }],
+          },
         },
       });
 
