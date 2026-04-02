@@ -1,0 +1,3226 @@
+{
+  "User": [
+    {
+      "id": "64c6b32c-4921-4a18-8aa0-ffda7a01b007",
+      "provider": "github",
+      "providerUsername": "katrinadabbles",
+      "displayName": "Katrina Bakas",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/35444746?v=4",
+      "profileUrl": "https://github.com/katrinadabbles",
+      "hasStack": false,
+      "githubData": null,
+      "githubDataSyncedAt": null,
+      "createdAt": "2026-04-02T08:36:26.664Z",
+      "supabaseAuthId": "6fe08c96-1ef9-4702-9e48-d1e57c09f2f0"
+    },
+    {
+      "id": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "provider": "github",
+      "providerUsername": "mocha",
+      "displayName": "mocha",
+      "avatarUrl": null,
+      "profileUrl": "https://github.com/mocha",
+      "hasStack": false,
+      "githubData": null,
+      "githubDataSyncedAt": null,
+      "createdAt": "2026-03-31T16:50:47.166Z",
+      "supabaseAuthId": "c3149240-2334-462b-a1c3-5ab468f6d36f"
+    }
+  ],
+  "Technology": [
+    {
+      "id": "a992b790-a617-4ad2-88ed-ac03e2e0c77f",
+      "name": "MongoDB",
+      "slug": "mongodb",
+      "description": "The MongoDB Database",
+      "logoUrl": "https://avatars.githubusercontent.com/u/45120?v=4",
+      "githubUrl": "https://github.com/mongodb/mongo",
+      "githubStars": 28202,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:48.788Z",
+      "vendor": null
+    },
+    {
+      "id": "19eee0fa-e83b-4483-b748-978764d3ff7b",
+      "name": "Express",
+      "slug": "express",
+      "description": "Fast, unopinionated, minimalist web framework for node.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/5658226?v=4",
+      "githubUrl": "https://github.com/expressjs/express",
+      "githubStars": 68889,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:49.143Z",
+      "vendor": null
+    },
+    {
+      "id": "57597d33-07d1-4575-afb9-54bea5aea658",
+      "name": "Angular",
+      "slug": "angular",
+      "description": "Deliver web apps with confidence 🚀",
+      "logoUrl": "https://avatars.githubusercontent.com/u/139426?v=4",
+      "githubUrl": "https://github.com/angular/angular",
+      "githubStars": 100102,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:49.422Z",
+      "vendor": null
+    },
+    {
+      "id": "058579b4-ac51-4054-b940-95e1aa85b938",
+      "name": "Node.js",
+      "slug": "nodejs",
+      "description": "Node.js JavaScript runtime ✨🐢🚀✨",
+      "logoUrl": "https://avatars.githubusercontent.com/u/9950313?v=4",
+      "githubUrl": "https://github.com/nodejs/node",
+      "githubStars": 116500,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:49.777Z",
+      "vendor": null
+    },
+    {
+      "id": "2d306e63-9ceb-4d75-8d71-2b1f2ceae7b8",
+      "name": "React",
+      "slug": "react",
+      "description": "The library for web and native user interfaces.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/69631?v=4",
+      "githubUrl": "https://github.com/facebook/react",
+      "githubStars": 244319,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:50.063Z",
+      "vendor": null
+    },
+    {
+      "id": "0ccf0099-f7f3-444c-a33b-3482e863042d",
+      "name": "Logstash",
+      "slug": "logstash",
+      "description": "Logstash - transport and process your logs, events, or other data",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6764390?v=4",
+      "githubUrl": "https://github.com/elastic/logstash",
+      "githubStars": 14816,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:50.773Z",
+      "vendor": null
+    },
+    {
+      "id": "71630193-970e-495d-887d-03cc04e2c8ed",
+      "name": "Kibana",
+      "slug": "kibana",
+      "description": "Your window into all of your data",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6764390?v=4",
+      "githubUrl": "https://github.com/elastic/kibana",
+      "githubStars": 21030,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:51.077Z",
+      "vendor": null
+    },
+    {
+      "id": "98676e41-aa90-4359-b5b1-f7122f2f736e",
+      "name": "Vue.js",
+      "slug": "vuejs",
+      "description": "🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6128107?v=4",
+      "githubUrl": "https://github.com/vuejs/core",
+      "githubStars": 53358,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:51.404Z",
+      "vendor": null
+    },
+    {
+      "id": "fbe6b153-29fb-433e-a236-f63ab726893f",
+      "name": "PostgreSQL",
+      "slug": "postgresql",
+      "description": "Mirror of the official PostgreSQL GIT repository. Note that this is just a *mirror* - we don't work with pull requests on github. To contribute, please see https://wiki.postgresql.org/wiki/Submitting_a_Patch",
+      "logoUrl": "https://avatars.githubusercontent.com/u/177543?v=4",
+      "githubUrl": "https://github.com/postgres/postgres",
+      "githubStars": 20415,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:52.062Z",
+      "vendor": null
+    },
+    {
+      "id": "041a6339-2b20-479c-8d79-f4e2e08fceda",
+      "name": "Nginx",
+      "slug": "nginx",
+      "description": "The official NGINX Open Source repository.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1412239?v=4",
+      "githubUrl": "https://github.com/nginx/nginx",
+      "githubStars": 29783,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:03:57.670Z",
+      "vendor": null
+    },
+    {
+      "id": "ea83a9e2-7d8e-4340-bce0-ac2e67ba9749",
+      "name": "Alpine.js",
+      "slug": "alpinejs",
+      "description": "A rugged, minimal framework for composing JavaScript behavior in your markup. ",
+      "logoUrl": "https://avatars.githubusercontent.com/u/59030169?v=4",
+      "githubUrl": "https://github.com/alpinejs/alpine",
+      "githubStars": 31395,
+      "language": "HTML",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:02.511Z",
+      "vendor": null
+    },
+    {
+      "id": "82445d09-2c74-4d99-afc6-a5251227c33e",
+      "name": "Livewire",
+      "slug": "livewire",
+      "description": "A full-stack framework for Laravel that takes the pain out of building dynamic UIs.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/51960834?v=4",
+      "githubUrl": "https://github.com/livewire/livewire",
+      "githubStars": 23497,
+      "language": "PHP",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:03.240Z",
+      "vendor": null
+    },
+    {
+      "id": "78efb905-33ec-4f23-bf30-9c854dff48ad",
+      "name": "Linux",
+      "slug": "linux",
+      "description": "Linux kernel source tree",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1024025?v=4",
+      "githubUrl": "https://github.com/torvalds/linux",
+      "githubStars": 226454,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:47.461Z",
+      "vendor": null
+    },
+    {
+      "id": "eed21410-de28-4719-812f-8576957144ae",
+      "name": "GraphQL",
+      "slug": "graphql",
+      "description": "A reference implementation of GraphQL for JavaScript",
+      "logoUrl": "https://avatars.githubusercontent.com/u/12972006?v=4",
+      "githubUrl": "https://github.com/graphql/graphql-js",
+      "githubStars": 20329,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:03.670Z",
+      "vendor": null
+    },
+    {
+      "id": "65e6cb0d-b86f-4740-8bfd-23489f47a39e",
+      "name": "Neo4j",
+      "slug": "neo4j",
+      "description": "Graphs for Everyone",
+      "logoUrl": "https://avatars.githubusercontent.com/u/201120?v=4",
+      "githubUrl": "https://github.com/neo4j/neo4j",
+      "githubStars": 16229,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:04.352Z",
+      "vendor": null
+    },
+    {
+      "id": "ccc00ad8-fc7d-4626-9864-3d0a7a99c106",
+      "name": "Bun",
+      "slug": "bun",
+      "description": "Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one",
+      "logoUrl": "https://avatars.githubusercontent.com/u/108928776?v=4",
+      "githubUrl": "https://github.com/oven-sh/bun",
+      "githubStars": 88643,
+      "language": "Zig",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:04.760Z",
+      "vendor": null
+    },
+    {
+      "id": "4708e2f1-4468-4d4f-b9f8-2174cffba64f",
+      "name": "Turso",
+      "slug": "turso",
+      "description": "libSQL is a fork of SQLite that is both Open Source, and Open Contributions.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/139391156?v=4",
+      "githubUrl": "https://github.com/tursodatabase/libsql",
+      "githubStars": 16551,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:05.533Z",
+      "vendor": null
+    },
+    {
+      "id": "1c4eb003-f670-4ece-be92-28236a3d7b40",
+      "name": "Phoenix",
+      "slug": "phoenix",
+      "description": "Peace of mind from prototype to production",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6510388?v=4",
+      "githubUrl": "https://github.com/phoenixframework/phoenix",
+      "githubStars": 22929,
+      "language": "Elixir",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:06.244Z",
+      "vendor": null
+    },
+    {
+      "id": "82ecd73b-4ed8-4f86-9f03-e13f5c033d34",
+      "name": "LiveView",
+      "slug": "liveview",
+      "description": "Rich, real-time user experiences with server-rendered HTML",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6510388?v=4",
+      "githubUrl": "https://github.com/phoenixframework/phoenix_live_view",
+      "githubStars": 6748,
+      "language": "Elixir",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:06.961Z",
+      "vendor": null
+    },
+    {
+      "id": "6e16aee4-5590-43be-a0c1-87e6d42b74ac",
+      "name": "Next.js",
+      "slug": "nextjs",
+      "description": "The React Framework",
+      "logoUrl": "https://avatars.githubusercontent.com/u/14985020?v=4",
+      "githubUrl": "https://github.com/vercel/next.js",
+      "githubStars": 138568,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:07.770Z",
+      "vendor": null
+    },
+    {
+      "id": "ecf76137-9bb0-4ab0-ae5a-e0a11f92005d",
+      "name": "TypeScript",
+      "slug": "typescript",
+      "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6154722?v=4",
+      "githubUrl": "https://github.com/microsoft/TypeScript",
+      "githubStars": 108368,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:08.156Z",
+      "vendor": null
+    },
+    {
+      "id": "a33f18cd-0859-4963-b4f5-d3b0677b9255",
+      "name": "Prisma",
+      "slug": "prisma",
+      "description": "Next-generation ORM for Node.js & TypeScript | PostgreSQL, MySQL, MariaDB, SQL Server, SQLite, MongoDB and CockroachDB",
+      "logoUrl": "https://avatars.githubusercontent.com/u/17219288?v=4",
+      "githubUrl": "https://github.com/prisma/prisma",
+      "githubStars": 45638,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:08.880Z",
+      "vendor": null
+    },
+    {
+      "id": "c2123aee-31aa-43b2-9318-be90bde700ef",
+      "name": "Saturn",
+      "slug": "saturn",
+      "description": "Opinionated, web development framework for F# which implements the server-side, functional MVC pattern",
+      "logoUrl": "https://avatars.githubusercontent.com/u/35305523?v=4",
+      "githubUrl": "https://github.com/SaturnFramework/Saturn",
+      "githubStars": 724,
+      "language": "F#",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:09.598Z",
+      "vendor": null
+    },
+    {
+      "id": "5c385ad3-d846-4ea5-8dbd-c2385e217cca",
+      "name": "Elmish",
+      "slug": "elmish",
+      "description": "Elm-like abstractions for F# apps",
+      "logoUrl": "https://avatars.githubusercontent.com/u/27572064?v=4",
+      "githubUrl": "https://github.com/elmish/elmish",
+      "githubStars": 891,
+      "language": "F#",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:10.374Z",
+      "vendor": null
+    },
+    {
+      "id": "230609a6-9f97-4885-a7f8-89103538b86f",
+      "name": "Firebase",
+      "slug": "firebase",
+      "description": "Firebase Javascript SDK",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1335026?v=4",
+      "githubUrl": "https://github.com/firebase/firebase-js-sdk",
+      "githubStars": 5092,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:10.779Z",
+      "vendor": null
+    },
+    {
+      "id": "3fbf01bf-a84a-4855-9fa5-b60613cd9e6e",
+      "name": "WebSocket",
+      "slug": "websocket",
+      "description": "Simple to use, blazing fast and thoroughly tested WebSocket client and server for Node.js",
+      "logoUrl": "https://avatars.githubusercontent.com/u/10721323?v=4",
+      "githubUrl": "https://github.com/websockets/ws",
+      "githubStars": 22713,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:12.370Z",
+      "vendor": null
+    },
+    {
+      "id": "83a5c88b-eb03-4932-96d6-73fdd2a684ff",
+      "name": "JavaScript",
+      "slug": "javascript",
+      "description": "Status, process, and documents for ECMA-262",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1725583?v=4",
+      "githubUrl": "https://github.com/tc39/ecma262",
+      "githubStars": 15608,
+      "language": "HTML",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:51.764Z",
+      "vendor": null
+    },
+    {
+      "id": "34f4b7ea-b4ca-4848-912a-45180e1cd5dc",
+      "name": "Apache",
+      "slug": "apache",
+      "description": "Mirror of Apache HTTP Server. Issues: http://issues.apache.org",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "githubUrl": "https://github.com/apache/httpd",
+      "githubStars": 3942,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:47.814Z",
+      "vendor": null
+    },
+    {
+      "id": "e58ba4ec-6116-484d-983d-6bf49e745ec9",
+      "name": "PHP",
+      "slug": "php",
+      "description": "The PHP Interpreter",
+      "logoUrl": "https://avatars.githubusercontent.com/u/25158?v=4",
+      "githubUrl": "https://github.com/php/php-src",
+      "githubStars": 39954,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:48.446Z",
+      "vendor": null
+    },
+    {
+      "id": "667ed5b1-5c48-469e-b041-0c1218765da0",
+      "name": "HTMX",
+      "slug": "htmx",
+      "description": "</> htmx - high power tools for HTML",
+      "logoUrl": "https://avatars.githubusercontent.com/u/48798027?v=4",
+      "githubUrl": "https://github.com/bigskysoftware/htmx",
+      "githubStars": 47725,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:05.872Z",
+      "vendor": null
+    },
+    {
+      "id": "d38d2899-774e-4620-88aa-dc4a2de9514a",
+      "name": "Elixir",
+      "slug": "elixir",
+      "description": "Elixir is a dynamic, functional language for building scalable and maintainable applications",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1481354?v=4",
+      "githubUrl": "https://github.com/elixir-lang/elixir",
+      "githubStars": 26443,
+      "language": "Elixir",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:06.642Z",
+      "vendor": null
+    },
+    {
+      "id": "8ddbbbcf-0b5b-4f63-864e-3602eef5932a",
+      "name": "FastAPI",
+      "slug": "fastapi",
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+      "logoUrl": "https://avatars.githubusercontent.com/u/156354296?v=4",
+      "githubUrl": "https://github.com/fastapi/fastapi",
+      "githubStars": 96752,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:07.366Z",
+      "vendor": null
+    },
+    {
+      "id": "5268f4b4-e827-4d72-8e58-6e0ff96e8530",
+      "name": "tRPC",
+      "slug": "trpc",
+      "description": "🧙‍♀️  Move Fast and Break Nothing. End-to-end typesafe APIs made easy. ",
+      "logoUrl": "https://avatars.githubusercontent.com/u/78011399?v=4",
+      "githubUrl": "https://github.com/trpc/trpc",
+      "githubStars": 39867,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:08.492Z",
+      "vendor": null
+    },
+    {
+      "id": "1963649e-6777-4dcf-b0b4-026af7ec9eba",
+      "name": "Inertia.js",
+      "slug": "inertiajs",
+      "description": "Inertia.js lets you quickly build modern single-page React, Vue and Svelte apps using classic server-side routing and controllers.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47703742?v=4",
+      "githubUrl": "https://github.com/inertiajs/inertia",
+      "githubStars": 7847,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:09.264Z",
+      "vendor": null
+    },
+    {
+      "id": "61c2b928-3eea-4aba-b4dd-37e0c3937437",
+      "name": "Fable",
+      "slug": "fable",
+      "description": "F# to JavaScript, TypeScript, Python, Rust, Erlang and Dart Compiler",
+      "logoUrl": "https://avatars.githubusercontent.com/u/21062526?v=4",
+      "githubUrl": "https://github.com/fable-compiler/Fable",
+      "githubStars": 3069,
+      "language": "F#",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:09.990Z",
+      "vendor": null
+    },
+    {
+      "id": "3dce1708-03b8-49c7-bcd8-1f25ae53526a",
+      "name": "ASP.NET",
+      "slug": "asp-net",
+      "description": "ASP.NET Core is a cross-platform .NET framework for building modern cloud-based web applications on Windows, Mac, or Linux.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/9141961?v=4",
+      "githubUrl": "https://github.com/dotnet/aspnetcore",
+      "githubStars": 37807,
+      "language": "C#",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:43.652Z",
+      "vendor": null
+    },
+    {
+      "id": "04a039dc-0087-47e6-bb2d-ba599b41cf9e",
+      "name": "Asterisk",
+      "slug": "asterisk",
+      "description": "The official Asterisk Project repository.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/2914369?v=4",
+      "githubUrl": "https://github.com/asterisk/asterisk",
+      "githubStars": 3157,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:44.005Z",
+      "vendor": null
+    },
+    {
+      "id": "b94480f3-efba-4546-8d7a-4bcc462ac96d",
+      "name": "Alpine",
+      "slug": "alpine",
+      "description": "[MIRROR] Alpine packages build scripts",
+      "logoUrl": "https://avatars.githubusercontent.com/u/7600810?v=4",
+      "githubUrl": "https://github.com/alpinelinux/aports",
+      "githubStars": 706,
+      "language": "Shell",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:44.293Z",
+      "vendor": null
+    },
+    {
+      "id": "7c0d2b12-5186-4b53-a7c0-d30f9ed95f08",
+      "name": "Bash",
+      "slug": "bash",
+      "description": null,
+      "logoUrl": "https://avatars.githubusercontent.com/u/28318801?v=4",
+      "githubUrl": "https://github.com/gitGNU/gnu_bash",
+      "githubStars": 197,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:44.944Z",
+      "vendor": null
+    },
+    {
+      "id": "b4e12227-ef8a-45e0-a4d0-7c848b0eb457",
+      "name": "Bitcoin",
+      "slug": "bitcoin",
+      "description": "Bitcoin Core integration/staging tree",
+      "logoUrl": "https://avatars.githubusercontent.com/u/528860?v=4",
+      "githubUrl": "https://github.com/bitcoin/bitcoin",
+      "githubStars": 88668,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:45.348Z",
+      "vendor": null
+    },
+    {
+      "id": "2cf2389c-65d0-4e69-b3f7-d517cd8570eb",
+      "name": "Backbone.js",
+      "slug": "backbone-js",
+      "description": "Give your JS App some Backbone with Models, Views, Collections, and Events",
+      "logoUrl": "https://avatars.githubusercontent.com/u/4732?v=4",
+      "githubUrl": "https://github.com/jashkenas/backbone",
+      "githubStars": 28094,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:45.647Z",
+      "vendor": null
+    },
+    {
+      "id": "23a78c05-f475-422c-9aab-5487893e4ec8",
+      "name": "Bazzite",
+      "slug": "bazzite",
+      "description": "Bazzite makes gaming and everyday use smoother and simpler across desktop PCs, handhelds, tablets, and home theater PCs.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/120078124?v=4",
+      "githubUrl": "https://github.com/ublue-os/bazzite",
+      "githubStars": 8165,
+      "language": "Shell",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:45.984Z",
+      "vendor": null
+    },
+    {
+      "id": "efa1115f-6a1d-4f73-bd45-6154ca039e13",
+      "name": "Crush",
+      "slug": "crush",
+      "description": "Glamourous agentic coding for all 💘",
+      "logoUrl": "https://avatars.githubusercontent.com/u/57376114?v=4",
+      "githubUrl": "https://github.com/charmbracelet/crush",
+      "githubStars": 22332,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:46.284Z",
+      "vendor": null
+    },
+    {
+      "id": "8c801ea8-1e8b-4a0b-9244-1a5ac8c84c35",
+      "name": "Clojure",
+      "slug": "clojure",
+      "description": "The Clojure programming language",
+      "logoUrl": "https://avatars.githubusercontent.com/u/317875?v=4",
+      "githubUrl": "https://github.com/clojure/clojure",
+      "githubStars": 10833,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:46.581Z",
+      "vendor": null
+    },
+    {
+      "id": "84563363-9b18-4b10-b749-7464841172b2",
+      "name": "Cython",
+      "slug": "cython",
+      "description": "The most widely used Python to C compiler",
+      "logoUrl": "https://avatars.githubusercontent.com/u/486082?v=4",
+      "githubUrl": "https://github.com/cython/cython",
+      "githubStars": 10675,
+      "language": "Cython",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:46.915Z",
+      "vendor": null
+    },
+    {
+      "id": "3592b250-b0d5-4f5d-951c-e264791f8d04",
+      "name": "CakePHP",
+      "slug": "cakephp",
+      "description": "CakePHP: The Rapid Development Framework for PHP - Official Repository",
+      "logoUrl": "https://avatars.githubusercontent.com/u/23666?v=4",
+      "githubUrl": "https://github.com/cakephp/cakephp",
+      "githubStars": 8791,
+      "language": "PHP",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:47.436Z",
+      "vendor": null
+    },
+    {
+      "id": "2329110a-e724-44ea-a2fe-a4f82b95f96f",
+      "name": "CodeIgniter",
+      "slug": "codeigniter",
+      "description": "Open Source PHP Framework (originally from EllisLab)",
+      "logoUrl": "https://avatars.githubusercontent.com/u/8863432?v=4",
+      "githubUrl": "https://github.com/bcit-ci/CodeIgniter",
+      "githubStars": 18205,
+      "language": "PHP",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:47.732Z",
+      "vendor": null
+    },
+    {
+      "id": "7d3a6a19-d2c7-4e55-aa89-3dbaf411cb7e",
+      "name": "CoreOS",
+      "slug": "coreos",
+      "description": "Tooling container to assemble CoreOS-like systems",
+      "logoUrl": "https://avatars.githubusercontent.com/u/3730757?v=4",
+      "githubUrl": "https://github.com/coreos/coreos-assembler",
+      "githubStars": 384,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:48.091Z",
+      "vendor": null
+    },
+    {
+      "id": "2a095118-7dcc-4ec8-90a1-bb0cb9352e6e",
+      "name": "CentOS",
+      "slug": "centos",
+      "description": "Dockerfiles for various common implementations",
+      "logoUrl": "https://avatars.githubusercontent.com/u/79192?v=4",
+      "githubUrl": "https://github.com/CentOS/CentOS-Dockerfiles",
+      "githubStars": 1867,
+      "language": "Shell",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:48.487Z",
+      "vendor": null
+    },
+    {
+      "id": "594facef-672b-4b06-9d2c-59ffb056aa5c",
+      "name": "CouchDB",
+      "slug": "couchdb",
+      "description": "Seamless multi-primary syncing database with an intuitive HTTP/JSON API, designed for reliability",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "githubUrl": "https://github.com/apache/couchdb",
+      "githubStars": 6852,
+      "language": "Erlang",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:48.792Z",
+      "vendor": null
+    },
+    {
+      "id": "9576e989-e5bf-4b55-a8c2-848b949281ae",
+      "name": "Couchbase",
+      "slug": "couchbase",
+      "description": "Cross-platform C++ core library for Couchbase Lite",
+      "logoUrl": "https://avatars.githubusercontent.com/u/605755?v=4",
+      "githubUrl": "https://github.com/couchbase/couchbase-lite-core",
+      "githubStars": 264,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:49.217Z",
+      "vendor": null
+    },
+    {
+      "id": "6ad5a898-35fd-4deb-858f-4f9aacf8a42a",
+      "name": "Cypher",
+      "slug": "cypher",
+      "description": "Specification of the Cypher property graph query language",
+      "logoUrl": "https://avatars.githubusercontent.com/u/14857376?v=4",
+      "githubUrl": "https://github.com/opencypher/openCypher",
+      "githubStars": 984,
+      "language": "Gherkin",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:49.530Z",
+      "vendor": null
+    },
+    {
+      "id": "16942b9e-b5ee-4bd2-895c-8d5c3b9b9cfa",
+      "name": "Django",
+      "slug": "django",
+      "description": "The Web framework for perfectionists with deadlines.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/27804?v=4",
+      "githubUrl": "https://github.com/django/django",
+      "githubStars": 87143,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:49.811Z",
+      "vendor": null
+    },
+    {
+      "id": "fd2dec4c-902c-4f33-8a10-cc1067e68a47",
+      "name": "DynamoDB",
+      "slug": "dynamodb",
+      "description": "Modularized AWS SDK for JavaScript.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/2232217?v=4",
+      "githubUrl": "https://github.com/aws/aws-sdk-js-v3",
+      "githubStars": 3599,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:50.194Z",
+      "vendor": null
+    },
+    {
+      "id": "8b765c5d-b4b9-4a51-bcac-3abe86693353",
+      "name": "Dovecot",
+      "slug": "dovecot",
+      "description": "Dovecot mail server",
+      "logoUrl": "https://avatars.githubusercontent.com/u/16224384?v=4",
+      "githubUrl": "https://github.com/dovecot/core",
+      "githubStars": 1190,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:50.616Z",
+      "vendor": null
+    },
+    {
+      "id": "23889dae-9a21-4bca-9be6-e193343acc42",
+      "name": "Chromium",
+      "slug": "chromium",
+      "description": "The official GitHub mirror of the Chromium source",
+      "logoUrl": "https://avatars.githubusercontent.com/u/30044?v=4",
+      "githubUrl": "https://github.com/chromium/chromium",
+      "githubStars": 23312,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:47.000Z",
+      "vendor": null
+    },
+    {
+      "id": "31eb6f3c-ef64-4702-9981-59ffa822aa34",
+      "name": "Elysia",
+      "slug": "elysia",
+      "description": "Ergonomic Framework for Humans",
+      "logoUrl": "https://avatars.githubusercontent.com/u/119793569?v=4",
+      "githubUrl": "https://github.com/elysiajs/elysia",
+      "githubStars": 17843,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:05.140Z",
+      "vendor": null
+    },
+    {
+      "id": "7c336c4a-15df-412b-b43c-3f16c860dadb",
+      "name": "ColdFusion",
+      "slug": "coldfusion",
+      "description": null,
+      "logoUrl": null,
+      "githubUrl": "https://www.adobe.com/products/coldfusion-family.html",
+      "githubStars": 0,
+      "language": null,
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:47.071Z",
+      "vendor": null
+    },
+    {
+      "id": "3b1ed09a-205e-407a-b14b-184a747fb28e",
+      "name": "Dojo",
+      "slug": "dojo",
+      "description": "Dojo Framework. A Progressive Framework for Modern Web Apps",
+      "logoUrl": "https://avatars.githubusercontent.com/u/86896?v=4",
+      "githubUrl": "https://github.com/dojo/framework",
+      "githubStars": 614,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:51.629Z",
+      "vendor": null
+    },
+    {
+      "id": "c4f0b35c-d4e9-4737-81d2-013622201149",
+      "name": "Databricks",
+      "slug": "databricks",
+      "description": "Databricks SDK for Python (Beta)",
+      "logoUrl": "https://avatars.githubusercontent.com/u/4998052?v=4",
+      "githubUrl": "https://github.com/databricks/databricks-sdk-py",
+      "githubStars": 536,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:51.919Z",
+      "vendor": null
+    },
+    {
+      "id": "42e73d44-1503-4836-b168-5fa296f37242",
+      "name": "DuckDB",
+      "slug": "duckdb",
+      "description": "DuckDB is an analytical in-process SQL database management system",
+      "logoUrl": "https://avatars.githubusercontent.com/u/82039556?v=4",
+      "githubUrl": "https://github.com/duckdb/duckdb",
+      "githubStars": 37117,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:52.314Z",
+      "vendor": null
+    },
+    {
+      "id": "7b746461-8f44-4386-a48c-f66fe840be65",
+      "name": "Ember.js",
+      "slug": "ember-js",
+      "description": "Ember.js - A JavaScript framework for creating ambitious web applications",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1253363?v=4",
+      "githubUrl": "https://github.com/emberjs/ember.js",
+      "githubStars": 22573,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:52.679Z",
+      "vendor": null
+    },
+    {
+      "id": "2d5660fe-ddd9-4b5e-84cf-abb0f187b85d",
+      "name": "Erlang",
+      "slug": "erlang",
+      "description": "Erlang/OTP",
+      "logoUrl": "https://avatars.githubusercontent.com/u/153393?v=4",
+      "githubUrl": "https://github.com/erlang/otp",
+      "githubStars": 12087,
+      "language": "Erlang",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:52.963Z",
+      "vendor": null
+    },
+    {
+      "id": "ad21f8cf-3a1e-4de7-b0b6-e8071910de32",
+      "name": "Ethereum",
+      "slug": "ethereum",
+      "description": "Go implementation of the Ethereum protocol",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6250754?v=4",
+      "githubUrl": "https://github.com/ethereum/go-ethereum",
+      "githubStars": 50964,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:53.352Z",
+      "vendor": null
+    },
+    {
+      "id": "10d61558-ed95-4ee0-93ff-6cf66c64955b",
+      "name": "Fastify",
+      "slug": "fastify",
+      "description": "Fast and low overhead web framework, for Node.js",
+      "logoUrl": "https://avatars.githubusercontent.com/u/24939410?v=4",
+      "githubUrl": "https://github.com/fastify/fastify",
+      "githubStars": 35951,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:53.728Z",
+      "vendor": null
+    },
+    {
+      "id": "bee25c62-00ba-401b-9df9-d6841f677a30",
+      "name": "FFmpeg",
+      "slug": "ffmpeg",
+      "description": "Mirror of https://git.ffmpeg.org/ffmpeg.git",
+      "logoUrl": "https://avatars.githubusercontent.com/u/729418?v=4",
+      "githubUrl": "https://github.com/FFmpeg/FFmpeg",
+      "githubStars": 58513,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:54.004Z",
+      "vendor": null
+    },
+    {
+      "id": "913a7c58-07f5-4a2f-816f-27eaaa5dc85a",
+      "name": "Flask",
+      "slug": "flask",
+      "description": "The Python micro framework for building web applications.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/16748505?v=4",
+      "githubUrl": "https://github.com/pallets/flask",
+      "githubStars": 71361,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:54.287Z",
+      "vendor": null
+    },
+    {
+      "id": "10457fda-810b-4997-86ff-c60a35f6f9d4",
+      "name": "F#",
+      "slug": "f",
+      "description": "The F# compiler, F# core library, F# language service, and F# tooling integration for Visual Studio",
+      "logoUrl": "https://avatars.githubusercontent.com/u/9141961?v=4",
+      "githubUrl": "https://github.com/dotnet/fsharp",
+      "githubStars": 4272,
+      "language": "F#",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:54.775Z",
+      "vendor": null
+    },
+    {
+      "id": "7f55776a-69f9-44e3-b38f-557a8800825a",
+      "name": "Firebird",
+      "slug": "firebird",
+      "description": "Firebird server, client and tools",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6057940?v=4",
+      "githubUrl": "https://github.com/FirebirdSQL/firebird",
+      "githubStars": 1409,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:55.540Z",
+      "vendor": null
+    },
+    {
+      "id": "07a743c3-b1db-4cc8-8823-ab5d3d02a658",
+      "name": "Grails",
+      "slug": "grails",
+      "description": "Grails - the Web Application Framework",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "githubUrl": "https://github.com/grails/grails-core",
+      "githubStars": 2875,
+      "language": "Groovy",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:56.091Z",
+      "vendor": null
+    },
+    {
+      "id": "4a3e7474-ccb6-4eb3-b4bc-65d94c7a7519",
+      "name": "Groovy",
+      "slug": "groovy",
+      "description": "Apache Groovy: A powerful multi-faceted programming language for the JVM platform",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "githubUrl": "https://github.com/apache/groovy",
+      "githubStars": 5436,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:56.448Z",
+      "vendor": null
+    },
+    {
+      "id": "4d72526b-c006-4164-8803-bb85cdeb570c",
+      "name": "GitHub",
+      "slug": "github",
+      "description": "GitHub’s official command line tool",
+      "logoUrl": "https://avatars.githubusercontent.com/u/59704711?v=4",
+      "githubUrl": "https://github.com/cli/cli",
+      "githubStars": 43491,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:56.871Z",
+      "vendor": null
+    },
+    {
+      "id": "17ee8404-fe9f-49bf-a7bb-bcd4d5ebd703",
+      "name": "Gitea",
+      "slug": "gitea",
+      "description": "Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD",
+      "logoUrl": "https://avatars.githubusercontent.com/u/12724356?v=4",
+      "githubUrl": "https://github.com/go-gitea/gitea",
+      "githubStars": 54671,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:57.588Z",
+      "vendor": null
+    },
+    {
+      "id": "91ab63aa-6abc-4501-b37d-5f69ca13cb2d",
+      "name": "Hadoop",
+      "slug": "hadoop",
+      "description": "Apache Hadoop",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "githubUrl": "https://github.com/apache/hadoop",
+      "githubStars": 15512,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:58.040Z",
+      "vendor": null
+    },
+    {
+      "id": "f71c5597-6a29-4a77-bae7-66e47fe9fa55",
+      "name": "Java",
+      "slug": "java",
+      "description": "JDK main-line development https://openjdk.org/projects/jdk",
+      "logoUrl": "https://avatars.githubusercontent.com/u/41768318?v=4",
+      "githubUrl": "https://github.com/openjdk/jdk",
+      "githubStars": 22719,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:58.648Z",
+      "vendor": null
+    },
+    {
+      "id": "06aa53ac-f212-4b5a-ae27-acef73a8c364",
+      "name": "Joomla",
+      "slug": "joomla",
+      "description": "Home of the Joomla! Content Management System",
+      "logoUrl": "https://avatars.githubusercontent.com/u/751633?v=4",
+      "githubUrl": "https://github.com/joomla/joomla-cms",
+      "githubStars": 5061,
+      "language": "PHP",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:58.969Z",
+      "vendor": null
+    },
+    {
+      "id": "0decf87b-5311-49e0-ab56-9b059c4b1cb3",
+      "name": "Kafka",
+      "slug": "kafka",
+      "description": "Apache Kafka - A distributed event streaming platform",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "githubUrl": "https://github.com/apache/kafka",
+      "githubStars": 32266,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:59.376Z",
+      "vendor": null
+    },
+    {
+      "id": "9133ee53-f770-4ed2-88c2-9bbcf3c28eed",
+      "name": "Kubernetes",
+      "slug": "kubernetes",
+      "description": "Production-Grade Container Scheduling and Management",
+      "logoUrl": "https://avatars.githubusercontent.com/u/13629408?v=4",
+      "githubUrl": "https://github.com/kubernetes/kubernetes",
+      "githubStars": 121439,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:59.708Z",
+      "vendor": null
+    },
+    {
+      "id": "b7a9d816-8b86-489a-b162-a3c195727eb6",
+      "name": "Kotlin",
+      "slug": "kotlin",
+      "description": "The Kotlin Programming Language. ",
+      "logoUrl": "https://avatars.githubusercontent.com/u/878437?v=4",
+      "githubUrl": "https://github.com/JetBrains/kotlin",
+      "githubStars": 52516,
+      "language": "Kotlin",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:00.084Z",
+      "vendor": null
+    },
+    {
+      "id": "4bf478f3-4855-48c2-abae-2c1a97db487e",
+      "name": "Keras",
+      "slug": "keras",
+      "description": "Deep Learning for humans",
+      "logoUrl": "https://avatars.githubusercontent.com/u/34455048?v=4",
+      "githubUrl": "https://github.com/keras-team/keras",
+      "githubStars": 63923,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:00.419Z",
+      "vendor": null
+    },
+    {
+      "id": "89f53f43-a5ae-4149-b0d1-0cfc2716331b",
+      "name": "Lisp",
+      "slug": "lisp",
+      "description": "Mirror of Steel Bank Common Lisp (SBCL)'s official repository",
+      "logoUrl": "https://avatars.githubusercontent.com/u/318632?v=4",
+      "githubUrl": "https://github.com/sbcl/sbcl",
+      "githubStars": 2080,
+      "language": "Common Lisp",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:00.752Z",
+      "vendor": null
+    },
+    {
+      "id": "9e035264-dcca-43a6-b00c-164db562ce93",
+      "name": "LangChain",
+      "slug": "langchain",
+      "description": "The agent engineering platform",
+      "logoUrl": "https://avatars.githubusercontent.com/u/126733545?v=4",
+      "githubUrl": "https://github.com/langchain-ai/langchain",
+      "githubStars": 131991,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:01.066Z",
+      "vendor": null
+    },
+    {
+      "id": "898e798b-7a7e-45e3-8bfa-0e7076457fef",
+      "name": "Gentoo",
+      "slug": "gentoo",
+      "description": "[MIRROR] Official Gentoo ebuild repository",
+      "logoUrl": "https://avatars.githubusercontent.com/u/52242?v=4",
+      "githubUrl": "https://github.com/gentoo/gentoo",
+      "githubStars": 2369,
+      "language": "Shell",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:57.720Z",
+      "vendor": null
+    },
+    {
+      "id": "5823f250-4f7a-4f8b-abb8-2127893e4896",
+      "name": "Drupal",
+      "slug": "drupal",
+      "description": "Verbatim mirror of the git.drupal.org repository for Drupal core. Please see the https://github.com/drupal/drupal#contributing. PRs are not accepted on GitHub.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/43922?v=4",
+      "githubUrl": "https://github.com/drupal/drupal",
+      "githubStars": 4258,
+      "language": "PHP",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:50.898Z",
+      "vendor": null
+    },
+    {
+      "id": "2d966245-28f3-4746-bc68-517d66878925",
+      "name": "Docker",
+      "slug": "docker",
+      "description": "The Moby Project - a collaborative project for the container ecosystem to assemble container-based systems",
+      "logoUrl": "https://avatars.githubusercontent.com/u/27259197?v=4",
+      "githubUrl": "https://github.com/moby/moby",
+      "githubStars": 71555,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:51.256Z",
+      "vendor": null
+    },
+    {
+      "id": "b71c9dd1-e1b6-4d73-b95a-ceed1aaaead8",
+      "name": "Debian",
+      "slug": "debian",
+      "description": null,
+      "logoUrl": null,
+      "githubUrl": "https://www.debian.org",
+      "githubStars": 0,
+      "language": null,
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:51.326Z",
+      "vendor": null
+    },
+    {
+      "id": "fbdf6661-c9a5-4df8-ad3f-52366772d17c",
+      "name": "Fedora",
+      "slug": "fedora",
+      "description": null,
+      "logoUrl": null,
+      "githubUrl": "https://fedoraproject.org",
+      "githubStars": 0,
+      "language": null,
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:55.218Z",
+      "vendor": null
+    },
+    {
+      "id": "8314c917-f006-4fa4-99aa-267d182bcb86",
+      "name": "GNOME",
+      "slug": "gnome",
+      "description": null,
+      "logoUrl": null,
+      "githubUrl": "https://www.gnome.org",
+      "githubStars": 0,
+      "language": null,
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:57.658Z",
+      "vendor": null
+    },
+    {
+      "id": "dca90c1e-b9b1-4908-9e50-4cbf0b774fe2",
+      "name": "Qt",
+      "slug": "qt",
+      "description": "Qt Base (Core, Gui, Widgets, Network, ...)",
+      "logoUrl": "https://avatars.githubusercontent.com/u/159455?v=4",
+      "githubUrl": "https://github.com/qt/qtbase",
+      "githubStars": 2994,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:06.293Z",
+      "vendor": null
+    },
+    {
+      "id": "4fbb4cff-b487-4a3d-9822-1f088f25792a",
+      "name": "Lucene",
+      "slug": "lucene",
+      "description": "Apache Lucene open-source search software",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "githubUrl": "https://github.com/apache/lucene",
+      "githubStars": 3395,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:01.338Z",
+      "vendor": null
+    },
+    {
+      "id": "654a3d87-1f8c-4645-9d66-8531ad431165",
+      "name": "Mojolicious",
+      "slug": "mojolicious",
+      "description": ":sparkles: Mojolicious - Perl real-time web framework",
+      "logoUrl": "https://avatars.githubusercontent.com/u/2388868?v=4",
+      "githubUrl": "https://github.com/mojolicious/mojo",
+      "githubStars": 2726,
+      "language": "Perl",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:02.114Z",
+      "vendor": null
+    },
+    {
+      "id": "4a97feae-f320-460a-b118-109baa6f7520",
+      "name": "Mastodon",
+      "slug": "mastodon",
+      "description": "Your self-hosted, globally interconnected microblogging community",
+      "logoUrl": "https://avatars.githubusercontent.com/u/24979032?v=4",
+      "githubUrl": "https://github.com/mastodon/mastodon",
+      "githubStars": 49794,
+      "language": "Ruby",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:02.419Z",
+      "vendor": null
+    },
+    {
+      "id": "bb66cfe9-9300-42f7-9f69-a5f9c19fc0c3",
+      "name": ".NET",
+      "slug": "net",
+      "description": ".NET is a cross-platform runtime for cloud, mobile, desktop, and IoT apps.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/9141961?v=4",
+      "githubUrl": "https://github.com/dotnet/runtime",
+      "githubStars": 17751,
+      "language": "C#",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:03.871Z",
+      "vendor": null
+    },
+    {
+      "id": "02b83c7f-752c-4c94-83f9-12078e714df7",
+      "name": "Nextcloud",
+      "slug": "nextcloud",
+      "description": "☁️ Nextcloud server, a safe home for all your data",
+      "logoUrl": "https://avatars.githubusercontent.com/u/19211038?v=4",
+      "githubUrl": "https://github.com/nextcloud/server",
+      "githubStars": 34504,
+      "language": "PHP",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:04.213Z",
+      "vendor": null
+    },
+    {
+      "id": "47df024b-6bba-4a10-ac3d-f2910dc31312",
+      "name": "NixOS",
+      "slug": "nixos",
+      "description": "Nix Packages collection & NixOS",
+      "logoUrl": "https://avatars.githubusercontent.com/u/487568?v=4",
+      "githubUrl": "https://github.com/NixOS/nixpkgs",
+      "githubStars": 24113,
+      "language": "Nix",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:04.427Z",
+      "vendor": null
+    },
+    {
+      "id": "345b818e-5d61-465e-9940-4e05f446451d",
+      "name": "Nuxt",
+      "slug": "nuxt",
+      "description": "The Full-Stack Vue Framework.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/23360933?v=4",
+      "githubUrl": "https://github.com/nuxt/nuxt",
+      "githubStars": 59939,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:04.633Z",
+      "vendor": null
+    },
+    {
+      "id": "b040b6c2-bd4c-47d5-90c9-8340e8dba565",
+      "name": "OpenSSL",
+      "slug": "openssl",
+      "description": "TLS/SSL and crypto library",
+      "logoUrl": "https://avatars.githubusercontent.com/u/3279138?v=4",
+      "githubUrl": "https://github.com/openssl/openssl",
+      "githubStars": 29871,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:04.862Z",
+      "vendor": null
+    },
+    {
+      "id": "77ceb880-ffd6-48d3-87b4-652c3ea2733a",
+      "name": "OpenStack",
+      "slug": "openstack",
+      "description": "Repository tracking all OpenStack repositories as submodules. Mirror of code maintained at opendev.org.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/324574?v=4",
+      "githubUrl": "https://github.com/openstack/openstack",
+      "githubStars": 5871,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:05.077Z",
+      "vendor": null
+    },
+    {
+      "id": "ec807cfb-b45c-4466-a733-a11f8dc2a2bd",
+      "name": "OpenVPN",
+      "slug": "openvpn",
+      "description": "OpenVPN  is  an open source VPN daemon",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1569141?v=4",
+      "githubUrl": "https://github.com/OpenVPN/openvpn",
+      "githubStars": 13444,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:05.533Z",
+      "vendor": null
+    },
+    {
+      "id": "596d6a04-91d7-4449-8d31-e0c921ebc8ae",
+      "name": "Perl",
+      "slug": "perl",
+      "description": "🐪 The Perl programming language",
+      "logoUrl": "https://avatars.githubusercontent.com/u/3585411?v=4",
+      "githubUrl": "https://github.com/Perl/perl5",
+      "githubStars": 2251,
+      "language": "Perl",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:05.784Z",
+      "vendor": null
+    },
+    {
+      "id": "bfc1d9e8-c0b4-4b4c-9420-8c080ec67c97",
+      "name": "Prolog",
+      "slug": "prolog",
+      "description": "SWI-Prolog Main development repository",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6884283?v=4",
+      "githubUrl": "https://github.com/SWI-Prolog/swipl-devel",
+      "githubStars": 1205,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:06.218Z",
+      "vendor": null
+    },
+    {
+      "id": "952af9b9-3ff3-46cf-887f-3a3397e849cb",
+      "name": "Quarkus",
+      "slug": "quarkus",
+      "description": "Quarkus: Supersonic Subatomic Java. ",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47638783?v=4",
+      "githubUrl": "https://github.com/quarkusio/quarkus",
+      "githubStars": 15575,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:06.512Z",
+      "vendor": null
+    },
+    {
+      "id": "e33125a5-a829-4cb2-9058-8803ea66e3d4",
+      "name": "Rust",
+      "slug": "rust",
+      "description": "Empowering everyone to build reliable and efficient software.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/5430905?v=4",
+      "githubUrl": "https://github.com/rust-lang/rust",
+      "githubStars": 111619,
+      "language": "Rust",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:07.174Z",
+      "vendor": null
+    },
+    {
+      "id": "32a025cc-3a87-4cd3-9dae-4eea50969760",
+      "name": "Sails.js",
+      "slug": "sails-js",
+      "description": "Realtime MVC Framework for Node.js",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1445252?v=4",
+      "githubUrl": "https://github.com/balderdashy/sails",
+      "githubStars": 22836,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:07.949Z",
+      "vendor": null
+    },
+    {
+      "id": "90281196-a52a-4e0e-bf0f-59cfcf5598dd",
+      "name": "Spring",
+      "slug": "spring",
+      "description": "Spring Framework",
+      "logoUrl": "https://avatars.githubusercontent.com/u/317776?v=4",
+      "githubUrl": "https://github.com/spring-projects/spring-framework",
+      "githubStars": 59802,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:08.161Z",
+      "vendor": null
+    },
+    {
+      "id": "4f6defdc-2856-4697-bd9e-265832555f1a",
+      "name": "SvelteKit",
+      "slug": "sveltekit",
+      "description": "web development, streamlined",
+      "logoUrl": "https://avatars.githubusercontent.com/u/23617963?v=4",
+      "githubUrl": "https://github.com/sveltejs/kit",
+      "githubStars": 20404,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:08.660Z",
+      "vendor": null
+    },
+    {
+      "id": "fa14d284-55d5-45ec-b524-af88494c2682",
+      "name": "Symfony",
+      "slug": "symfony",
+      "description": "The Symfony PHP framework",
+      "logoUrl": "https://avatars.githubusercontent.com/u/143937?v=4",
+      "githubUrl": "https://github.com/symfony/symfony",
+      "githubStars": 30986,
+      "language": "PHP",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:08.930Z",
+      "vendor": null
+    },
+    {
+      "id": "908707c9-d0b1-424e-a917-a8c9f8a7834f",
+      "name": "Sinatra",
+      "slug": "sinatra",
+      "description": "Classy web-development dressed in a DSL (official / canonical repo)",
+      "logoUrl": "https://avatars.githubusercontent.com/u/8312?v=4",
+      "githubUrl": "https://github.com/sinatra/sinatra",
+      "githubStars": 12421,
+      "language": "Ruby",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:09.349Z",
+      "vendor": null
+    },
+    {
+      "id": "83987a8e-f659-478f-85f5-9f5347812548",
+      "name": "Stripe",
+      "slug": "stripe",
+      "description": "Node.js library for the Stripe API.    ",
+      "logoUrl": "https://avatars.githubusercontent.com/u/856813?v=4",
+      "githubUrl": "https://github.com/stripe/stripe-node",
+      "githubStars": 4379,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:09.862Z",
+      "vendor": null
+    },
+    {
+      "id": "911c6731-9982-4f2d-9d2b-cde4418c3a6b",
+      "name": "tmux",
+      "slug": "tmux",
+      "description": "tmux source code",
+      "logoUrl": "https://avatars.githubusercontent.com/u/12054114?v=4",
+      "githubUrl": "https://github.com/tmux/tmux",
+      "githubStars": 43854,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:10.770Z",
+      "vendor": null
+    },
+    {
+      "id": "fa6c9058-edaa-4fd1-8a7f-1ac943bcc6b0",
+      "name": "TrueNAS",
+      "slug": "truenas",
+      "description": "TrueNAS CORE/Enterprise/SCALE Middleware Git Repository",
+      "logoUrl": "https://avatars.githubusercontent.com/u/53482242?v=4",
+      "githubUrl": "https://github.com/truenas/middleware",
+      "githubStars": 2537,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:11.028Z",
+      "vendor": null
+    },
+    {
+      "id": "48cced0e-2791-4603-adbf-779df947e7ae",
+      "name": "Varnish",
+      "slug": "varnish",
+      "description": "Varnish Cache source code repository",
+      "logoUrl": "https://avatars.githubusercontent.com/u/14977495?v=4",
+      "githubUrl": "https://github.com/varnishcache/varnish-cache",
+      "githubStars": 4060,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:11.614Z",
+      "vendor": null
+    },
+    {
+      "id": "227c3b55-7d59-4b15-b3d3-2f8a0345d75d",
+      "name": "Tomcat",
+      "slug": "apache-tomcat",
+      "description": "Apache Tomcat",
+      "logoUrl": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "githubUrl": "https://github.com/apache/tomcat",
+      "githubStars": 8132,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:10.303Z",
+      "vendor": "Apache"
+    },
+    {
+      "id": "93724fa3-ee35-4a7c-b4c9-aa669ac4daa9",
+      "name": "SQLite",
+      "slug": "sqlite",
+      "description": "Official Git mirror of the SQLite source tree",
+      "logoUrl": "https://avatars.githubusercontent.com/u/48680494?v=4",
+      "githubUrl": "https://github.com/sqlite/sqlite",
+      "githubStars": 9304,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:09.663Z",
+      "vendor": null
+    },
+    {
+      "id": "1b6f7b41-30d0-4622-a268-b6899e9f842f",
+      "name": "Signal",
+      "slug": "signal",
+      "description": "A private messenger for Android.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/702459?v=4",
+      "githubUrl": "https://github.com/signalapp/Signal-Android",
+      "githubStars": 28586,
+      "language": "Kotlin",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:09.957Z",
+      "vendor": null
+    },
+    {
+      "id": "da602fb5-3f8b-480a-ab8a-878920b44d96",
+      "name": "Tor",
+      "slug": "tor",
+      "description": "unofficial git repo -- report bugs/issues/pull requests on https://gitlab.torproject.org/ --",
+      "logoUrl": "https://avatars.githubusercontent.com/u/4099049?v=4",
+      "githubUrl": "https://github.com/torproject/tor",
+      "githubStars": 4876,
+      "language": null,
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:10.024Z",
+      "vendor": null
+    },
+    {
+      "id": "685a1904-0b79-4c5e-bb33-fe55640964fd",
+      "name": "VLC",
+      "slug": "vlc",
+      "description": "VLC media player - All pull requests are ignored, please use MRs on https://code.videolan.org/videolan/vlc",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1389585?v=4",
+      "githubUrl": "https://github.com/videolan/vlc",
+      "githubStars": 17963,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:11.362Z",
+      "vendor": null
+    },
+    {
+      "id": "ff525667-3d7e-407f-9495-8c269229efbb",
+      "name": "Rails",
+      "slug": "ruby-on-rails",
+      "description": "Ruby on Rails",
+      "logoUrl": "https://avatars.githubusercontent.com/u/4223?v=4",
+      "githubUrl": "https://github.com/rails/rails",
+      "githubStars": 58317,
+      "language": "Ruby",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:06.948Z",
+      "vendor": null
+    },
+    {
+      "id": "67a4e7f0-488d-470f-a255-dfde271d2020",
+      "name": "Ubuntu",
+      "slug": "ubuntu",
+      "description": null,
+      "logoUrl": null,
+      "githubUrl": "https://ubuntu.com",
+      "githubStars": 0,
+      "language": null,
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:11.291Z",
+      "vendor": null
+    },
+    {
+      "id": "900936ac-efae-4de6-a842-d11e3594670d",
+      "name": "Asahi",
+      "slug": "asahi-linux",
+      "description": "Linux kernel source tree",
+      "logoUrl": "https://avatars.githubusercontent.com/u/76157212?v=4",
+      "githubUrl": "https://github.com/AsahiLinux/linux",
+      "githubStars": 2855,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:44.620Z",
+      "vendor": "Asahi Linux"
+    },
+    {
+      "id": "fea603aa-4fae-49a9-81a3-83c5024fa2f3",
+      "name": "Fish",
+      "slug": "fish-shell",
+      "description": "The user-friendly command line shell.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1828073?v=4",
+      "githubUrl": "https://github.com/fish-shell/fish-shell",
+      "githubStars": 33025,
+      "language": "Rust",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:55.080Z",
+      "vendor": null
+    },
+    {
+      "id": "164ede48-7dd5-4219-bc79-7145148fb3a9",
+      "name": "Tailwind",
+      "slug": "tailwindcss",
+      "description": "A utility-first CSS framework for rapid UI development.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/67109815?v=4",
+      "githubUrl": "https://github.com/tailwindlabs/tailwindcss",
+      "githubStars": 94274,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:02.128Z",
+      "vendor": "Tailwind Labs"
+    },
+    {
+      "id": "e46f98d0-49e7-457f-8d96-b71f3f0eadd6",
+      "name": "Quasar",
+      "slug": "quasar",
+      "description": "Quasar Framework - Build high-performance VueJS user interfaces in record time",
+      "logoUrl": "https://avatars.githubusercontent.com/u/23064371?v=4",
+      "githubUrl": "https://github.com/quasarframework/quasar",
+      "githubStars": 27112,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:24.623Z",
+      "vendor": null
+    },
+    {
+      "id": "e75ad5bc-2e70-4ec3-94ed-cc8a49d7a3a0",
+      "name": "QUnit",
+      "slug": "qunit",
+      "description": "🔮 An easy-to-use JavaScript unit testing framework.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/23195278?v=4",
+      "githubUrl": "https://github.com/qunitjs/qunit",
+      "githubStars": 4028,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:24.859Z",
+      "vendor": "jQuery"
+    },
+    {
+      "id": "2fa61491-f72c-4562-b652-f4c792398356",
+      "name": "Istio",
+      "slug": "istio",
+      "description": "Connect, secure, control, and observe services.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/23534644?v=4",
+      "githubUrl": "https://github.com/istio/istio",
+      "githubStars": 38063,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:25.384Z",
+      "vendor": null
+    },
+    {
+      "id": "230c8807-0ff5-4d6c-8fc6-b57c21064e9f",
+      "name": "Knative",
+      "slug": "knative",
+      "description": "Kubernetes-based, scale-to-zero, request-driven compute",
+      "logoUrl": "https://avatars.githubusercontent.com/u/35583233?v=4",
+      "githubUrl": "https://github.com/knative/serving",
+      "githubStars": 6015,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:26.156Z",
+      "vendor": null
+    },
+    {
+      "id": "50d3085d-eb57-4584-bf41-25620cba49b7",
+      "name": "Keycloak",
+      "slug": "keycloak",
+      "description": "Open Source Identity and Access Management For Modern Applications and Services",
+      "logoUrl": "https://avatars.githubusercontent.com/u/4921466?v=4",
+      "githubUrl": "https://github.com/keycloak/keycloak",
+      "githubStars": 33679,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:26.443Z",
+      "vendor": "Red Hat"
+    },
+    {
+      "id": "f1729044-19a6-4f69-9b9f-93efd07b0e32",
+      "name": "XState",
+      "slug": "xstate",
+      "description": "State machines, statecharts, and actors for complex logic",
+      "logoUrl": "https://avatars.githubusercontent.com/u/61783956?v=4",
+      "githubUrl": "https://github.com/statelyai/xstate",
+      "githubStars": 29380,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:27.240Z",
+      "vendor": null
+    },
+    {
+      "id": "cacb848e-8dc2-4460-af49-b37d15f1b215",
+      "name": "Yii",
+      "slug": "yii",
+      "description": "Yii 2: The Fast, Secure and Professional PHP Framework",
+      "logoUrl": "https://avatars.githubusercontent.com/u/993323?v=4",
+      "githubUrl": "https://github.com/yiisoft/yii2",
+      "githubStars": 14310,
+      "language": "PHP",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:28.000Z",
+      "vendor": null
+    },
+    {
+      "id": "9d0c8fe4-5111-400b-8cbd-939135e7aa55",
+      "name": "WASM",
+      "slug": "wasm",
+      "description": "WebAssembly specification, reference interpreter, and test suite.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/11578470?v=4",
+      "githubUrl": "https://github.com/WebAssembly/spec",
+      "githubStars": 3394,
+      "language": "WebAssembly",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:12.519Z",
+      "vendor": null
+    },
+    {
+      "id": "daf887fe-f72c-4372-87f4-0559db0d1d02",
+      "name": "Yew",
+      "slug": "yew",
+      "description": "Rust / Wasm framework for creating reliable and efficient web applications",
+      "logoUrl": "https://avatars.githubusercontent.com/u/49116234?v=4",
+      "githubUrl": "https://github.com/yewstack/yew",
+      "githubStars": 32510,
+      "language": "Rust",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:13.102Z",
+      "vendor": null
+    },
+    {
+      "id": "52a0dd50-35e7-4d9f-9baf-1bff3c999701",
+      "name": "Qt",
+      "slug": "qt-framework",
+      "description": "Qt Base (Core, Gui, Widgets, Network, ...)",
+      "logoUrl": "https://avatars.githubusercontent.com/u/159455?v=4",
+      "githubUrl": "https://github.com/qt/qtbase",
+      "githubStars": 2994,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:24.107Z",
+      "vendor": null
+    },
+    {
+      "id": "93cdefa5-d16d-4e2c-8657-c291897105d5",
+      "name": "Laravel",
+      "slug": "laravel",
+      "description": "Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation for your next big idea — freeing you to create without sweating the small things.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/958072?v=4",
+      "githubUrl": "https://github.com/laravel/laravel",
+      "githubStars": 84048,
+      "language": "Blade",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:02.912Z",
+      "vendor": null
+    },
+    {
+      "id": "79532db9-a1a5-48e5-86b7-ea4ad2af4dbf",
+      "name": "GitLab",
+      "slug": "gitlab",
+      "description": "GitLab CE Mirror | Please open new issues in our issue tracker on GitLab.com",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1086321?v=4",
+      "githubUrl": "https://github.com/gitlabhq/gitlabhq",
+      "githubStars": 24287,
+      "language": "Ruby",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:57.245Z",
+      "vendor": null
+    },
+    {
+      "id": "7ef15a36-d799-4ea9-8f82-10bbc58cdf18",
+      "name": "Lambda",
+      "slug": "aws-lambda",
+      "description": null,
+      "logoUrl": "https://avatars.githubusercontent.com/u/2232217?v=4",
+      "githubUrl": "https://github.com/aws/aws-lambda-runtime-interface-emulator",
+      "githubStars": 1120,
+      "language": "Go",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:01.778Z",
+      "vendor": "AWS"
+    },
+    {
+      "id": "e19a63e2-d1fc-4918-8a0e-7bb47fb6bbfc",
+      "name": "Kali",
+      "slug": "kali-linux",
+      "description": null,
+      "logoUrl": null,
+      "githubUrl": "https://www.kali.org",
+      "githubStars": 0,
+      "language": null,
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:59.068Z",
+      "vendor": "Kali Linux"
+    },
+    {
+      "id": "f68c2fd8-85f8-4979-9899-11804ca42433",
+      "name": "MariaDB",
+      "slug": "mariadb",
+      "description": "MariaDB server is a community developed fork of MySQL server. Started by core members of the original MySQL team, MariaDB actively works with outside developers to deliver the most featureful, stable, and sanely licensed open SQL server in the industry.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/4739304?v=4",
+      "githubUrl": "https://github.com/MariaDB/server",
+      "githubStars": 7389,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:03.164Z",
+      "vendor": null
+    },
+    {
+      "id": "81907e58-bcea-4615-bd48-6d50ec0aa290",
+      "name": "Plone",
+      "slug": "plone",
+      "description": "The core of the Plone content management system",
+      "logoUrl": "https://avatars.githubusercontent.com/u/72034?v=4",
+      "githubUrl": "https://github.com/plone/Products.CMFPlone",
+      "githubStars": 306,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:05.998Z",
+      "vendor": null
+    },
+    {
+      "id": "dc42edbb-a367-4a43-9892-5c3f6cdb5c91",
+      "name": "Ruby",
+      "slug": "ruby",
+      "description": "The Ruby Programming Language",
+      "logoUrl": "https://avatars.githubusercontent.com/u/210414?v=4",
+      "githubUrl": "https://github.com/ruby/ruby",
+      "githubStars": 23481,
+      "language": "Ruby",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:06.735Z",
+      "vendor": null
+    },
+    {
+      "id": "ccbc41d1-fc56-4050-b51c-59e543e081ba",
+      "name": "Redis",
+      "slug": "redis",
+      "description": "For developers, who are building real-time data-driven applications, Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1529926?v=4",
+      "githubUrl": "https://github.com/redis/redis",
+      "githubStars": 73615,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:07.425Z",
+      "vendor": null
+    },
+    {
+      "id": "b2f0db27-d6ff-4472-9d2c-605ac26e7f0c",
+      "name": "RocksDB",
+      "slug": "rocksdb",
+      "description": "A library that provides an embeddable, persistent key-value store for fast storage.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/69631?v=4",
+      "githubUrl": "https://github.com/facebook/rocksdb",
+      "githubStars": 31682,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:07.628Z",
+      "vendor": null
+    },
+    {
+      "id": "9f927fc0-c15d-4923-a0b1-2e5b1050a046",
+      "name": "Svelte",
+      "slug": "svelte",
+      "description": "web development for the rest of us",
+      "logoUrl": "https://avatars.githubusercontent.com/u/23617963?v=4",
+      "githubUrl": "https://github.com/sveltejs/svelte",
+      "githubStars": 86144,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:08.452Z",
+      "vendor": null
+    },
+    {
+      "id": "3c60486e-9f11-4d17-8f45-41cc41533e63",
+      "name": "Scala",
+      "slug": "scala",
+      "description": "Scala 2 compiler and standard library. Scala 2 bugs at https://github.com/scala/bug; Scala 3 at https://github.com/scala/scala3",
+      "logoUrl": "https://avatars.githubusercontent.com/u/57059?v=4",
+      "githubUrl": "https://github.com/scala/scala",
+      "githubStars": 14448,
+      "language": "Scala",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:09.141Z",
+      "vendor": null
+    },
+    {
+      "id": "8fef8e29-5d6e-42b0-ba8a-d31cb3d3e78b",
+      "name": "Supabase",
+      "slug": "supabase",
+      "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/54469796?v=4",
+      "githubUrl": "https://github.com/supabase/supabase",
+      "githubStars": 100037,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:09.586Z",
+      "vendor": null
+    },
+    {
+      "id": "bcb1d27a-a4c3-44e4-b2c6-6b690be75c87",
+      "name": "Tornado",
+      "slug": "tornado",
+      "description": "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/7468980?v=4",
+      "githubUrl": "https://github.com/tornadoweb/tornado",
+      "githubStars": 22387,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:10.567Z",
+      "vendor": null
+    },
+    {
+      "id": "97de3e8e-916e-4f84-9e02-b2d6fb949196",
+      "name": "Zulip",
+      "slug": "zulip",
+      "description": "Zulip server and web application. Open-source team chat that helps teams stay productive and focused.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/4921959?v=4",
+      "githubUrl": "https://github.com/zulip/zulip",
+      "githubStars": 24977,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:13.313Z",
+      "vendor": null
+    },
+    {
+      "id": "0ce9e0e4-9d07-4897-8c0b-67d8308e56ba",
+      "name": "Wireshark",
+      "slug": "wireshark",
+      "description": "Read-only mirror of Wireshark's Git repository at https://gitlab.com/wireshark/wireshark. You're welcome to submit pull requests there.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6233056?v=4",
+      "githubUrl": "https://github.com/wireshark/wireshark",
+      "githubStars": 9134,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:11.826Z",
+      "vendor": null
+    },
+    {
+      "id": "3eff6f62-bd8b-48b4-8386-3e5db580ab49",
+      "name": "WordPress",
+      "slug": "wordpress",
+      "description": "WordPress, Git-ified. This repository is just a mirror of the WordPress subversion repository. Please do not send pull requests. Submit pull requests to https://github.com/WordPress/wordpress-develop and patches to https://core.trac.wordpress.org/ instead.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/276006?v=4",
+      "githubUrl": "https://github.com/WordPress/WordPress",
+      "githubStars": 20991,
+      "language": "PHP",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:12.148Z",
+      "vendor": null
+    },
+    {
+      "id": "77cea579-044f-432e-92ce-0195bc68b45d",
+      "name": "Xapian",
+      "slug": "xapian",
+      "description": "Mirror of the Xapian repository.  You're welcome to open pull requests on github (they'll just get merged indirectly).",
+      "logoUrl": "https://avatars.githubusercontent.com/u/312861?v=4",
+      "githubUrl": "https://github.com/xapian/xapian",
+      "githubStars": 871,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:12.730Z",
+      "vendor": null
+    },
+    {
+      "id": "0e08f8fe-6720-4937-a209-57c306fbaf42",
+      "name": "Yarn",
+      "slug": "yarn",
+      "description": "📦🐈 Active development trunk for Yarn ⚒",
+      "logoUrl": "https://avatars.githubusercontent.com/u/22247014?v=4",
+      "githubUrl": "https://github.com/yarnpkg/berry",
+      "githubStars": 8030,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:12.950Z",
+      "vendor": null
+    },
+    {
+      "id": "dd707cd9-a8bf-49cd-83db-347431f4b930",
+      "name": "Zig",
+      "slug": "zig",
+      "description": "Moved to Codeberg",
+      "logoUrl": "https://avatars.githubusercontent.com/u/27973237?v=4",
+      "githubUrl": "https://github.com/ziglang/zig",
+      "githubStars": 42805,
+      "language": "Zig",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:13.521Z",
+      "vendor": null
+    },
+    {
+      "id": "201a4479-1217-4cfd-ba2b-8bc7e415d4b0",
+      "name": "QEMU",
+      "slug": "qemu",
+      "description": "Official QEMU mirror. Please see https://www.qemu.org/contribute/ for how to submit changes to QEMU. Pull Requests are disabled. Please only use release tarballs from the QEMU website.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/2137033?v=4",
+      "githubUrl": "https://github.com/qemu/qemu",
+      "githubStars": 12921,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:24.406Z",
+      "vendor": null
+    },
+    {
+      "id": "28e62192-9ae9-42d9-b2b6-aef22fe049d1",
+      "name": "InfluxDB",
+      "slug": "influxdb",
+      "description": "Scalable datastore for metrics, events, and real-time analytics",
+      "logoUrl": "https://avatars.githubusercontent.com/u/5713248?v=4",
+      "githubUrl": "https://github.com/influxdata/influxdb",
+      "githubStars": 31369,
+      "language": "Rust",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:25.087Z",
+      "vendor": null
+    },
+    {
+      "id": "0b6c5d9a-06af-4021-b9b2-63faef924c7c",
+      "name": "Ionic",
+      "slug": "ionic",
+      "description": "A powerful cross-platform UI toolkit for building native-quality iOS, Android, and Progressive Web Apps with HTML, CSS, and JavaScript.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/3171503?v=4",
+      "githubUrl": "https://github.com/ionic-team/ionic-framework",
+      "githubStars": 52430,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:25.595Z",
+      "vendor": null
+    },
+    {
+      "id": "dfc4f92a-73b5-4b08-9cff-d358fec1d293",
+      "name": "IPython",
+      "slug": "ipython",
+      "description": "Official repository for IPython itself. Other repos in the IPython organization contain things like the website, documentation builds, etc.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/230453?v=4",
+      "githubUrl": "https://github.com/ipython/ipython",
+      "githubStars": 16692,
+      "language": "Python",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:25.902Z",
+      "vendor": null
+    },
+    {
+      "id": "61a5fb9c-992d-46fe-a2fc-fce672f0878b",
+      "name": "XGBoost",
+      "slug": "xgboost",
+      "description": "Scalable, Portable and Distributed Gradient Boosting (GBDT, GBRT or GBM) Library,  for Python, R, Java, Scala, C++ and more. Runs on single machine, Hadoop, Spark, Dask, Flink and DataFlow",
+      "logoUrl": "https://avatars.githubusercontent.com/u/11508361?v=4",
+      "githubUrl": "https://github.com/dmlc/xgboost",
+      "githubStars": 28203,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:26.755Z",
+      "vendor": null
+    },
+    {
+      "id": "fe9f3c4d-ec14-4b98-91ae-1301473f0f08",
+      "name": "Yeoman",
+      "slug": "yeoman",
+      "description": "CLI tool for running Yeoman generators",
+      "logoUrl": "https://avatars.githubusercontent.com/u/1714870?v=4",
+      "githubUrl": "https://github.com/yeoman/yo",
+      "githubStars": 3953,
+      "language": "JavaScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:27.753Z",
+      "vendor": null
+    },
+    {
+      "id": "83412316-e817-4365-b745-67327b7bdd39",
+      "name": "Mermaid",
+      "slug": "mermaid",
+      "description": "Generation of diagrams like flowcharts or sequence diagrams from text in a similar manner as markdown",
+      "logoUrl": "https://avatars.githubusercontent.com/u/57169982?v=4",
+      "githubUrl": "https://github.com/mermaid-js/mermaid",
+      "githubStars": 87047,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:02.788Z",
+      "vendor": null
+    },
+    {
+      "id": "788ca7ee-1cf9-4a13-94f4-d7a0c2b0dc0d",
+      "name": "SQL Server",
+      "slug": "microsoft-sql",
+      "description": "Official Microsoft repository for SQL Server in Docker resources",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6154722?v=4",
+      "githubUrl": "https://github.com/microsoft/mssql-docker",
+      "githubStars": 1867,
+      "language": "Dockerfile",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:03.466Z",
+      "vendor": "Microsoft"
+    },
+    {
+      "id": "6c6be51c-3647-4dd6-a146-2b2ca9c90227",
+      "name": "Elasticsearch",
+      "slug": "elasticsearch",
+      "description": "Free and Open Source, Distributed, RESTful Search Engine",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6764390?v=4",
+      "githubUrl": "https://github.com/elastic/elasticsearch",
+      "githubStars": 76392,
+      "language": "Java",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:50.409Z",
+      "vendor": null
+    },
+    {
+      "id": "4bc76c4d-c6df-4b02-8095-45fc4c952529",
+      "name": "Apollo",
+      "slug": "apollo",
+      "description": "The industry-leading GraphQL client for TypeScript, JavaScript, React, Vue, Angular, and more. Apollo Client delivers powerful caching, intuitive APIs, and comprehensive developer tools to accelerate your app development.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/17189275?v=4",
+      "githubUrl": "https://github.com/apollographql/apollo-client",
+      "githubStars": 19720,
+      "language": "TypeScript",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T17:04:04.027Z",
+      "vendor": null
+    },
+    {
+      "id": "d2d3f896-9082-418b-a305-a0fb5467e0be",
+      "name": "Haskell",
+      "slug": "haskell",
+      "description": "Mirror of the Glasgow Haskell Compiler. Please submit issues and patches to GHC's Gitlab instance (https://gitlab.haskell.org/ghc/ghc). First time contributors are encouraged to get started with the newcomers info (https://gitlab.haskell.org/ghc/ghc/wikis/contributing).",
+      "logoUrl": "https://avatars.githubusercontent.com/u/705657?v=4",
+      "githubUrl": "https://github.com/ghc/ghc",
+      "githubStars": 3228,
+      "language": "Haskell",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:36:58.324Z",
+      "vendor": null
+    },
+    {
+      "id": "b8d9695e-5d54-4da7-aa28-ffc020a16488",
+      "name": "Oracle DB",
+      "slug": "oracle-database",
+      "description": "Official source of container configurations, images, and examples for Oracle products and projects",
+      "logoUrl": "https://avatars.githubusercontent.com/u/4430336?v=4",
+      "githubUrl": "https://github.com/oracle/docker-images",
+      "githubStars": 6961,
+      "language": "Shell",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:05.327Z",
+      "vendor": "Oracle"
+    },
+    {
+      "id": "24e4d7a1-3db6-4947-9eb4-6f4001269638",
+      "name": "Redmine",
+      "slug": "redmine",
+      "description": "Mirror of redmine code source - Official Subversion repository is at https://svn.redmine.org/redmine - contact: @vividtone or maeda (at) farend (dot) jp",
+      "logoUrl": "https://avatars.githubusercontent.com/u/93662?v=4",
+      "githubUrl": "https://github.com/redmine/redmine",
+      "githubStars": 5923,
+      "language": "Ruby",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:07.698Z",
+      "vendor": null
+    },
+    {
+      "id": "10312c2d-8aae-44b6-b1e8-7c636708b21f",
+      "name": "Telegram",
+      "slug": "telegram",
+      "description": "Telegram Desktop messaging app",
+      "logoUrl": "https://avatars.githubusercontent.com/u/6113871?v=4",
+      "githubUrl": "https://github.com/telegramdesktop/tdesktop",
+      "githubStars": 30374,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:10.100Z",
+      "vendor": null
+    },
+    {
+      "id": "4f16d4ce-961a-46ce-a791-fbc42bd8a70c",
+      "name": "lighttpd",
+      "slug": "lighttpd",
+      "description": "lighttpd1.4 on github for easier collaboration - main repo still on lighttpd.net",
+      "logoUrl": "https://avatars.githubusercontent.com/u/796438?v=4",
+      "githubUrl": "https://github.com/lighttpd/lighttpd1.4",
+      "githubStars": 693,
+      "language": "C",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:01.410Z",
+      "vendor": null
+    },
+    {
+      "id": "d14f64da-049c-4b23-9867-93bbd18acb7f",
+      "name": "MySQL",
+      "slug": "mysql",
+      "description": "MySQL Server, the world's most popular open source database, and MySQL Cluster, a real-time, open source transactional database.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/2452804?v=4",
+      "githubUrl": "https://github.com/mysql/mysql-server",
+      "githubStars": 12187,
+      "language": "C++",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-03-31T16:50:48.148Z",
+      "vendor": null
+    },
+    {
+      "id": "83eaf54b-baef-4a2e-bc84-876e654a1f47",
+      "name": "Yocto",
+      "slug": "yocto",
+      "description": "Mirror of https://git.yoctoproject.org/poky/.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/69922175?v=4",
+      "githubUrl": "https://github.com/yoctoproject/poky",
+      "githubStars": 440,
+      "language": null,
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:45:28.286Z",
+      "vendor": "Yocto Project"
+    },
+    {
+      "id": "ff411827-1df3-4520-b350-7a6f08fd1955",
+      "name": "uv",
+      "slug": "uv",
+      "description": "An extremely fast Python package and project manager, written in Rust.",
+      "logoUrl": "https://avatars.githubusercontent.com/u/115962839?v=4",
+      "githubUrl": "https://github.com/astral-sh/uv",
+      "githubStars": 82475,
+      "language": "Rust",
+      "status": "approved",
+      "discoveredById": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "createdAt": "2026-04-02T07:37:11.223Z",
+      "vendor": null
+    }
+  ],
+  "Stack": [
+    {
+      "id": "84f38932-0a63-48d5-8d5b-96ee84e81dc7",
+      "acronym": "LAMP",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "Microsoft's IIS + SQL Server stack",
+        "industries": "Web hosting, enterprise web applications",
+        "notableFeature": "The OG open-source web stack"
+      },
+      "description": "Ah, the LAMP stack — the granddaddy of them all. Linux keeps the lights on (literally, it IS the light), Apache serves your pages like a tireless waiter who never takes a break, MySQL remembers everything you've ever told it in neat little rows and columns, and PHP... well, PHP ties it all together with the enthusiasm of a developer who discovered string concatenation and never looked back. Together, they power roughly half the internet, including every WordPress blog your aunt has ever started and abandoned.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:11.054Z",
+      "externalAttribution": {
+        "note": "Kunze deliberately coined the acronym as a marketing device for free/open-source software.",
+        "year": 1998,
+        "source": "c't magazine (Germany)",
+        "inventors": [
+          {
+            "url": "https://en.wikipedia.org/wiki/LAMP_(software_bundle)",
+            "name": "Michael Kunze"
+          }
+        ]
+      }
+    },
+    {
+      "id": "6ac664e1-d1ad-4b13-99b0-6c4fc494581e",
+      "acronym": "MEAN",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "LAMP",
+        "industries": "Full-stack JavaScript web applications, startups",
+        "notableFeature": "JavaScript everywhere — front to back"
+      },
+      "description": "The MEAN stack is what happens when JavaScript developers look at the server and say 'we can take that too.' MongoDB stores your data as JSON (because everything is JSON now), Express handles routing with the quiet competence of a librarian, Angular builds your frontend with more decorators than a Christmas tree, and Node.js ties it all together by running JavaScript on the server — something that was once considered a war crime. It's JavaScript all the way down, which is either brilliant or terrifying depending on your relationship with callback functions.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:11.511Z",
+      "externalAttribution": {
+        "note": "Karpov was a Node.js engineer at MongoDB. He coined it saying: 'My team uses a set of tools that we affectionately call the MEAN stack.'",
+        "year": 2013,
+        "source": "Blog post: 'The MEAN Stack' on thecodebarbarian.com",
+        "inventors": [
+          {
+            "url": "https://thecodebarbarian.com",
+            "name": "Valeri Karpov"
+          }
+        ]
+      }
+    },
+    {
+      "id": "45934939-242e-46c2-86fd-0a056f970e10",
+      "acronym": "MERN",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "MEAN (Angular instead of React)",
+        "industries": "Single-page applications, startups, bootcamps",
+        "notableFeature": "React's component model for building UIs"
+      },
+      "description": "MERN is MEAN's cooler younger sibling who showed up to the party wearing React instead of Angular and immediately became more popular. MongoDB still stores your documents, Express still routes your requests, and Node.js still runs your server — but React brings the component-based UI magic that makes frontend developers feel like they're building with Lego instead of wrestling with spaghetti. It dominates bootcamp curricula worldwide, which means roughly 40% of all junior developer portfolios are built on it.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:11.957Z",
+      "externalAttribution": {
+        "note": "Natural evolution from MEAN as React surpassed Angular in popularity. No single coiner identified.",
+        "year": 2015,
+        "source": "Popularized by Hashnode's mern-starter project",
+        "inventors": [
+          {
+            "name": "Community"
+          }
+        ]
+      }
+    },
+    {
+      "id": "26b93882-2bd1-4f43-9de0-519fb134fb22",
+      "acronym": "PERN",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "MERN (MongoDB instead of PostgreSQL)",
+        "industries": "Web applications requiring relational data integrity",
+        "notableFeature": "PostgreSQL's relational power with React's UI model"
+      },
+      "description": "PERN is for developers who looked at MERN and said 'I love everything about this except the part where my data has no schema.' PostgreSQL brings actual relational integrity — foreign keys, constraints, the works — while Express and Node.js handle the server side and React makes the frontend sparkle. It's the responsible adult version of the JavaScript full-stack, chosen by teams who've been burned by MongoDB's 'eh, just throw it in a document' approach one too many times.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:12.423Z",
+      "externalAttribution": {
+        "year": 2016,
+        "source": "Blog post on dandreamsofcoding.com",
+        "inventors": [
+          {
+            "url": "https://dandreamsofcoding.com/2016/07/25/the-pern-stack/",
+            "name": "Dan"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e30bdc53-0ee5-411b-a9a5-a8ae505ea8d3",
+      "acronym": "ELK",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "Splunk",
+        "industries": "DevOps, observability, log analytics",
+        "notableFeature": "Full-text search across all your logs"
+      },
+      "description": "The ELK stack is what happens when you have so many logs that you need a search engine just to find out what went wrong at 3 AM. Elasticsearch indexes everything faster than you can say 'why is the server on fire,' Logstash ingests data from approximately nine thousand different sources and transforms it into something useful, and Kibana turns all that chaos into beautiful dashboards that make your ops team look like they know what they're doing. Used by Netflix, eBay, and every SRE who's ever been paged at dinner.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:12.876Z",
+      "externalAttribution": {
+        "note": "Officially rebranded to 'Elastic Stack' in 2016 to accommodate Beats, but everyone still calls it ELK.",
+        "year": 2013,
+        "source": "Community-coined after the three creators joined Elastic",
+        "inventors": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Elasticsearch",
+            "name": "Shay Banon"
+          },
+          {
+            "name": "Jordan Sissel"
+          },
+          {
+            "name": "Rashid Khan"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c882bb5b-cf97-471e-bb9d-26492526cb6b",
+      "acronym": "TALL",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "VILT (Vue + Inertia + Laravel + Tailwind)",
+        "industries": "Rapid web application development, Laravel ecosystem",
+        "notableFeature": "Full-stack reactivity without leaving PHP"
+      },
+      "description": "The TALL stack is the Laravel community's answer to JavaScript fatigue. Tailwind CSS makes your HTML look like someone spilled a Scrabble board on it but somehow it comes out beautiful, Alpine.js adds just enough interactivity without requiring a build step, Laravel provides the most elegant PHP framework known to humanity, and Livewire lets you build reactive UIs entirely in PHP — because who needs a JavaScript framework when you have Caleb Porzio's sheer force of will? It's full-stack development for people who actually like PHP.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:13.211Z",
+      "externalAttribution": {
+        "note": "Porzio created both Alpine.js and Livewire, making him the most likely originator.",
+        "year": 2020,
+        "source": "tallstack.dev",
+        "inventors": [
+          {
+            "url": "https://github.com/calebporzio",
+            "name": "Caleb Porzio"
+          },
+          {
+            "name": "Matt Stauffer"
+          },
+          {
+            "name": "Tony Lea"
+          }
+        ]
+      }
+    },
+    {
+      "id": "94e44721-0a8a-4782-9777-975b03b66511",
+      "acronym": "BETH",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "MERN, Next.js",
+        "industries": "Hypermedia-driven web applications",
+        "notableFeature": "Server-rendered HTML with minimal JavaScript"
+      },
+      "description": "The BETH stack is the hipster cousin who showed up to Thanksgiving dinner and won't stop talking about how we've been doing web development wrong for fifteen years. Bun runs your JavaScript faster than Node ever could (and lets you know about it), Elysia serves your routes with TypeScript-first elegance, Turso keeps your SQLite database at the edge because latency is the enemy, and HTMX lets you build interactive UIs by... writing HTML attributes. That's it. No virtual DOM, no hydration, no build step — just good old hypermedia the way Tim Berners-Lee intended.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:13.666Z",
+      "externalAttribution": {
+        "year": 2023,
+        "source": "YouTube video and GitHub repo",
+        "inventors": [
+          {
+            "url": "https://github.com/ethanniser",
+            "name": "Ethan Niser"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b35334c2-5db2-405a-b3f7-6f7e54a06359",
+      "acronym": "PETAL",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "Rails + Hotwire, Next.js",
+        "industries": "Real-time web applications, high-concurrency systems",
+        "notableFeature": "Real-time server-rendered UIs on the BEAM VM"
+      },
+      "description": "The PETAL stack is what you get when Erlang's battle-tested concurrency model puts on a beautiful dress and goes to a web development party. Phoenix handles your web layer with Rails-like productivity, Elixir makes functional programming feel friendly, Tailwind CSS keeps things pretty, Alpine.js adds client-side sprinkles, and LiveView — the real star — lets you build real-time interactive UIs with server-rendered HTML pushed over WebSockets. No JavaScript framework needed. Your app can handle two million simultaneous connections on a single server, which is probably overkill for your todo app but very impressive at parties.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:14.123Z",
+      "externalAttribution": {
+        "year": 2020,
+        "source": "Thinking Elixir Podcast",
+        "inventors": [
+          {
+            "name": "Patrick Thompson"
+          }
+        ]
+      }
+    },
+    {
+      "id": "73bae1ca-4423-4d7d-b2a6-0419808f095a",
+      "acronym": "GRAND",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "MERN with REST APIs",
+        "industries": "Graph-heavy applications, knowledge management, social networks",
+        "notableFeature": "Graph database with GraphQL API — graphs all the way down"
+      },
+      "description": "The GRAND stack is for developers who realized their data is more about relationships than rows. GraphQL lets your frontend ask for exactly what it needs (no more, no less), React renders it beautifully, Apollo manages the data layer with caching that actually works, and Neo4j stores everything as nodes and edges because your data is a graph whether you admit it or not. It's particularly popular for recommendation engines, fraud detection, and that social network you're definitely going to build someday.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:14.641Z",
+      "externalAttribution": {
+        "note": "Lyon was Staff Developer Advocate at Neo4j.",
+        "year": 2017,
+        "source": "Announced at GraphQL Summit 2017",
+        "inventors": [
+          {
+            "url": "https://lyonwj.com",
+            "name": "William Lyon"
+          }
+        ]
+      }
+    },
+    {
+      "id": "84d42382-0c5a-4b12-986d-5915dcaf91e0",
+      "acronym": "SAFE",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "ASP.NET + React",
+        "industries": "Enterprise web applications in the .NET/F# ecosystem",
+        "notableFeature": "End-to-end F# — functional programming from server to browser"
+      },
+      "description": "The SAFE stack is functional programming's answer to full-stack web development, and it's entirely in F#. Saturn provides the server framework with an elegant computation expression API, Azure hosts it all in Microsoft's cloud, Fable compiles your F# to JavaScript (because why would you write JavaScript when you could write F# instead?), and Elmish brings the Elm architecture to your frontend. It's type-safe from database to DOM, which means if it compiles, it probably works. The F# community is small but fierce, and SAFE is their crown jewel.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:15.097Z",
+      "externalAttribution": {
+        "year": 2017,
+        "source": "safe-stack.github.io",
+        "inventors": [
+          {
+            "url": "https://www.compositional-it.com",
+            "name": "Isaac Abraham"
+          }
+        ]
+      }
+    },
+    {
+      "id": "f6e2acad-7247-4e56-9e39-41a815006f4c",
+      "acronym": "FARM",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "Django + React",
+        "industries": "Modern Python web applications, APIs, data science frontends",
+        "notableFeature": "FastAPI's automatic OpenAPI docs and async Python"
+      },
+      "description": "The FARM stack is what happens when Python developers finally get a web framework that's as fast as they always claimed Python could be. FastAPI serves your API with automatic documentation, type validation, and async support that makes Flask look like it's running on a hamster wheel. React handles the frontend because what else would you use, and MongoDB stores your data as documents because your Python dicts were basically JSON anyway. It's the modern Python web stack for people who want type hints, speed, and zero boilerplate.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:15.495Z",
+      "externalAttribution": {
+        "year": 2021,
+        "source": "Popularized by MongoDB Developer Blog",
+        "inventors": [
+          {
+            "name": "Community"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a6e1899-d0c7-499a-8ec5-70143028cacb",
+      "acronym": "FERN",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "MERN (self-hosted MongoDB instead of Firebase)",
+        "industries": "Real-time apps, rapid prototyping, hackathons",
+        "notableFeature": "Firebase's real-time database and zero-config auth"
+      },
+      "description": "The FERN stack is MERN's cloud-native cousin who traded self-hosted MongoDB for Firebase and never looked back. Firebase handles auth, real-time database, hosting, and approximately seventeen other things you'd otherwise have to set up yourself. Express and Node.js do the server-side heavy lifting, and React builds the UI. It's the stack of choice for hackathons, MVPs, and that side project you're going to ship this weekend (you won't, but Firebase makes it feel possible).",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-03-31T05:00:00.000Z",
+      "createdAt": "2026-03-31T17:04:15.825Z",
+      "externalAttribution": {
+        "year": 2019,
+        "source": "Various dev.to discussions",
+        "inventors": [
+          {
+            "name": "Community"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c0744f60-5a8f-4d7e-b093-3bae507e6b08",
+      "acronym": "AEFS",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "Space freight",
+        "industries": "Grocery delivery",
+        "notableFeature": "Telephony"
+      },
+      "description": "The AEFS stack is a modern full-stack architecture that separates concerns across the frontend state layer, backend API logic, and deployment infrastructure. **Elmish** handles all client-side state management and UI rendering, providing a functional, event-driven architecture that keeps the frontend predictable and testable. This feeds into **FastAPI**, which serves as the core business logic layer—a high-performance Python framework that processes requests, orchestrates domain logic, and exposes a clean REST or GraphQL interface. **Saturn** sits between these layers as a specialized routing and middleware orchestrator, managing request lifecycle, authentication flows, and cross-cutting concerns like logging and validation before they hit FastAPI's handlers. Finally, **Apache** provides the HTTP server foundation and reverse proxy layer, handling SSL termination, load balancing, and static asset serving at the edge. This layering allows teams to scale each component independently: the frontend can be rebuilt without touching the backend, FastAPI can be load-balanced horizontally, and Apache can be tuned for throughput without affecting business logic.\n\nThe stack's strength lies in its clean separation of responsibilities and language diversity. Elmish brings functional reactive patterns to the client, while FastAPI leverages Python's ecosystem for rapid backend development. Saturn acts as the glue layer, allowing you to decouple frontend state changes from backend implementation details—requests flow through Saturn's middleware chain for enrichment before reaching FastAPI handlers. Apache ensures that whatever load your application receives hits a battle-tested, tunable HTTP server. This isn't a \"batteries included\" monolith; it's a deliberate choice to use the right tool at each layer, with clear interfaces between them.",
+      "rerollsToday": 1,
+      "lastRerollDate": "2026-04-01T05:00:00.000Z",
+      "createdAt": "2026-04-01T07:38:11.618Z",
+      "externalAttribution": null
+    },
+    {
+      "id": "75ff6a16-a080-49c6-b6b9-c76c3c5bb751",
+      "acronym": "PPBA",
+      "creatorId": null,
+      "questionnaire": {
+        "competitor": "ghosts",
+        "industries": "ghost hunting",
+        "notableFeature": "not hunting ghosts"
+      },
+      "description": "# The PPBA Stack\n\nThe PPBA stack is a full-stack JavaScript and backend architecture designed for applications that need both lightweight edge computing and a robust persistent data layer. **Bun** serves as our primary JavaScript runtime and build tool, handling all frontend tooling, package management, and server-side JavaScript execution with superior performance compared to Node.js. **Angular** is our frontend framework, providing a comprehensive, opinionated structure for complex single-page applications with built-in dependency injection, RxJS reactivity, and strong TypeScript support. This frontend layer communicates with our backend services via REST or gRPC APIs, allowing us to maintain a clear separation of concerns.\n\nOn the backend, **PHP** handles our business logic and API endpoints, leveraging its mature ecosystem of frameworks and libraries for rapid feature development. PHP runs as a FastCGI service behind a reverse proxy, processing requests that come from the Angular frontend or other clients. **PostgreSQL** is our source of truth—a powerful relational database that handles all persistent data storage, complex queries, and ACID compliance requirements that our application demands. The PHP backend connects directly to PostgreSQL, managing migrations, transactions, and data integrity while exposing cleaned, filtered data through well-defined API contracts.\n\nThis hybrid approach lets teams maximize developer productivity: frontend engineers work in a modern, unified TypeScript environment with Bun and Angular, while backend engineers leverage PHP's rapid iteration cycles and PostgreSQL's reliability. API contracts are defined upfront, enabling parallel development streams. Bun's performance benefits the build pipeline and any Node-based tooling, while PHP's stability and library depth remain proven for handling complex server-side operations.",
+      "rerollsToday": 1,
+      "lastRerollDate": "2026-04-01T05:00:00.000Z",
+      "createdAt": "2026-04-01T07:42:55.065Z",
+      "externalAttribution": null
+    },
+    {
+      "id": "fb8ef253-abb6-4a88-baff-1c35517f692f",
+      "acronym": "ARAL",
+      "creatorId": null,
+      "questionnaire": {},
+      "description": "# The ARAL Stack\n\nThe ARAL stack combines our frontend frameworks with centralized logging to deliver a resilient, observable web application. We use Angular as our primary application framework for complex, stateful views that require sophisticated dependency injection and TypeScript-first development. React handles our component library and isolated UI features that benefit from a virtual DOM approach, allowing us to maintain both architectures without conflict by keeping them in separate application domains. Alpine.js provides lightweight interactivity for server-rendered pages and progressive enhancement where we don't need the overhead of a full framework, keeping our initial page loads fast and our bundle sizes reasonable.\n\nOn the infrastructure side, Logstash aggregates logs from all three frontend frameworks, our Node backend services, and application events into a centralized pipeline. Every user interaction, error, and state change flows through Logstash, which parses, enriches, and forwards the data to our ELK stack for real-time monitoring and historical analysis. This unified logging layer gives us complete visibility into how Angular, React, and Alpine.js are performing across the application, letting us quickly identify bottlenecks and debug issues in production. The separation of frameworks is intentional—each handles the part of the application where it excels, while Logstash ensures we never lose observability across the entire system.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-04-02T05:00:00.000Z",
+      "createdAt": "2026-04-02T06:24:04.062Z",
+      "externalAttribution": null
+    },
+    {
+      "id": "ceb5476d-280e-49ac-991e-11821e26f195",
+      "acronym": "DEULEY",
+      "creatorId": null,
+      "questionnaire": {},
+      "description": "# The DEULEY Stack\n\nThe DEULEY stack is a modern full-stack architecture designed for applications that require sophisticated backend logic, responsive frontend experiences, and blockchain integration. Django serves as our core web framework, handling API endpoints, business logic, and server-side rendering with the reliability and speed required when you're shipping on deadline. We pair this with Ember.js on the frontend, which provides the structure and conventions we need to build ambitious, stateful web applications without constant context-switching between architectural paradigms.\n\nOur Python ecosystem is managed through uv, a high-performance package manager that keeps our Django dependencies locked and reproducible while dramatically reducing installation times across our development and CI/CD pipelines. On the application side, LangChain enables us to build agentic features—RAG pipelines, autonomous workflows, and AI-powered decision-making—directly within our Django views and background tasks, giving us sophisticated AI capabilities without maintaining a separate services layer.\n\nFor our blockchain infrastructure, we run Ethereum as our settlement layer and smart contract platform, allowing us to offer users transparent, cryptographically-verified transactions and on-chain state management where it matters. JavaScript dependencies and build tooling are coordinated through Yarn, which ensures deterministic installs and seamless integration with our Ember.js frontend build pipeline. Together, these components create a coherent system: a traditional web application backed by intelligent agents and secured by distributed ledger verification.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-04-02T05:00:00.000Z",
+      "createdAt": "2026-04-02T07:58:45.418Z",
+      "externalAttribution": {
+        "inventors": [
+          {
+            "url": "/u/mocha",
+            "name": "@mocha"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cd5e0240-fa0d-4154-9b0a-7ea9708c4291",
+      "acronym": "TACO",
+      "creatorId": null,
+      "questionnaire": {},
+      "description": "# The TACO Stack\n\nThe TACO stack is a full-featured architecture designed for applications that require real-time communications alongside sophisticated graph-based data retrieval. At its core, Tomcat serves as the application server, hosting our REST APIs and handling HTTP request routing. It's lightweight, battle-tested, and gives us fine-grained control over deployment and resource management. Tomcat connects to both our communication layer and our persistent data stores, making it the natural orchestration point for the entire system.\n\nAsterisk handles all telephony and real-time communication features, whether that's VoIP call routing, IVR systems, or SIP protocol management. Our Tomcat application servers communicate with Asterisk via AMI (Asterisk Manager Interface) or REST endpoints when we need to initiate calls, transfer sessions, or log call metadata. This separation of concerns keeps our business logic clean while Asterisk focuses on what it does best: managing complex communication workflows at scale.\n\nOur data layer uses Oracle DB for transactional data and operational records, while Cypher running against a property graph database handles relationship-heavy queries—think social networks, recommendation engines, or call routing decision trees. When the application needs to determine the optimal call path based on customer history, network relationships, or service dependencies, it queries the graph via Cypher. For consistent, ACID-compliant transactional data like billing records and user accounts, we write to Oracle. This dual-database approach lets us optimize for the query patterns each workload demands without compromise.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-04-02T05:00:00.000Z",
+      "createdAt": "2026-04-02T08:02:45.018Z",
+      "externalAttribution": {
+        "inventors": [
+          {
+            "url": "/u/mocha",
+            "name": "@mocha"
+          }
+        ]
+      }
+    },
+    {
+      "id": "98e0213d-d2c8-41f0-9b77-aab9b014a6aa",
+      "acronym": "LLLL",
+      "creatorId": null,
+      "questionnaire": {},
+      "description": "# The LLLL Stack\n\nThe LLLL stack pairs Laravel with Livewire for rapid full-stack web development, while leveraging LangChain and Lisp for specialized computational workloads. Laravel serves as our primary application framework, handling HTTP routing, database orchestration, and business logic in a familiar, expressive environment. Livewire sits on top of Laravel to eliminate context-switching between frontend and backend—it gives us reactive, dynamic UIs without writing JavaScript, keeping the entire application within Laravel's PHP ecosystem.\n\nFor operations requiring complex reasoning or agent-based workflows, we delegate to LangChain, our agent engineering platform. LangChain handles the coordination of language models, memory management, and tool integration—essentially running autonomous decision-making loops that the Laravel application can invoke via API calls. When LangChain needs to perform heavy symbolic computation or maintain high-performance constraint solving, it spawns isolated Lisp processes using Steel Bank Common Lisp. Lisp's macro system and native support for symbolic manipulation make it ideal for the kinds of logical reasoning tasks that would otherwise bottleneck LangChain's Python runtime.\n\nThe architecture keeps concerns cleanly separated: Laravel and Livewire own the user-facing application and request handling, LangChain manages agentic AI workflows, and Lisp provides a performant execution layer for computationally intensive symbolic work. Communication flows through well-defined API boundaries, allowing each component to scale independently while remaining simple to reason about.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-04-02T05:00:00.000Z",
+      "createdAt": "2026-04-02T08:07:38.176Z",
+      "externalAttribution": {
+        "inventors": [
+          {
+            "url": "/u/mocha",
+            "name": "@mocha"
+          }
+        ]
+      }
+    },
+    {
+      "id": "68f35e78-d372-4e9b-8bbd-c79aadb0feab",
+      "acronym": "UNI",
+      "creatorId": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "questionnaire": {},
+      "description": "# The UNI Stack\n\nThe UNI stack is a modern, graph-native architecture built on Ubuntu, Neo4j, and Istio. Ubuntu serves as our foundational operating system across all nodes in the cluster, providing a stable, hardened Linux environment where our containerized services run. Neo4j handles our primary data layer, storing and querying complex, highly-connected datasets as a native graph database. This choice lets us model relationships between entities—users, transactions, permissions, recommendations—as first-class citizens rather than expensive joins, which is critical for the real-time queries our platform demands. Istio sits at the service mesh layer, managing all inter-service communication, encryption, and observability across the cluster.\n\nThe three components work together deliberately. As services deployed on Ubuntu containers need to communicate with each other and with Neo4j, Istio intercepts and governs that traffic without requiring changes to application code. It handles service-to-service authentication, enforces network policies, and gives us distributed tracing across all calls to the graph database. Neo4j's Cypher queries often fan out across multiple microservices—pulling related data from different domains—so Istio's traffic management, retry logic, and circuit breaking become essential for reliability. Ubuntu underpins everything, ensuring consistent kernel behavior, security patches, and container runtime stability across development, staging, and production environments.\n\nThis stack is particularly effective for applications where relationship queries and service interdependency are both high. We chose it because we needed a database that thinks in graphs, an operating system we could standardize on, and a service mesh that would give us observability and control without rewriting our services. It's not a one-size-fits-all choice, but for this workload, the three components complement each other naturally.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-04-02T05:00:00.000Z",
+      "createdAt": "2026-04-02T08:51:27.081Z",
+      "externalAttribution": {
+        "inventors": [
+          {
+            "url": "/u/mocha",
+            "name": "@mocha"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d1037c4f-3bf1-471d-8001-8b0e3413f2e4",
+      "acronym": "KIL",
+      "creatorId": "2adc25ba-76df-423a-8be8-31c7426925a6",
+      "questionnaire": {},
+      "description": "# The KIL Stack\n\nThe KIL stack is our event-driven data analytics platform, built around three core components that handle ingestion, computation, and infrastructure. **Kafka** serves as the backbone of the system, ingesting streams of data from distributed sources and maintaining a persistent, replicated log that allows us to process events at scale. It decouples our data producers from consumers, giving us flexibility to add new analytics workloads without disrupting the pipeline. We run Kafka clusters across multiple nodes to handle throughput in the gigabytes-per-second range.\n\n**IPython** is our interactive computation and analysis layer, where data engineers and scientists develop transformations, validate hypotheses, and prototype new features against the Kafka streams. We've containerized IPython instances that connect directly to our Kafka brokers, allowing teams to write Python code that consumes and transforms event data in real time. This gives us a fast feedback loop during development while keeping experimental work isolated from production consumers.\n\nThe entire stack runs on **Linux** infrastructure—our Kafka brokers, IPython containers, and supporting services all operate on hardened Linux distributions optimized for networking and I/O performance. Linux gives us the process isolation, scheduling control, and system observability we need to run both the streaming platform and interactive workloads reliably. By controlling the kernel layer directly, we can tune network buffers and tune CPU affinity for Kafka brokers to maximize throughput, while maintaining the flexibility IPython needs for development and debugging.",
+      "rerollsToday": 0,
+      "lastRerollDate": "2026-04-02T05:00:00.000Z",
+      "createdAt": "2026-04-02T09:15:11.211Z",
+      "externalAttribution": {
+        "inventors": [
+          {
+            "url": "/u/mocha",
+            "name": "@mocha"
+          }
+        ]
+      }
+    }
+  ],
+  "StackTechnology": [
+    {
+      "stackId": "84f38932-0a63-48d5-8d5b-96ee84e81dc7",
+      "technologyId": "78efb905-33ec-4f23-bf30-9c854dff48ad",
+      "position": 0
+    },
+    {
+      "stackId": "84f38932-0a63-48d5-8d5b-96ee84e81dc7",
+      "technologyId": "34f4b7ea-b4ca-4848-912a-45180e1cd5dc",
+      "position": 1
+    },
+    {
+      "stackId": "84f38932-0a63-48d5-8d5b-96ee84e81dc7",
+      "technologyId": "d14f64da-049c-4b23-9867-93bbd18acb7f",
+      "position": 2
+    },
+    {
+      "stackId": "84f38932-0a63-48d5-8d5b-96ee84e81dc7",
+      "technologyId": "e58ba4ec-6116-484d-983d-6bf49e745ec9",
+      "position": 3
+    },
+    {
+      "stackId": "6ac664e1-d1ad-4b13-99b0-6c4fc494581e",
+      "technologyId": "a992b790-a617-4ad2-88ed-ac03e2e0c77f",
+      "position": 0
+    },
+    {
+      "stackId": "6ac664e1-d1ad-4b13-99b0-6c4fc494581e",
+      "technologyId": "19eee0fa-e83b-4483-b748-978764d3ff7b",
+      "position": 1
+    },
+    {
+      "stackId": "6ac664e1-d1ad-4b13-99b0-6c4fc494581e",
+      "technologyId": "57597d33-07d1-4575-afb9-54bea5aea658",
+      "position": 2
+    },
+    {
+      "stackId": "6ac664e1-d1ad-4b13-99b0-6c4fc494581e",
+      "technologyId": "058579b4-ac51-4054-b940-95e1aa85b938",
+      "position": 3
+    },
+    {
+      "stackId": "45934939-242e-46c2-86fd-0a056f970e10",
+      "technologyId": "a992b790-a617-4ad2-88ed-ac03e2e0c77f",
+      "position": 0
+    },
+    {
+      "stackId": "45934939-242e-46c2-86fd-0a056f970e10",
+      "technologyId": "19eee0fa-e83b-4483-b748-978764d3ff7b",
+      "position": 1
+    },
+    {
+      "stackId": "45934939-242e-46c2-86fd-0a056f970e10",
+      "technologyId": "2d306e63-9ceb-4d75-8d71-2b1f2ceae7b8",
+      "position": 2
+    },
+    {
+      "stackId": "45934939-242e-46c2-86fd-0a056f970e10",
+      "technologyId": "058579b4-ac51-4054-b940-95e1aa85b938",
+      "position": 3
+    },
+    {
+      "stackId": "26b93882-2bd1-4f43-9de0-519fb134fb22",
+      "technologyId": "fbe6b153-29fb-433e-a236-f63ab726893f",
+      "position": 0
+    },
+    {
+      "stackId": "26b93882-2bd1-4f43-9de0-519fb134fb22",
+      "technologyId": "19eee0fa-e83b-4483-b748-978764d3ff7b",
+      "position": 1
+    },
+    {
+      "stackId": "26b93882-2bd1-4f43-9de0-519fb134fb22",
+      "technologyId": "2d306e63-9ceb-4d75-8d71-2b1f2ceae7b8",
+      "position": 2
+    },
+    {
+      "stackId": "26b93882-2bd1-4f43-9de0-519fb134fb22",
+      "technologyId": "058579b4-ac51-4054-b940-95e1aa85b938",
+      "position": 3
+    },
+    {
+      "stackId": "e30bdc53-0ee5-411b-a9a5-a8ae505ea8d3",
+      "technologyId": "6c6be51c-3647-4dd6-a146-2b2ca9c90227",
+      "position": 0
+    },
+    {
+      "stackId": "e30bdc53-0ee5-411b-a9a5-a8ae505ea8d3",
+      "technologyId": "0ccf0099-f7f3-444c-a33b-3482e863042d",
+      "position": 1
+    },
+    {
+      "stackId": "e30bdc53-0ee5-411b-a9a5-a8ae505ea8d3",
+      "technologyId": "71630193-970e-495d-887d-03cc04e2c8ed",
+      "position": 2
+    },
+    {
+      "stackId": "c882bb5b-cf97-471e-bb9d-26492526cb6b",
+      "technologyId": "164ede48-7dd5-4219-bc79-7145148fb3a9",
+      "position": 0
+    },
+    {
+      "stackId": "c882bb5b-cf97-471e-bb9d-26492526cb6b",
+      "technologyId": "ea83a9e2-7d8e-4340-bce0-ac2e67ba9749",
+      "position": 1
+    },
+    {
+      "stackId": "c882bb5b-cf97-471e-bb9d-26492526cb6b",
+      "technologyId": "93cdefa5-d16d-4e2c-8657-c291897105d5",
+      "position": 2
+    },
+    {
+      "stackId": "c882bb5b-cf97-471e-bb9d-26492526cb6b",
+      "technologyId": "82445d09-2c74-4d99-afc6-a5251227c33e",
+      "position": 3
+    },
+    {
+      "stackId": "94e44721-0a8a-4782-9777-975b03b66511",
+      "technologyId": "ccc00ad8-fc7d-4626-9864-3d0a7a99c106",
+      "position": 0
+    },
+    {
+      "stackId": "94e44721-0a8a-4782-9777-975b03b66511",
+      "technologyId": "31eb6f3c-ef64-4702-9981-59ffa822aa34",
+      "position": 1
+    },
+    {
+      "stackId": "94e44721-0a8a-4782-9777-975b03b66511",
+      "technologyId": "4708e2f1-4468-4d4f-b9f8-2174cffba64f",
+      "position": 2
+    },
+    {
+      "stackId": "94e44721-0a8a-4782-9777-975b03b66511",
+      "technologyId": "667ed5b1-5c48-469e-b041-0c1218765da0",
+      "position": 3
+    },
+    {
+      "stackId": "b35334c2-5db2-405a-b3f7-6f7e54a06359",
+      "technologyId": "1c4eb003-f670-4ece-be92-28236a3d7b40",
+      "position": 0
+    },
+    {
+      "stackId": "b35334c2-5db2-405a-b3f7-6f7e54a06359",
+      "technologyId": "d38d2899-774e-4620-88aa-dc4a2de9514a",
+      "position": 1
+    },
+    {
+      "stackId": "b35334c2-5db2-405a-b3f7-6f7e54a06359",
+      "technologyId": "164ede48-7dd5-4219-bc79-7145148fb3a9",
+      "position": 2
+    },
+    {
+      "stackId": "b35334c2-5db2-405a-b3f7-6f7e54a06359",
+      "technologyId": "ea83a9e2-7d8e-4340-bce0-ac2e67ba9749",
+      "position": 3
+    },
+    {
+      "stackId": "b35334c2-5db2-405a-b3f7-6f7e54a06359",
+      "technologyId": "82ecd73b-4ed8-4f86-9f03-e13f5c033d34",
+      "position": 4
+    },
+    {
+      "stackId": "73bae1ca-4423-4d7d-b2a6-0419808f095a",
+      "technologyId": "eed21410-de28-4719-812f-8576957144ae",
+      "position": 0
+    },
+    {
+      "stackId": "73bae1ca-4423-4d7d-b2a6-0419808f095a",
+      "technologyId": "2d306e63-9ceb-4d75-8d71-2b1f2ceae7b8",
+      "position": 1
+    },
+    {
+      "stackId": "73bae1ca-4423-4d7d-b2a6-0419808f095a",
+      "technologyId": "4bc76c4d-c6df-4b02-8095-45fc4c952529",
+      "position": 2
+    },
+    {
+      "stackId": "73bae1ca-4423-4d7d-b2a6-0419808f095a",
+      "technologyId": "65e6cb0d-b86f-4740-8bfd-23489f47a39e",
+      "position": 3
+    },
+    {
+      "stackId": "84d42382-0c5a-4b12-986d-5915dcaf91e0",
+      "technologyId": "c2123aee-31aa-43b2-9318-be90bde700ef",
+      "position": 0
+    },
+    {
+      "stackId": "84d42382-0c5a-4b12-986d-5915dcaf91e0",
+      "technologyId": "61c2b928-3eea-4aba-b4dd-37e0c3937437",
+      "position": 1
+    },
+    {
+      "stackId": "84d42382-0c5a-4b12-986d-5915dcaf91e0",
+      "technologyId": "5c385ad3-d846-4ea5-8dbd-c2385e217cca",
+      "position": 2
+    },
+    {
+      "stackId": "f6e2acad-7247-4e56-9e39-41a815006f4c",
+      "technologyId": "8ddbbbcf-0b5b-4f63-864e-3602eef5932a",
+      "position": 0
+    },
+    {
+      "stackId": "f6e2acad-7247-4e56-9e39-41a815006f4c",
+      "technologyId": "2d306e63-9ceb-4d75-8d71-2b1f2ceae7b8",
+      "position": 1
+    },
+    {
+      "stackId": "f6e2acad-7247-4e56-9e39-41a815006f4c",
+      "technologyId": "a992b790-a617-4ad2-88ed-ac03e2e0c77f",
+      "position": 2
+    },
+    {
+      "stackId": "5a6e1899-d0c7-499a-8ec5-70143028cacb",
+      "technologyId": "230609a6-9f97-4885-a7f8-89103538b86f",
+      "position": 0
+    },
+    {
+      "stackId": "5a6e1899-d0c7-499a-8ec5-70143028cacb",
+      "technologyId": "19eee0fa-e83b-4483-b748-978764d3ff7b",
+      "position": 1
+    },
+    {
+      "stackId": "5a6e1899-d0c7-499a-8ec5-70143028cacb",
+      "technologyId": "2d306e63-9ceb-4d75-8d71-2b1f2ceae7b8",
+      "position": 2
+    },
+    {
+      "stackId": "5a6e1899-d0c7-499a-8ec5-70143028cacb",
+      "technologyId": "058579b4-ac51-4054-b940-95e1aa85b938",
+      "position": 3
+    },
+    {
+      "stackId": "c0744f60-5a8f-4d7e-b093-3bae507e6b08",
+      "technologyId": "34f4b7ea-b4ca-4848-912a-45180e1cd5dc",
+      "position": 0
+    },
+    {
+      "stackId": "c0744f60-5a8f-4d7e-b093-3bae507e6b08",
+      "technologyId": "5c385ad3-d846-4ea5-8dbd-c2385e217cca",
+      "position": 1
+    },
+    {
+      "stackId": "c0744f60-5a8f-4d7e-b093-3bae507e6b08",
+      "technologyId": "8ddbbbcf-0b5b-4f63-864e-3602eef5932a",
+      "position": 2
+    },
+    {
+      "stackId": "c0744f60-5a8f-4d7e-b093-3bae507e6b08",
+      "technologyId": "c2123aee-31aa-43b2-9318-be90bde700ef",
+      "position": 3
+    },
+    {
+      "stackId": "75ff6a16-a080-49c6-b6b9-c76c3c5bb751",
+      "technologyId": "e58ba4ec-6116-484d-983d-6bf49e745ec9",
+      "position": 0
+    },
+    {
+      "stackId": "75ff6a16-a080-49c6-b6b9-c76c3c5bb751",
+      "technologyId": "fbe6b153-29fb-433e-a236-f63ab726893f",
+      "position": 1
+    },
+    {
+      "stackId": "75ff6a16-a080-49c6-b6b9-c76c3c5bb751",
+      "technologyId": "ccc00ad8-fc7d-4626-9864-3d0a7a99c106",
+      "position": 2
+    },
+    {
+      "stackId": "75ff6a16-a080-49c6-b6b9-c76c3c5bb751",
+      "technologyId": "57597d33-07d1-4575-afb9-54bea5aea658",
+      "position": 3
+    },
+    {
+      "stackId": "fb8ef253-abb6-4a88-baff-1c35517f692f",
+      "technologyId": "57597d33-07d1-4575-afb9-54bea5aea658",
+      "position": 0
+    },
+    {
+      "stackId": "fb8ef253-abb6-4a88-baff-1c35517f692f",
+      "technologyId": "2d306e63-9ceb-4d75-8d71-2b1f2ceae7b8",
+      "position": 1
+    },
+    {
+      "stackId": "fb8ef253-abb6-4a88-baff-1c35517f692f",
+      "technologyId": "ea83a9e2-7d8e-4340-bce0-ac2e67ba9749",
+      "position": 2
+    },
+    {
+      "stackId": "fb8ef253-abb6-4a88-baff-1c35517f692f",
+      "technologyId": "0ccf0099-f7f3-444c-a33b-3482e863042d",
+      "position": 3
+    },
+    {
+      "stackId": "ceb5476d-280e-49ac-991e-11821e26f195",
+      "technologyId": "16942b9e-b5ee-4bd2-895c-8d5c3b9b9cfa",
+      "position": 0
+    },
+    {
+      "stackId": "ceb5476d-280e-49ac-991e-11821e26f195",
+      "technologyId": "7b746461-8f44-4386-a48c-f66fe840be65",
+      "position": 1
+    },
+    {
+      "stackId": "ceb5476d-280e-49ac-991e-11821e26f195",
+      "technologyId": "ff411827-1df3-4520-b350-7a6f08fd1955",
+      "position": 2
+    },
+    {
+      "stackId": "ceb5476d-280e-49ac-991e-11821e26f195",
+      "technologyId": "9e035264-dcca-43a6-b00c-164db562ce93",
+      "position": 3
+    },
+    {
+      "stackId": "ceb5476d-280e-49ac-991e-11821e26f195",
+      "technologyId": "ad21f8cf-3a1e-4de7-b0b6-e8071910de32",
+      "position": 4
+    },
+    {
+      "stackId": "ceb5476d-280e-49ac-991e-11821e26f195",
+      "technologyId": "0e08f8fe-6720-4937-a209-57c306fbaf42",
+      "position": 5
+    },
+    {
+      "stackId": "cd5e0240-fa0d-4154-9b0a-7ea9708c4291",
+      "technologyId": "227c3b55-7d59-4b15-b3d3-2f8a0345d75d",
+      "position": 0
+    },
+    {
+      "stackId": "cd5e0240-fa0d-4154-9b0a-7ea9708c4291",
+      "technologyId": "04a039dc-0087-47e6-bb2d-ba599b41cf9e",
+      "position": 1
+    },
+    {
+      "stackId": "cd5e0240-fa0d-4154-9b0a-7ea9708c4291",
+      "technologyId": "6ad5a898-35fd-4deb-858f-4f9aacf8a42a",
+      "position": 2
+    },
+    {
+      "stackId": "cd5e0240-fa0d-4154-9b0a-7ea9708c4291",
+      "technologyId": "b8d9695e-5d54-4da7-aa28-ffc020a16488",
+      "position": 3
+    },
+    {
+      "stackId": "98e0213d-d2c8-41f0-9b77-aab9b014a6aa",
+      "technologyId": "9e035264-dcca-43a6-b00c-164db562ce93",
+      "position": 0
+    },
+    {
+      "stackId": "98e0213d-d2c8-41f0-9b77-aab9b014a6aa",
+      "technologyId": "93cdefa5-d16d-4e2c-8657-c291897105d5",
+      "position": 1
+    },
+    {
+      "stackId": "98e0213d-d2c8-41f0-9b77-aab9b014a6aa",
+      "technologyId": "89f53f43-a5ae-4149-b0d1-0cfc2716331b",
+      "position": 2
+    },
+    {
+      "stackId": "98e0213d-d2c8-41f0-9b77-aab9b014a6aa",
+      "technologyId": "82445d09-2c74-4d99-afc6-a5251227c33e",
+      "position": 3
+    },
+    {
+      "stackId": "68f35e78-d372-4e9b-8bbd-c79aadb0feab",
+      "technologyId": "67a4e7f0-488d-470f-a255-dfde271d2020",
+      "position": 0
+    },
+    {
+      "stackId": "68f35e78-d372-4e9b-8bbd-c79aadb0feab",
+      "technologyId": "65e6cb0d-b86f-4740-8bfd-23489f47a39e",
+      "position": 1
+    },
+    {
+      "stackId": "68f35e78-d372-4e9b-8bbd-c79aadb0feab",
+      "technologyId": "2fa61491-f72c-4562-b652-f4c792398356",
+      "position": 2
+    },
+    {
+      "stackId": "d1037c4f-3bf1-471d-8001-8b0e3413f2e4",
+      "technologyId": "0decf87b-5311-49e0-ab56-9b059c4b1cb3",
+      "position": 0
+    },
+    {
+      "stackId": "d1037c4f-3bf1-471d-8001-8b0e3413f2e4",
+      "technologyId": "dfc4f92a-73b5-4b08-9cff-d358fec1d293",
+      "position": 1
+    },
+    {
+      "stackId": "d1037c4f-3bf1-471d-8001-8b0e3413f2e4",
+      "technologyId": "78efb905-33ec-4f23-bf30-9c854dff48ad",
+      "position": 2
+    }
+  ],
+  "HallOfFame": []
+}

@@ -1,0 +1,1 @@
+ALTER TABLE "Stack" ADD COLUMN "summary" TEXT;

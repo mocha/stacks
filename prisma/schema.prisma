@@ -55,6 +55,7 @@ model Stack {
   creatorId       String?   @db.Uuid // Nullable; null for canonical stacks
   questionnaire   Json      // { industries, notableFeature, competitor }
   description     String    // LLM-generated
+  summary         String?   // One-line summary for cards
   rerollsToday    Int       @default(0)
   lastRerollDate  DateTime  @default(now()) @db.Date
   createdAt       DateTime  @default(now())

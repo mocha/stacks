@@ -54,11 +54,13 @@ export async function POST(
   });
 
   const newDescription = await generateDescription(prompt);
+  const newSummary = await summarizeDescription(newDescription);
 
   await prisma.stack.update({
     where: { id: stack.id },
     data: {
       description: newDescription,
+      summary: newSummary,
       rerollsToday: rerollsUsed + 1,
       lastRerollDate: today,
     },

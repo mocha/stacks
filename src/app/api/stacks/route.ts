@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { buildStackPrompt, generateDescription } from "@/lib/llm";
+import { buildStackPrompt, generateDescription, summarizeDescription } from "@/lib/llm";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
@@ -82,6 +82,7 @@ export async function POST(request: Request) {
     })),
   });
   const description = await generateDescription(prompt);
+  const summary = await summarizeDescription(description);
 
   try {
     const stack = await prisma.$transaction(async (tx) => {
@@ -91,6 +92,7 @@ export async function POST(request: Request) {
           creatorId,
           questionnaire: {},
           description,
+          summary,
           externalAttribution: attribution,
         },
       });

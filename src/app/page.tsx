@@ -131,20 +131,20 @@ export default async function HomePage() {
                 <TextLink key={stack.id} href={`/s/${stack.acronym}`} className="block no-underline">
                   <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Badge color="indigo">{stack.acronym}</Badge>
-                        <span className="font-medium text-sm text-zinc-950 dark:text-white">
-                          {stack.acronym}
-                        </span>
-                      </div>
+                      <span className="text-lg font-black tracking-tight text-zinc-950 dark:text-white">
+                        {stack.acronym}
+                      </span>
                       {totalStars > 0 && (
                         <span className={`text-xs ${starClass(totalStars)}`}>
                           ★ {totalStars.toLocaleString()}
                         </span>
                       )}
                     </div>
+                    {stack.summary && (
+                      <Text className="mt-0.5 !text-xs line-clamp-1">{stack.summary}</Text>
+                    )}
                     {attribution && (
-                      <Text className="mt-1 !text-xs">{attribution}</Text>
+                      <Text className="mt-0.5 !text-xs text-zinc-400">{attribution}</Text>
                     )}
                   </div>
                 </TextLink>
@@ -167,20 +167,20 @@ export default async function HomePage() {
                 <TextLink key={stack.id} href={`/s/${stack.acronym}`} className="block no-underline">
                   <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Badge color="zinc">{stack.acronym}</Badge>
-                        <span className="font-medium text-sm text-zinc-950 dark:text-white">
-                          {stack.acronym}
-                        </span>
-                      </div>
+                      <span className="text-lg font-black tracking-tight text-zinc-950 dark:text-white">
+                        {stack.acronym}
+                      </span>
                       {totalStars > 0 && (
                         <span className={`text-xs ${starClass(totalStars)}`}>
                           ★ {totalStars.toLocaleString()}
                         </span>
                       )}
                     </div>
+                    {stack.summary && (
+                      <Text className="mt-0.5 !text-xs line-clamp-1">{stack.summary}</Text>
+                    )}
                     {attribution && (
-                      <Text className="mt-1 !text-xs">{attribution}</Text>
+                      <Text className="mt-0.5 !text-xs text-zinc-400">{attribution}</Text>
                     )}
                   </div>
                 </TextLink>
