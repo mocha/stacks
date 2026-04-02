@@ -43,7 +43,7 @@ export default function BuildPage() {
   const [newTechUrls, setNewTechUrls] = useState<Record<string, string>>({});
 
   const acronym = entries
-    .filter((e) => e.selected || e.isNew)
+    .filter((e) => e.selected || e.isNew || e.query.trim())
     .map((e) => {
       const name = e.selected?.name ?? e.query;
       return name[0]?.toUpperCase() ?? "";
@@ -121,17 +121,25 @@ export default function BuildPage() {
     setEntries(updated);
   };
 
+  const markNewIfNeeded = (index: number) => {
+    const entry = entries[index];
+    if (entry.query && !entry.selected && !entry.isNew) {
+      const updated = [...entries];
+      updated[index] = { ...entry, isUnknown: false, isNew: true };
+      setEntries(updated);
+    }
+  };
+
+  const handleBlur = (index: number) => {
+    // When user leaves the field, mark unmatched text as a new technology
+    markNewIfNeeded(index);
+  };
+
   const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === "+") {
       e.preventDefault();
 
-      const entry = entries[index];
-      if (entry.query && !entry.selected) {
-        // Mark as new technology instead of unknown
-        const updated = [...entries];
-        updated[index] = { ...entry, isUnknown: false, isNew: true };
-        setEntries(updated);
-      }
+      markNewIfNeeded(index);
 
       addLine();
     }
@@ -249,6 +257,7 @@ export default function BuildPage() {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateEntry(index, e.target.value)}
                   onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => handleKeyDown(index, e)}
                   onFocus={() => setActiveLine(index)}
+                  onBlur={() => handleBlur(index)}
                   placeholder="Type a technology name..."
                   autoFocus={index === activeLine}
                   autoComplete="off"
