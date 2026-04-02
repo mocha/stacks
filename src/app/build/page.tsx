@@ -21,7 +21,8 @@ interface Technology {
 interface TechEntry {
   query: string;
   selected: Technology | null;
-  isUnknown: boolean;
+  isUnknown: boolean; // kept for backward compat
+  isNew: boolean;
 }
 
 interface UniquenessResult {
@@ -32,21 +33,24 @@ interface UniquenessResult {
 export default function BuildPage() {
   const router = useRouter();
   const [entries, setEntries] = useState<TechEntry[]>([
-    { query: "", selected: null, isUnknown: false },
+    { query: "", selected: null, isUnknown: false, isNew: false },
   ]);
   const [suggestions, setSuggestions] = useState<Technology[]>([]);
   const [activeLine, setActiveLine] = useState(0);
   const [uniqueness, setUniqueness] = useState<UniquenessResult | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [newTechUrls, setNewTechUrls] = useState<Record<string, string>>({});
 
   const acronym = entries
-    .filter((e) => e.selected || e.isUnknown)
+    .filter((e) => e.selected || e.isNew)
     .map((e) => {
       const name = e.selected?.name ?? e.query;
       return name[0]?.toUpperCase() ?? "";
     })
     .join("");
+
+  const newEntries = entries.filter((e) => e.isNew);
 
   useEffect(() => {
     if (acronym.length < 2) {
@@ -78,29 +82,43 @@ export default function BuildPage() {
   }, []);
 
   const updateEntry = (index: number, query: string) => {
-    const newEntries = [...entries];
-    newEntries[index] = { query, selected: null, isUnknown: false };
-    setEntries(newEntries);
+    const updated = [...entries];
+    updated[index] = { query, selected: null, isUnknown: false, isNew: false };
+    setEntries(updated);
     setActiveLine(index);
     searchTechnologies(query);
+
+    // Clean up URL for this entry if it was previously new
+    const oldQuery = entries[index].query;
+    if (oldQuery && newTechUrls[oldQuery]) {
+      const urls = { ...newTechUrls };
+      delete urls[oldQuery];
+      setNewTechUrls(urls);
+    }
   };
 
   const selectTechnology = (index: number, tech: Technology) => {
-    const newEntries = [...entries];
-    newEntries[index] = { query: tech.name, selected: tech, isUnknown: false };
-    setEntries(newEntries);
+    const updated = [...entries];
+    updated[index] = { query: tech.name, selected: tech, isUnknown: false, isNew: false };
+    setEntries(updated);
     setSuggestions([]);
   };
 
   const addLine = () => {
-    setEntries([...entries, { query: "", selected: null, isUnknown: false }]);
+    setEntries([...entries, { query: "", selected: null, isUnknown: false, isNew: false }]);
     setActiveLine(entries.length);
   };
 
   const removeLine = (index: number) => {
     if (entries.length <= 1) return;
-    const newEntries = entries.filter((_, i) => i !== index);
-    setEntries(newEntries);
+    const entry = entries[index];
+    if (entry.isNew && newTechUrls[entry.query]) {
+      const urls = { ...newTechUrls };
+      delete urls[entry.query];
+      setNewTechUrls(urls);
+    }
+    const updated = entries.filter((_, i) => i !== index);
+    setEntries(updated);
   };
 
   const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
@@ -109,9 +127,10 @@ export default function BuildPage() {
 
       const entry = entries[index];
       if (entry.query && !entry.selected) {
-        const newEntries = [...entries];
-        newEntries[index] = { ...entry, isUnknown: true };
-        setEntries(newEntries);
+        // Mark as new technology instead of unknown
+        const updated = [...entries];
+        updated[index] = { ...entry, isUnknown: false, isNew: true };
+        setEntries(updated);
       }
 
       addLine();
@@ -122,20 +141,40 @@ export default function BuildPage() {
     setSaving(true);
     setError(null);
 
-    const unknowns = entries.filter((e) => e.isUnknown);
-    if (unknowns.length > 0) {
-      setError(
-        `Unknown technologies: ${unknowns.map((e) => e.query).join(", ")}. Please select from the list.`
-      );
-      setSaving(false);
-      return;
-    }
-
-    const technologyIds = entries
-      .filter((e) => e.selected)
-      .map((e) => e.selected!.id);
-
     try {
+      // Create new technologies first
+      const createdTechIds: string[] = [];
+      for (const entry of newEntries) {
+        const url = newTechUrls[entry.query];
+        if (!url) {
+          setError(`Please provide a GitHub URL for "${entry.query}".`);
+          setSaving(false);
+          return;
+        }
+
+        const res = await fetch("/api/technologies/create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: entry.query, githubUrl: url }),
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          setError(data.error || `Failed to create technology "${entry.query}".`);
+          setSaving(false);
+          return;
+        }
+
+        createdTechIds.push(data.technology.id);
+      }
+
+      // Collect all technology IDs: existing selected + newly created
+      const existingIds = entries
+        .filter((e) => e.selected)
+        .map((e) => e.selected!.id);
+
+      const technologyIds = [...existingIds, ...createdTechIds];
+
       const res = await fetch("/api/stacks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -160,12 +199,18 @@ export default function BuildPage() {
   const selectedIds = entries.filter((e) => e.selected).map((e) => e.selected!.id);
   const hasDuplicates = new Set(selectedIds).size !== selectedIds.length;
 
+  // All new techs must have URLs provided
+  const allNewTechsHaveUrls = newEntries.every(
+    (e) => newTechUrls[e.query]?.trim()
+  );
+
   const canSave =
     acronym.length >= 2 &&
     uniqueness?.available &&
-    entries.filter((e) => e.selected).length >= 2 &&
-    entries.every((e) => e.selected || !e.query) &&
-    !hasDuplicates;
+    entries.filter((e) => e.selected || e.isNew).length >= 2 &&
+    entries.every((e) => e.selected || e.isNew || !e.query) &&
+    !hasDuplicates &&
+    allNewTechsHaveUrls;
 
   return (
     <div>
@@ -212,6 +257,9 @@ export default function BuildPage() {
               {entry.selected && (
                 <Badge color="blue">{entry.selected.name[0]}</Badge>
               )}
+              {entry.isNew && (
+                <Badge color="lime">New!</Badge>
+              )}
               {entries.length > 1 && (
                 <Button plain onClick={() => removeLine(index)} className="text-zinc-400 hover:text-zinc-600">
                   <span aria-hidden="true">&times;</span>
@@ -249,6 +297,39 @@ export default function BuildPage() {
           + Add technology
         </Button>
       </div>
+
+      {/* New technology URL forms */}
+      {newEntries.length > 0 && (
+        <div className="mt-6 rounded-lg bg-lime-50 dark:bg-lime-900/20 border border-lime-200 dark:border-lime-800 p-4">
+          <p className="text-sm font-medium text-lime-800 dark:text-lime-300 mb-3">
+            You&apos;re adding new technologies! We&apos;ll need a GitHub URL for each one.
+          </p>
+          <div className="space-y-3">
+            {newEntries.map((entry) => (
+              <div key={entry.query} className="flex items-center gap-3">
+                <Input
+                  type="text"
+                  value={entry.query}
+                  disabled
+                  className="w-1/3 opacity-70"
+                />
+                <Input
+                  type="url"
+                  value={newTechUrls[entry.query] ?? ""}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setNewTechUrls({
+                      ...newTechUrls,
+                      [entry.query]: e.target.value,
+                    })
+                  }
+                  placeholder="https://github.com/org/repo"
+                  className="flex-1"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {error && (
         <div className="mt-6 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4">

@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 
 export async function DELETE(
@@ -13,6 +14,22 @@ export async function DELETE(
 
   if (!stack) {
     return NextResponse.json({ error: "Stack not found" }, { status: 404 });
+  }
+
+  // Auth check: only the stack creator can delete
+  const supabase = await createClient();
+  const { data: { user: authUser } } = await supabase.auth.getUser();
+
+  if (!authUser || !stack.creatorId) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const dbUser = await prisma.user.findUnique({
+    where: { supabaseAuthId: authUser.id },
+  });
+
+  if (!dbUser || dbUser.id !== stack.creatorId) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const body = await request.json().catch(() => ({}));
