@@ -2,7 +2,6 @@
 
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/catalyst/button";
 
 export function AuthButton({
   user,
@@ -11,9 +10,9 @@ export function AuthButton({
 }) {
   const router = useRouter();
 
-  const handleLogin = async () => {
+  const handleLogin = () => {
     const supabase = createClient();
-    await supabase.auth.signInWithOAuth({
+    supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
         redirectTo: `${window.location.origin}/auth/callback`,
@@ -21,10 +20,9 @@ export function AuthButton({
     });
   };
 
-  const handleLogout = async () => {
+  const handleLogout = () => {
     const supabase = createClient();
-    await supabase.auth.signOut();
-    router.refresh();
+    supabase.auth.signOut().then(() => router.refresh());
   };
 
   if (user) {
@@ -36,16 +34,22 @@ export function AuthButton({
         <a href={`/u/${user.providerUsername}`} className="text-sm font-medium text-zinc-950 dark:text-white">
           @{user.providerUsername}
         </a>
-        <Button plain onClick={handleLogout} className="text-sm">
+        <button
+          onClick={handleLogout}
+          className="text-sm text-zinc-500 hover:text-zinc-950 dark:hover:text-white transition-colors"
+        >
           Log out
-        </Button>
+        </button>
       </div>
     );
   }
 
   return (
-    <Button outline onClick={handleLogin}>
+    <button
+      onClick={handleLogin}
+      className="rounded-lg border border-zinc-950/10 dark:border-white/15 px-3 py-1.5 text-sm font-medium text-zinc-950 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+    >
       Sign in with GitHub
-    </Button>
+    </button>
   );
 }
