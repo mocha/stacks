@@ -40,9 +40,11 @@ export async function POST(request: Request) {
     );
   }
 
-  if (acronym.length !== technologyIds.length) {
+  // Acronym letters (excluding dashes) must match technology count
+  const acronymLetters = acronym.replace(/-/g, "");
+  if (acronymLetters.length !== technologyIds.length) {
     return NextResponse.json(
-      { error: "Acronym length must match number of technologies" },
+      { error: "Acronym letters must match number of technologies" },
       { status: 400 }
     );
   }
@@ -68,7 +70,7 @@ export async function POST(request: Request) {
   const builtAcronym = orderedTechs
     .map((t) => t.name[0].toUpperCase())
     .join("");
-  if (builtAcronym.toUpperCase() !== acronym.toUpperCase()) {
+  if (builtAcronym.toUpperCase() !== acronymLetters.toUpperCase()) {
     return NextResponse.json(
       { error: `Technologies spell "${builtAcronym}", not "${acronym}"` },
       { status: 400 }

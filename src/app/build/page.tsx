@@ -22,8 +22,9 @@ interface Technology {
 interface TechEntry {
   query: string;
   selected: Technology | null;
-  isUnknown: boolean; // kept for backward compat
+  isUnknown: boolean;
   isNew: boolean;
+  isSeparator: boolean; // dash separator, not a technology
 }
 
 interface UniquenessResult {
@@ -34,7 +35,7 @@ interface UniquenessResult {
 export default function BuildPage() {
   const router = useRouter();
   const [entries, setEntries] = useState<TechEntry[]>([
-    { query: "", selected: null, isUnknown: false, isNew: false },
+    { query: "", selected: null, isUnknown: false, isNew: false, isSeparator: false },
   ]);
   const [suggestions, setSuggestions] = useState<Technology[]>([]);
   const [activeLine, setActiveLine] = useState(0);
@@ -44,14 +45,15 @@ export default function BuildPage() {
   const [newTechUrls, setNewTechUrls] = useState<Record<string, string>>({});
 
   const acronym = entries
-    .filter((e) => e.selected || e.isNew || e.query.trim())
+    .filter((e) => e.selected || e.isNew || e.isSeparator || e.query.trim())
     .map((e) => {
+      if (e.isSeparator) return "-";
       const name = e.selected?.name ?? e.query;
       return name[0]?.toUpperCase() ?? "";
     })
     .join("");
 
-  const newEntries = entries.filter((e) => e.isNew);
+  const newEntries = entries.filter((e) => e.isNew && !e.isSeparator);
 
   useEffect(() => {
     if (acronym.length < 2) {
@@ -84,7 +86,7 @@ export default function BuildPage() {
 
   const updateEntry = (index: number, query: string) => {
     const updated = [...entries];
-    updated[index] = { query, selected: null, isUnknown: false, isNew: false };
+    updated[index] = { query, selected: null, isUnknown: false, isNew: false, isSeparator: false };
     setEntries(updated);
     setActiveLine(index);
     searchTechnologies(query);
@@ -100,13 +102,13 @@ export default function BuildPage() {
 
   const selectTechnology = (index: number, tech: Technology) => {
     const updated = [...entries];
-    updated[index] = { query: tech.name, selected: tech, isUnknown: false, isNew: false };
+    updated[index] = { query: tech.name, selected: tech, isUnknown: false, isNew: false, isSeparator: false };
     setEntries(updated);
     setSuggestions([]);
   };
 
   const addLine = () => {
-    setEntries([...entries, { query: "", selected: null, isUnknown: false, isNew: false }]);
+    setEntries([...entries, { query: "", selected: null, isUnknown: false, isNew: false, isSeparator: false }]);
     setActiveLine(entries.length);
   };
 
@@ -124,7 +126,15 @@ export default function BuildPage() {
 
   const markNewIfNeeded = (index: number) => {
     const entry = entries[index];
+    if (entry.isSeparator) return;
     if (entry.query && !entry.selected && !entry.isNew) {
+      // Check if user typed just a dash — make it a separator
+      if (entry.query.trim() === "-") {
+        const updated = [...entries];
+        updated[index] = { ...entry, isSeparator: true, isNew: false };
+        setEntries(updated);
+        return;
+      }
       const updated = [...entries];
       updated[index] = { ...entry, isUnknown: false, isNew: true };
       setEntries(updated);
@@ -151,8 +161,8 @@ export default function BuildPage() {
     setError(null);
 
     try {
-      // Create new technologies first
-      const createdTechIds: string[] = [];
+      // Create new technologies first, building a map of name -> id
+      const newTechIdMap: Record<string, string> = {};
       for (const entry of newEntries) {
         const url = newTechUrls[entry.query];
         if (!url) {
@@ -174,15 +184,19 @@ export default function BuildPage() {
           return;
         }
 
-        createdTechIds.push(data.technology.id);
+        newTechIdMap[entry.query] = data.technology.id;
       }
 
-      // Collect all technology IDs: existing selected + newly created
-      const existingIds = entries
-        .filter((e) => e.selected)
-        .map((e) => e.selected!.id);
-
-      const technologyIds = [...existingIds, ...createdTechIds];
+      // Build ordered technology IDs, skipping separators
+      const technologyIds: string[] = [];
+      for (const entry of entries) {
+        if (entry.isSeparator) continue;
+        if (entry.selected) {
+          technologyIds.push(entry.selected.id);
+        } else if (entry.isNew && newTechIdMap[entry.query]) {
+          technologyIds.push(newTechIdMap[entry.query]);
+        }
+      }
 
       const res = await fetch("/api/stacks", {
         method: "POST",
@@ -217,7 +231,7 @@ export default function BuildPage() {
     acronym.length >= 2 &&
     uniqueness?.available &&
     entries.filter((e) => e.selected || e.isNew).length >= 2 &&
-    entries.every((e) => e.selected || e.isNew || !e.query) &&
+    entries.every((e) => e.selected || e.isNew || e.isSeparator || !e.query) &&
     !hasDuplicates &&
     allNewTechsHaveUrls;
 
@@ -250,6 +264,20 @@ export default function BuildPage() {
       <div className="space-y-3">
         {entries.map((entry, index) => (
           <div key={index} className="relative">
+            {entry.isSeparator ? (
+              <div className="flex items-center gap-2">
+                <div className="flex-1 flex items-center justify-center py-2 text-2xl font-black text-zinc-400 dark:text-zinc-500">
+                  —
+                </div>
+                <Badge color="zinc">-</Badge>
+                {entries.length > 1 && (
+                  <Button plain onClick={() => removeLine(index)} className="text-zinc-400 hover:text-zinc-600">
+                    <span aria-hidden="true">&times;</span>
+                  </Button>
+                )}
+              </div>
+            ) : (
+            <>
             <div className="flex items-center gap-2">
               <div className="flex-1 relative">
                 <Input
@@ -300,12 +328,21 @@ export default function BuildPage() {
                 ))}
               </div>
             )}
+            </>
+            )}
           </div>
         ))}
 
-        <Button plain onClick={addLine}>
-          + Add technology
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button plain onClick={addLine}>
+            + Add technology
+          </Button>
+          <Button plain onClick={() => {
+            setEntries([...entries, { query: "-", selected: null, isUnknown: false, isNew: false, isSeparator: true }]);
+          }}>
+            + Add dash
+          </Button>
+        </div>
       </div>
 
       {/* New technology URL forms */}
