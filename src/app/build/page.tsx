@@ -6,6 +6,7 @@ import { Heading } from "@/components/catalyst/heading";
 import { Badge } from "@/components/catalyst/badge";
 import { Button } from "@/components/catalyst/button";
 import { Input } from "@/components/catalyst/input";
+import { Field, Label } from "@/components/catalyst/fieldset";
 import { Divider } from "@/components/catalyst/divider";
 
 interface Technology {
@@ -313,15 +314,10 @@ export default function BuildPage() {
           <p className="text-sm font-medium text-lime-800 dark:text-lime-300 mb-3">
             You&apos;re adding new technologies! We&apos;ll need a GitHub URL for each one.
           </p>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {newEntries.map((entry) => (
-              <div key={entry.query} className="grid grid-cols-[1fr_2fr] gap-3">
-                <Input
-                  type="text"
-                  value={entry.query}
-                  disabled
-                  className="opacity-70"
-                />
+              <Field key={entry.query}>
+                <Label>GitHub URL for <span className="font-semibold">{entry.query}</span></Label>
                 <Input
                   type="url"
                   value={newTechUrls[entry.query] ?? ""}
@@ -333,7 +329,7 @@ export default function BuildPage() {
                   }
                   placeholder="https://github.com/org/repo"
                 />
-              </div>
+              </Field>
             ))}
           </div>
         </div>
