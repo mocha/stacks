@@ -314,10 +314,10 @@ export default function BuildPage() {
           <p className="text-sm font-medium text-lime-800 dark:text-lime-300 mb-3">
             You&apos;re adding new technologies! We&apos;ll need a GitHub URL for each one.
           </p>
-          <div className="space-y-4">
+          <div className="space-y-6">
             {newEntries.map((entry) => (
               <Field key={entry.query}>
-                <Label>GitHub URL for <span className="font-semibold">{entry.query}</span></Label>
+                <Label><span className="font-semibold">{entry.query}:</span></Label>
                 <Input
                   type="url"
                   value={newTechUrls[entry.query] ?? ""}
