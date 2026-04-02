@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { Heading, Subheading } from "@/components/catalyst/heading";
 import { Text } from "@/components/catalyst/text";
-import { TextLink } from "@/components/catalyst/text";
+import Link from "next/link";
 import { Button } from "@/components/catalyst/button";
 import { Badge } from "@/components/catalyst/badge";
 
@@ -128,7 +128,7 @@ export default async function HomePage() {
               );
               const attribution = stackAttribution(stack);
               return (
-                <TextLink key={stack.id} href={`/s/${stack.acronym}`} className="block no-underline">
+                <Link key={stack.id} href={`/s/${stack.acronym}`} className="block">
                   <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
                     <div className="flex items-center justify-between">
                       <span className="text-lg font-black tracking-tight text-zinc-950 dark:text-white">
@@ -147,7 +147,7 @@ export default async function HomePage() {
                       <Text className="mt-0.5 !text-xs text-zinc-400">{attribution}</Text>
                     )}
                   </div>
-                </TextLink>
+                </Link>
               );
             })}
           </div>
@@ -164,7 +164,7 @@ export default async function HomePage() {
               );
               const attribution = stackAttribution(stack);
               return (
-                <TextLink key={stack.id} href={`/s/${stack.acronym}`} className="block no-underline">
+                <Link key={stack.id} href={`/s/${stack.acronym}`} className="block">
                   <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
                     <div className="flex items-center justify-between">
                       <span className="text-lg font-black tracking-tight text-zinc-950 dark:text-white">
@@ -183,7 +183,7 @@ export default async function HomePage() {
                       <Text className="mt-0.5 !text-xs text-zinc-400">{attribution}</Text>
                     )}
                   </div>
-                </TextLink>
+                </Link>
               );
             })}
           </div>
@@ -194,7 +194,7 @@ export default async function HomePage() {
           <Subheading className="mb-4">Top Contributors</Subheading>
           <div className="space-y-3">
             {topContributors.map((user, i) => (
-              <TextLink key={user.id} href={`/u/${user.providerUsername}`} className="block no-underline">
+              <Link key={user.id} href={`/u/${user.providerUsername}`} className="block">
                 <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-bold text-zinc-400 dark:text-zinc-500 w-5 text-right">
@@ -218,7 +218,7 @@ export default async function HomePage() {
                     </div>
                   </div>
                 </div>
-              </TextLink>
+              </Link>
             ))}
           </div>
         </section>
