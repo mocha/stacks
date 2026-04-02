@@ -10,14 +10,20 @@ export function AuthButton({
 }) {
   const router = useRouter();
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const supabase = createClient();
-    supabase.auth.signInWithOAuth({
+    const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
         redirectTo: `${window.location.origin}/auth/callback`,
       },
     });
+    // Supabase may not auto-redirect in all contexts — do it manually
+    if (data?.url) {
+      window.location.href = data.url;
+    } else {
+      console.error("OAuth error:", error);
+    }
   };
 
   const handleLogout = () => {
