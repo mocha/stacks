@@ -1,0 +1,220 @@
+- A
+  - Alpine.js
+  - Angular
+  - Apache
+  - Apollo
+  - ASP.NET
+  - Asterisk
+  - Alpine
+  - Asahi Linux
+- B
+  - Bun
+  - Bash
+  - Bitcoin
+  - Backbone.js
+  - Bazzite
+- C
+  - Crush (https://github.com/charmbracelet/crush)
+  - CUDA (https://developer.nvidia.com/cuda/toolkit)
+  - Clojure
+  - Cython
+  - Chromium
+  - ColdFusion
+  - CakePHP
+  - CodeIgniter
+  - CoreOS
+  - CGI (https://en.wikipedia.org/wiki/Common_Gateway_Interface)
+  - CentOS
+  - CouchDB
+  - Cloudant
+  - Couchbase
+  - Cypher
+  - Atlassian Confluence
+- D
+  - Django
+  - DynamoDB
+  - Dovecot
+  - Drupal
+  - Docker
+  - Debian
+  - Dojo
+  - IBM Db2
+  - Databricks
+  - DuckDB
+- E
+  - Elasticsearch
+  - eXist
+  - Elixir
+  - Elmish
+  - Elysia
+  - Express.js
+  - Ember.js
+  - Erlang
+  - Ethereum
+  - Microsoft Exchange
+- F
+  - Fable
+  - Fastify
+  - FastAPI
+  - Firebase
+  - FFmepg
+  - Flask
+  - F#
+  - fsh (https://github.com/fish-shell/fish-shell)
+  - Fedora
+  - Firebird
+  - FileMaker
+- G
+  - GraphQL
+  - Grails
+  - Groovy
+  - Github
+  - GitLab
+  - Gitea
+  - GNOME
+  - Gentoo
+- H
+  - HTMX
+  - Hadoop
+  - Heroku
+  - Haskell
+- I
+  - Inertia.js
+  - IRC
+  - 
+- J
+  - JavaScript
+  - Java
+  - Joomla!
+- K
+  - Kibana
+  - Kali Linux
+- L
+  - Laravel
+  - Lisp
+  - Langchain
+  - Lucene
+  - Linux
+  - LiveView
+  - Livewire
+  - Logstash
+  - lighttpd
+  - LDAP
+  - AWS Lambda
+- M
+  - MongoDB
+  - MySQL
+  - Mojolicious
+  - Mastodon
+  - Manjaro Linux
+  - Mermaid
+  - Microsoft SQL
+  - MariaDB
+  - MonetDB
+- N
+  - Neo4j
+  - Next.js
+  - Nginx
+  - Node.js
+  - .Net
+  - Nostr
+  - Nginx
+  - Nextcloud
+  - NixOS
+  - Nuxt
+- O
+  - OpenSSL
+  - OpenStack
+  - Oracle Database
+  - OpenOffice
+  - OpenVPN
+  - Microsoft Office
+- P
+  - Phoenix
+  - PHP
+  - PostgreSQL
+  - Prisma
+  - pfSense
+  - Perl
+  - PopOS
+  - Percona Server
+  - Plone
+  - Prolog
+- Q
+  - QuickTime
+  - 
+- R
+  - React
+  - Ruby
+  - Ruby on Rails
+  - Rust (https://github.com/rust-lang/rust)
+  - Roundcube
+  - Rasperry Pi
+  - RHEL
+  - Rocky Linux
+  - RocksDB
+  - Redis
+  - RethinkDB
+  - Redmine
+- S
+  - Saturn
+  - Sails.js (https://github.com/balderdashy/sails)
+  - Spring (https://github.com/spring-projects/spring-framework)
+  - Slack (https://slack.com)
+  - Stripe (https://stripe.com)
+  - Signal
+  - Squid
+  - Struts
+  - Svelte
+  - SvelteKit
+  - Symfony
+  - Scala
+  - Sinatra
+  - Smalltalk
+  - SOAP
+  - Sugar-on-a-stick Linux
+  - Supabase
+  - SQLite
+  - Microsoft SharePoint
+- T
+  - Tailwind CSS
+  - tRPC
+  - Turso
+  - TypeScript
+  - Tor
+  - Telegram
+  - Apache Tomcat
+  - Tornado
+  - Tapestry
+  - tmux
+  - TrueNAS
+- U
+  - uv (https://github.com/astral-sh/uv)
+  - Unicode (https://www.unicode.org/standard/principles.html)
+  - Usenet (https://en.wikipedia.org/wiki/Usenet)
+  - Ubuntu
+- V
+  - Vue.js 
+  - VLC Media Player
+  - VNC
+  - Varnish
+- W
+  - Wireshark
+  - Web3
+  - Wordpress
+  - WebSocket
+  - WASM
+  - WSGI (https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface)
+  - WebCL
+  - WebGL
+- X
+  - Xapian
+  - XML
+  - 
+- Y
+  - YQL
+  - Yellow Dog Linux
+- Z
+  - Zope Object Database
+  - Zoho
+  - Zulip
