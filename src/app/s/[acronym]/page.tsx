@@ -138,7 +138,14 @@ export default async function StackDetailPage({ params }: Props) {
         {totalStars > 0 && (
           <>
             {" "}&middot;{" "}
-            {totalStars.toLocaleString()} stars
+            <span className={
+              totalStars > 500000 ? "font-bold text-amber-500" :
+              totalStars > 100000 ? "font-bold text-amber-500/80" :
+              totalStars > 10000 ? "font-semibold text-yellow-600 dark:text-yellow-400" :
+              "text-zinc-500 dark:text-zinc-400"
+            }>
+              {"★ "}{totalStars.toLocaleString()}
+            </span>
           </>
         )}
       </div>
@@ -188,9 +195,14 @@ export default async function StackDetailPage({ params }: Props) {
                   </Text>
                 )}
                 {st.technology.githubStars > 0 && (
-                  <Badge color="zinc" className="mt-2">
-                    {st.technology.githubStars.toLocaleString()} stars
-                  </Badge>
+                  <span className={`mt-2 inline-flex items-center gap-1 text-xs font-medium ${
+                    st.technology.githubStars > 100000 ? "text-amber-500" :
+                    st.technology.githubStars > 50000 ? "text-yellow-600 dark:text-yellow-400" :
+                    st.technology.githubStars > 10000 ? "text-yellow-700/70 dark:text-yellow-500/70" :
+                    "text-zinc-400 dark:text-zinc-500"
+                  }`}>
+                    ★ {st.technology.githubStars.toLocaleString()}
+                  </span>
                 )}
               </div>
             </div>

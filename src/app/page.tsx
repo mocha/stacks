@@ -142,8 +142,13 @@ export default async function HomePage() {
                         </span>
                       </div>
                       {totalStars > 0 && (
-                        <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                          {totalStars.toLocaleString()} stars
+                        <span className={`text-sm font-medium ${
+                          totalStars > 500000 ? "text-amber-500" :
+                          totalStars > 100000 ? "text-amber-500/80" :
+                          totalStars > 10000 ? "text-yellow-600 dark:text-yellow-400" :
+                          "text-zinc-400 dark:text-zinc-500"
+                        }`}>
+                          ★ {totalStars.toLocaleString()}
                         </span>
                       )}
                     </div>
