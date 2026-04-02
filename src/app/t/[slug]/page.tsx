@@ -122,7 +122,7 @@ export default async function TechnologyPage({ params }: Props) {
           <>
             <DescriptionTerm>Discovered by</DescriptionTerm>
             <DescriptionDetails>
-              <TextLink href={technology.discoveredBy.profileUrl}>
+              <TextLink href={`/u/${technology.discoveredBy.providerUsername}`}>
                 @{technology.discoveredBy.providerUsername}
               </TextLink>
             </DescriptionDetails>

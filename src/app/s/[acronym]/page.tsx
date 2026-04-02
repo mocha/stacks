@@ -116,7 +116,7 @@ export default async function StackDetailPage({ params }: Props) {
         {stack.creator ? (
           <span>
             Invented by{" "}
-            <Link href={stack.creator.profileUrl} className="text-zinc-950 dark:text-white underline decoration-zinc-400 hover:decoration-zinc-950 dark:hover:decoration-white">
+            <Link href={`/u/${stack.creator.providerUsername}`} className="text-zinc-950 dark:text-white underline decoration-zinc-400 hover:decoration-zinc-950 dark:hover:decoration-white">
               @{stack.creator.providerUsername}
             </Link>
           </span>
