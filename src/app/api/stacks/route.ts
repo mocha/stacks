@@ -40,8 +40,8 @@ export async function POST(request: Request) {
     );
   }
 
-  // Acronym letters (excluding dashes) must match technology count
-  const acronymLetters = acronym.replace(/-/g, "");
+  // Acronym letters (excluding separators) must match technology count
+  const acronymLetters = acronym.replace(/[-_*/:.]/g, "");
   if (acronymLetters.length !== technologyIds.length) {
     return NextResponse.json(
       { error: "Acronym letters must match number of technologies" },

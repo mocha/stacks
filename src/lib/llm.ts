@@ -21,11 +21,13 @@ export function buildStackPrompt(input: StackPromptInput): string {
 Here is what each technology does:
 ${techList}
 
-Write 2-3 paragraphs explaining what this stack is and how it works. For each technology, explain what role it plays in the stack — as if this were a real, functioning application architecture that a team deliberately chose. Be matter-of-fact and technical, like a senior engineer explaining their architecture to a new hire. Every technology should be mentioned by name and given a clear role.
+Write a very concise explanation of what this stack is and how it works. For each technology, brieflyh explain what role it plays in the stack — as if this were a real, functioning application architecture that a team deliberately chose. Be matter-of-fact and technical, like a senior engineer explaining their architecture to a new hire. Every technology should be mentioned by name and given a clear role.
+
+Lead or end with a one-liner recommendation on something this stack would be great for.
 
 If the combination doesn't make obvious sense together (e.g., multiple databases, or tools that serve similar purposes), find a creative but plausible way they could work together. Don't call attention to the absurdity — just explain it straight.
 
-Keep it concise. No bullet points. No headers. Just clean paragraphs.`;
+Keep it concise. No bullet points. No headers. Just clean paragraphs. Bold the names of the technologies in use.`;
 }
 
 export function buildRerollPrompt(input: RerollPromptInput): string {

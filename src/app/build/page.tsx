@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Heading } from "@/components/catalyst/heading";
 import { Badge } from "@/components/catalyst/badge";
@@ -8,6 +8,8 @@ import { Button } from "@/components/catalyst/button";
 import { Input } from "@/components/catalyst/input";
 import { Field, Label } from "@/components/catalyst/fieldset";
 import { Divider } from "@/components/catalyst/divider";
+
+const SEPARATOR_OPTIONS = ["-", "_", "*", "/", ":"];
 
 interface Technology {
   id: string;
@@ -24,7 +26,8 @@ interface TechEntry {
   selected: Technology | null;
   isUnknown: boolean;
   isNew: boolean;
-  isSeparator: boolean; // dash separator, not a technology
+  isSeparator: boolean;
+  separatorChar: string;
 }
 
 interface UniquenessResult {
@@ -32,22 +35,26 @@ interface UniquenessResult {
   existingStack?: { acronym: string; creator: string };
 }
 
+const emptyEntry = (): TechEntry => ({ query: "", selected: null, isUnknown: false, isNew: false, isSeparator: false, separatorChar: "-" });
+const separatorEntry = (char = "-"): TechEntry => ({ query: char, selected: null, isUnknown: false, isNew: false, isSeparator: true, separatorChar: char });
+
 export default function BuildPage() {
   const router = useRouter();
-  const [entries, setEntries] = useState<TechEntry[]>([
-    { query: "", selected: null, isUnknown: false, isNew: false, isSeparator: false },
-  ]);
+  const [entries, setEntries] = useState<TechEntry[]>([emptyEntry()]);
   const [suggestions, setSuggestions] = useState<Technology[]>([]);
   const [activeLine, setActiveLine] = useState(0);
   const [uniqueness, setUniqueness] = useState<UniquenessResult | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [newTechUrls, setNewTechUrls] = useState<Record<string, string>>({});
+  const [showSeparatorPicker, setShowSeparatorPicker] = useState(false);
+  const dragIndexRef = useRef<number | null>(null);
+  const [dropTargetIndex, setDropTargetIndex] = useState<number | null>(null);
 
   const acronym = entries
     .filter((e) => e.selected || e.isNew || e.isSeparator || e.query.trim())
     .map((e) => {
-      if (e.isSeparator) return "-";
+      if (e.isSeparator) return e.separatorChar;
       const name = e.selected?.name ?? e.query;
       return name[0]?.toUpperCase() ?? "";
     })
@@ -86,7 +93,7 @@ export default function BuildPage() {
 
   const updateEntry = (index: number, query: string) => {
     const updated = [...entries];
-    updated[index] = { query, selected: null, isUnknown: false, isNew: false, isSeparator: false };
+    updated[index] = { query, selected: null, isUnknown: false, isNew: false, isSeparator: false, separatorChar: "-" };
     setEntries(updated);
     setActiveLine(index);
     searchTechnologies(query);
@@ -102,14 +109,48 @@ export default function BuildPage() {
 
   const selectTechnology = (index: number, tech: Technology) => {
     const updated = [...entries];
-    updated[index] = { query: tech.name, selected: tech, isUnknown: false, isNew: false, isSeparator: false };
+    updated[index] = { query: tech.name, selected: tech, isUnknown: false, isNew: false, isSeparator: false, separatorChar: "-" };
     setEntries(updated);
     setSuggestions([]);
   };
 
   const addLine = () => {
-    setEntries([...entries, { query: "", selected: null, isUnknown: false, isNew: false, isSeparator: false }]);
+    setEntries([...entries, emptyEntry()]);
     setActiveLine(entries.length);
+  };
+
+  const handleDragStart = (index: number) => {
+    dragIndexRef.current = index;
+  };
+
+  // dropTargetIndex represents the gap BEFORE that index (insert position)
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>, index: number) => {
+    e.preventDefault();
+    const rect = e.currentTarget.getBoundingClientRect();
+    const midY = rect.top + rect.height / 2;
+    const insertIndex = e.clientY < midY ? index : index + 1;
+    setDropTargetIndex(insertIndex);
+  };
+
+  const handleDragEnd = () => {
+    dragIndexRef.current = null;
+    setDropTargetIndex(null);
+  };
+
+  const handleDrop = (e: React.DragEvent, index: number) => {
+    e.preventDefault();
+    const from = dragIndexRef.current;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const midY = rect.top + rect.height / 2;
+    const insertAt = e.clientY < midY ? index : index + 1;
+    setDropTargetIndex(null);
+    if (from === null) return;
+    const updated = [...entries];
+    const [dragged] = updated.splice(from, 1);
+    const adjustedInsert = insertAt > from ? insertAt - 1 : insertAt;
+    updated.splice(adjustedInsert, 0, dragged);
+    setEntries(updated);
+    dragIndexRef.current = null;
   };
 
   const removeLine = (index: number) => {
@@ -131,7 +172,7 @@ export default function BuildPage() {
       // Check if user typed just a dash — make it a separator
       if (entry.query.trim() === "-") {
         const updated = [...entries];
-        updated[index] = { ...entry, isSeparator: true, isNew: false };
+        updated[index] = { ...entry, isSeparator: true, isNew: false, separatorChar: "-" };
         setEntries(updated);
         return;
       }
@@ -157,13 +198,13 @@ export default function BuildPage() {
         const entry = updated[index];
         if (!entry.isSeparator && entry.query && !entry.selected && !entry.isNew) {
           if (entry.query.trim() === "-") {
-            updated[index] = { ...entry, isSeparator: true, isNew: false };
+            updated[index] = { ...entry, isSeparator: true, isNew: false, separatorChar: "-" };
           } else {
             updated[index] = { ...entry, isUnknown: false, isNew: true };
           }
         }
         // Add new empty line
-        updated.push({ query: "", selected: null, isUnknown: false, isNew: false, isSeparator: false });
+        updated.push(emptyEntry());
         return updated;
       });
       setActiveLine(entries.length);
@@ -275,87 +316,144 @@ export default function BuildPage() {
 
       <Divider className="my-6" soft />
 
-      <div className="space-y-3">
+      <div className="space-y-2">
         {entries.map((entry, index) => (
-          <div key={index} className="relative">
+          <div key={index}>
+            {/* Drop indicator above this item */}
+            {dropTargetIndex === index && dragIndexRef.current !== index && dragIndexRef.current !== index - 1 && (
+              <div className="h-1 rounded-full bg-blue-500 dark:bg-blue-400 mb-2 mx-8" />
+            )}
+            <div
+              className="relative flex items-center gap-2"
+              draggable
+              onDragStart={() => handleDragStart(index)}
+              onDragOver={(e) => handleDragOver(e, index)}
+              onDragEnd={handleDragEnd}
+              onDrop={(e) => handleDrop(e, index)}
+            >
+            {/* Drag handle */}
+            <span className="cursor-grab text-zinc-300 dark:text-zinc-600 select-none text-lg leading-none px-1" title="Drag to reorder">⠿</span>
+
             {entry.isSeparator ? (
-              <div className="flex items-center gap-2">
-                <div className="flex-1 flex items-center justify-center py-2 text-2xl font-black text-zinc-400 dark:text-zinc-500">
-                  —
+              <div className="flex-1 flex items-center gap-3">
+                <div className="flex items-center gap-1 rounded-lg border border-zinc-950/10 dark:border-white/10 bg-zinc-50 dark:bg-zinc-800/50 px-4 py-2.5 flex-1">
+                  <span className="text-2xl font-black text-zinc-400 dark:text-zinc-500 mr-2">{entry.separatorChar}</span>
+                  <span className="text-xs text-zinc-400 dark:text-zinc-500 mr-3">separator</span>
+                  {SEPARATOR_OPTIONS.map((char) => (
+                    <button
+                      key={char}
+                      onClick={() => {
+                        const updated = [...entries];
+                        updated[index] = { ...entry, separatorChar: char, query: char };
+                        setEntries(updated);
+                      }}
+                      className={`px-2 py-0.5 rounded text-sm font-mono border transition-colors ${
+                        entry.separatorChar === char
+                          ? "bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 border-zinc-950 dark:border-white"
+                          : "border-zinc-300 dark:border-zinc-600 text-zinc-600 dark:text-zinc-400 hover:border-zinc-500"
+                      }`}
+                    >
+                      {char}
+                    </button>
+                  ))}
                 </div>
-                <Badge color="zinc">-</Badge>
                 {entries.length > 1 && (
-                  <Button plain onClick={() => removeLine(index)} className="text-zinc-400 hover:text-zinc-600">
+                  <Button plain onClick={() => removeLine(index)} className="text-zinc-400 hover:text-zinc-600 shrink-0">
                     <span aria-hidden="true">&times;</span>
                   </Button>
                 )}
               </div>
             ) : (
-            <>
-            <div className="flex items-center gap-2">
-              <div className="flex-1 relative">
-                <Input
-                  type="text"
-                  value={entry.query}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateEntry(index, e.target.value)}
-                  onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => handleKeyDown(index, e)}
-                  onFocus={() => setActiveLine(index)}
-                  onBlur={() => handleBlur(index)}
-                  placeholder="Type a technology name..."
-                  autoFocus={index === activeLine}
-                  autoComplete="off"
-                />
-              </div>
-              {entry.selected && (
-                <Badge color="blue">{entry.selected.name[0]}</Badge>
-              )}
-              {entry.isNew && (
-                <Badge color="lime">New!</Badge>
-              )}
-              {entries.length > 1 && (
-                <Button plain onClick={() => removeLine(index)} className="text-zinc-400 hover:text-zinc-600">
-                  <span aria-hidden="true">&times;</span>
-                </Button>
-              )}
-            </div>
+              <>
+                {/* Letter + input fused together */}
+                <div className="flex-1 relative flex rounded-lg border border-zinc-950/10 dark:border-white/10 focus-within:border-zinc-950/30 dark:focus-within:border-white/30 overflow-hidden bg-white dark:bg-zinc-900">
+                  <div className="flex items-center justify-center px-4 min-w-[3rem] bg-blue-600 dark:bg-blue-500 border-r border-blue-700 dark:border-blue-600 shrink-0 self-stretch">
+                    <span className="text-2xl font-black text-white leading-none">
+                      {(entry.selected?.name ?? entry.query)?.[0]?.toUpperCase() ?? "·"}
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    value={entry.query}
+                    onChange={(e) => updateEntry(index, e.target.value)}
+                    onKeyDown={(e) => handleKeyDown(index, e)}
+                    onFocus={() => setActiveLine(index)}
+                    onBlur={() => handleBlur(index)}
+                    placeholder="Type a technology name..."
+                    autoFocus={index === activeLine}
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="off"
+                    spellCheck={false}
+                    data-form-type="other"
+                    className="flex-1 px-4 py-3 text-xl font-semibold bg-transparent outline-none text-zinc-950 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                  />
+                  {entry.isNew && (
+                    <div className="flex items-center pr-3">
+                      <Badge color="lime">New!</Badge>
+                    </div>
+                  )}
+                </div>
 
-            {activeLine === index && suggestions.length > 0 && (
-              <div className="absolute z-10 mt-1 w-full rounded-lg border border-zinc-950/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-lg max-h-60 overflow-y-auto">
-                {suggestions.filter((tech) => !entries.some((e, i) => i !== index && e.selected?.id === tech.id)).map((tech) => (
+                {entries.length > 1 && (
+                  <Button plain onClick={() => removeLine(index)} className="text-zinc-400 hover:text-zinc-600 shrink-0">
+                    <span aria-hidden="true">&times;</span>
+                  </Button>
+                )}
+
+                {activeLine === index && suggestions.length > 0 && (
+                  <div className="absolute left-10 right-10 z-10 top-full mt-1 rounded-lg border border-zinc-950/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-lg max-h-60 overflow-y-auto">
+                    {suggestions.filter((tech) => !entries.some((e, i) => i !== index && e.selected?.id === tech.id)).map((tech) => (
+                      <button
+                        key={tech.id}
+                        onClick={() => selectTechnology(index, tech)}
+                        className="w-full text-left px-4 py-2 text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-950 dark:text-white transition-colors first:rounded-t-lg last:rounded-b-lg"
+                      >
+                        <span className="font-medium">{tech.name}</span>
+                        {tech.vendor && (
+                          <span className="text-zinc-400 dark:text-zinc-500"> by {tech.vendor}</span>
+                        )}
+                        {tech.description && (
+                          <span className="text-zinc-500 dark:text-zinc-400 block text-xs mt-0.5 truncate">
+                            {tech.description.slice(0, 80)}
+                          </span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </>
+            )}
+            </div>
+          </div>
+        ))}
+
+        {/* Drop indicator after the last item */}
+        {dropTargetIndex === entries.length && (
+          <div className="h-1 rounded-full bg-blue-500 dark:bg-blue-400 mx-8" />
+        )}
+
+        <div className="flex items-center gap-4 pt-2">
+          <Button plain onClick={addLine}>+ Add technology</Button>
+          <div className="relative">
+            <Button plain onClick={() => setShowSeparatorPicker((v) => !v)}>+ Add separator</Button>
+            {showSeparatorPicker && (
+              <div className="absolute top-full mt-1 left-0 z-10 flex items-center gap-1 rounded-lg border border-zinc-950/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-lg p-2">
+                {SEPARATOR_OPTIONS.map((char) => (
                   <button
-                    key={tech.id}
-                    onClick={() => selectTechnology(index, tech)}
-                    className="w-full text-left px-4 py-2 text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-950 dark:text-white transition-colors first:rounded-t-lg last:rounded-b-lg"
+                    key={char}
+                    onClick={() => {
+                      setEntries([...entries, separatorEntry(char)]);
+                      setShowSeparatorPicker(false);
+                    }}
+                    className="px-3 py-1.5 rounded font-mono text-sm border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-950 dark:text-white transition-colors"
                   >
-                    <span className="font-medium">{tech.name}</span>
-                    {tech.vendor && (
-                      <span className="text-zinc-400 dark:text-zinc-500">
-                        {" "}by {tech.vendor}
-                      </span>
-                    )}
-                    {tech.description && (
-                      <span className="text-zinc-500 dark:text-zinc-400 block text-xs mt-0.5 truncate">
-                        {tech.description.slice(0, 80)}
-                      </span>
-                    )}
+                    {char}
                   </button>
                 ))}
               </div>
             )}
-            </>
-            )}
           </div>
-        ))}
-
-        <div className="flex items-center gap-4">
-          <Button plain onClick={addLine}>
-            + Add technology
-          </Button>
-          <Button plain onClick={() => {
-            setEntries([...entries, { query: "-", selected: null, isUnknown: false, isNew: false, isSeparator: true }]);
-          }}>
-            + Add dash
-          </Button>
         </div>
       </div>
 

@@ -1,10 +1,10 @@
 import { prisma } from "@/lib/prisma";
-import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Heading } from "@/components/catalyst/heading";
 import { Text } from "@/components/catalyst/text";
 import Link from "next/link";
 import { Button } from "@/components/catalyst/button";
-import { Badge } from "@/components/catalyst/badge";
 import { starColorClass } from "@/lib/stars";
+import { StackCard } from "@/components/StackCard";
 
 async function getHallOfFame() {
   const topStackIds = await prisma.$queryRaw<{ id: string; total_stars: number }[]>`
@@ -106,7 +106,7 @@ export default async function HomePage() {
         <Heading className="!text-4xl sm:!text-5xl tracking-tight">Stacklist</Heading>
         <Text className="mt-4 text-lg">Claim your stack. There can be only one.</Text>
         <div className="mt-8">
-          <Button href="/build" color="blue">Design my Stack</Button>
+          <Button href="/build" color="blue" className="!text-xl !px-10 !py-5 !rounded-2xl">Design my Stack</Button>
         </div>
       </section>
 
@@ -114,79 +114,39 @@ export default async function HomePage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         {/* Hall of Fame */}
         <section>
-          <Subheading className="mb-4">Hall of Fame</Subheading>
+          <h2 className="section-header-gold mb-4 text-2xl font-black">🏆 Hall of Fame</h2>
           <div className="space-y-3">
-            {hallOfFame.map((stack) => {
-              const totalStars = stack.technologies.reduce(
-                (sum, st) => sum + st.technology.githubStars,
-                0
-              );
-              const attribution = stackAttribution(stack);
-              return (
-                <Link key={stack.id} href={`/s/${stack.acronym}`} className="block">
-                  <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
-                    <div className="flex items-center justify-between">
-                      <span className="text-lg font-black tracking-tight text-zinc-950 dark:text-white">
-                        {stack.acronym}
-                      </span>
-                      {totalStars > 0 && (
-                        <span className={`text-xs ${starColorClass(totalStars)}`}>
-                          ★ {totalStars.toLocaleString()}
-                        </span>
-                      )}
-                    </div>
-                    {stack.summary && (
-                      <Text className="mt-0.5 !text-xs line-clamp-1">{stack.summary}</Text>
-                    )}
-                    {attribution && (
-                      <Text className="mt-0.5 !text-xs text-zinc-400">{attribution}</Text>
-                    )}
-                  </div>
-                </Link>
-              );
-            })}
+            {hallOfFame.map((stack) => (
+              <StackCard
+                key={stack.id}
+                acronym={stack.acronym}
+                summary={stack.summary}
+                attribution={stackAttribution(stack)}
+                totalStars={stack.technologies.reduce((sum, st) => sum + st.technology.githubStars, 0)}
+              />
+            ))}
           </div>
         </section>
 
         {/* Just Invented */}
         <section>
-          <Subheading className="mb-4">Just Invented</Subheading>
+          <h2 className="section-header-cyan mb-4 text-2xl font-black">⚡ Just Invented</h2>
           <div className="space-y-3">
-            {recentStacks.map((stack) => {
-              const totalStars = stack.technologies.reduce(
-                (sum, st) => sum + st.technology.githubStars,
-                0
-              );
-              const attribution = stackAttribution(stack);
-              return (
-                <Link key={stack.id} href={`/s/${stack.acronym}`} className="block">
-                  <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
-                    <div className="flex items-center justify-between">
-                      <span className="text-lg font-black tracking-tight text-zinc-950 dark:text-white">
-                        {stack.acronym}
-                      </span>
-                      {totalStars > 0 && (
-                        <span className={`text-xs ${starColorClass(totalStars)}`}>
-                          ★ {totalStars.toLocaleString()}
-                        </span>
-                      )}
-                    </div>
-                    {stack.summary && (
-                      <Text className="mt-0.5 !text-xs line-clamp-1">{stack.summary}</Text>
-                    )}
-                    {attribution && (
-                      <Text className="mt-0.5 !text-xs text-zinc-400">{attribution}</Text>
-                    )}
-                  </div>
-                </Link>
-              );
-            })}
+            {recentStacks.map((stack) => (
+              <StackCard
+                key={stack.id}
+                acronym={stack.acronym}
+                summary={stack.summary}
+                attribution={stackAttribution(stack)}
+                totalStars={stack.technologies.reduce((sum, st) => sum + st.technology.githubStars, 0)}
+              />
+            ))}
           </div>
         </section>
 
         {/* Top Contributors */}
         <section>
-          <Subheading className="mb-4">Top Contributors</Subheading>
+          <h2 className="section-header-purple mb-4 text-2xl font-black">🌟 Top Contributors</h2>
           <div className="space-y-3">
             {topContributors.map((user, i) => (
               <Link key={user.id} href={`/u/${user.providerUsername}`} className="block">
@@ -199,7 +159,7 @@ export default async function HomePage() {
                       <img src={user.avatarUrl} alt="" className="size-6 rounded-full" />
                     )}
                     <div className="flex-1 min-w-0">
-                      <span className="font-medium text-sm text-zinc-950 dark:text-white">
+                      <span className="font-bold text-base text-zinc-950 dark:text-white">
                         @{user.providerUsername}
                       </span>
                       <div className="flex items-center gap-2">

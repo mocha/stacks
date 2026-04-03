@@ -1,16 +1,17 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Heading, Subheading } from "@/components/catalyst/heading";
+import { Heading } from "@/components/catalyst/heading";
 import { Text } from "@/components/catalyst/text";
 import { TextLink } from "@/components/catalyst/text";
-import { Badge, BadgeButton } from "@/components/catalyst/badge";
 import {
   DescriptionList,
   DescriptionTerm,
   DescriptionDetails,
 } from "@/components/catalyst/description-list";
 import { Divider } from "@/components/catalyst/divider";
+import { starColorClass } from "@/lib/stars";
+import { StackCard } from "@/components/StackCard";
 
 function stackAttribution(stack: {
   creator?: { providerUsername: string } | null;
@@ -63,9 +64,13 @@ export default async function TechnologyPage({ params }: Props) {
           stack: {
             select: {
               acronym: true,
+              summary: true,
               createdAt: true,
               externalAttribution: true,
               creator: { select: { providerUsername: true } },
+              technologies: {
+                include: { technology: { select: { githubStars: true } } },
+              },
             },
           },
         },
@@ -106,7 +111,11 @@ export default async function TechnologyPage({ params }: Props) {
           </>
         )}
         <DescriptionTerm>GitHub Stars</DescriptionTerm>
-        <DescriptionDetails>{technology.githubStars.toLocaleString()}</DescriptionDetails>
+        <DescriptionDetails>
+          <span className={starColorClass(technology.githubStars)}>
+            ★ {technology.githubStars.toLocaleString()}
+          </span>
+        </DescriptionDetails>
         <DescriptionTerm>GitHub</DescriptionTerm>
         <DescriptionDetails>
           <a
@@ -134,28 +143,19 @@ export default async function TechnologyPage({ params }: Props) {
         <>
           <Divider className="my-6" soft />
           <section>
-            <Subheading className="mb-4">Used in these stacks</Subheading>
+            <h2 className="section-header-purple mb-4 text-2xl font-black">🧩 Used in these stacks</h2>
             <div className="space-y-3">
               {[...technology.stacks]
                 .sort((a, b) => new Date(b.stack.createdAt).getTime() - new Date(a.stack.createdAt).getTime())
-                .map((st) => {
-                  const attribution = stackAttribution(st.stack);
-                  return (
-                    <TextLink key={st.stack.acronym} href={`/s/${st.stack.acronym}`} className="block no-underline">
-                      <div className="rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
-                        <div className="flex items-center gap-3">
-                          <Badge color="indigo">{st.stack.acronym}</Badge>
-                          <span className="font-medium text-zinc-950 dark:text-white">
-                            The {st.stack.acronym} Stack
-                          </span>
-                        </div>
-                        {attribution && (
-                          <Text className="mt-1 text-sm">{attribution}</Text>
-                        )}
-                      </div>
-                    </TextLink>
-                  );
-                })}
+                .map((st) => (
+                  <StackCard
+                    key={st.stack.acronym}
+                    acronym={st.stack.acronym}
+                    summary={st.stack.summary}
+                    attribution={stackAttribution(st.stack)}
+                    totalStars={st.stack.technologies.reduce((sum, t) => sum + t.technology.githubStars, 0)}
+                  />
+                ))}
             </div>
           </section>
         </>

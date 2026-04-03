@@ -94,14 +94,23 @@ export default async function UserProfilePage({ params }: Props) {
     <div className="flex flex-col md:flex-row gap-8 md:gap-12">
       {/* Left sidebar */}
       <div className="md:w-1/3 flex-shrink-0">
-        <Avatar
-          src={avatarUrl}
-          alt={username}
-          initials={displayName?.[0]?.toUpperCase()}
-          className="size-48 sm:size-64 rounded-full"
-        />
+        <div className="relative inline-block">
+          <Avatar
+            src={avatarUrl}
+            alt={username}
+            initials={displayName?.[0]?.toUpperCase()}
+            className="size-48 sm:size-64 rounded-full"
+          />
+          {totalStars > 0 && (
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2">
+              <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-bold border-2 border-white dark:border-zinc-900 bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 ${starColorClass(totalStars)}`}>
+                ★ {totalStars.toLocaleString()}
+              </span>
+            </div>
+          )}
+        </div>
 
-        <div className="mt-4">
+        <div className="mt-8">
           <Heading className="!text-2xl">{displayName}</Heading>
           <Text className="text-zinc-500 dark:text-zinc-400">@{username}</Text>
         </div>
@@ -157,13 +166,6 @@ export default async function UserProfilePage({ params }: Props) {
           </div>
         )}
 
-        {totalStars > 0 && (
-          <div className="mt-4">
-            <span className={`text-lg ${starColorClass(totalStars)}`}>
-              ★ {totalStars.toLocaleString()} total stack stars
-            </span>
-          </div>
-        )}
       </div>
 
       {/* Right content area */}

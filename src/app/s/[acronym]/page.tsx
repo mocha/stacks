@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
+import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import type { Metadata } from "next";
+import ReactMarkdown from "react-markdown";
 import { RerollButton } from "@/components/RerollButton";
 import { RelinquishButton } from "@/components/RelinquishButton";
 import { Text } from "@/components/catalyst/text";
@@ -95,6 +97,20 @@ export default async function StackDetailPage({ params }: Props) {
   const rerollsUsed = lastReroll < today ? 0 : stack.rerollsToday;
   const canReroll = rerollsUsed < 2;
 
+  // Check if current user is the stack creator
+  let isOwner = false;
+  if (stack.creatorId) {
+    const supabase = await createClient();
+    const { data: { user: authUser } } = await supabase.auth.getUser();
+    if (authUser) {
+      const dbUser = await prisma.user.findUnique({
+        where: { supabaseAuthId: authUser.id },
+        select: { id: true },
+      });
+      isOwner = dbUser?.id === stack.creatorId;
+    }
+  }
+
   const externalAttribution = stack.externalAttribution as {
     inventors: { name: string; url?: string }[];
     year?: number;
@@ -160,66 +176,72 @@ export default async function StackDetailPage({ params }: Props) {
 
       <Divider className="my-8" soft />
 
-      {/* Technology cards with highlighted first letter */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {stack.technologies.map((st) => (
-          <Link
-            key={st.technologyId}
-            href={`/t/${st.technology.slug}`}
-            className="group rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors"
-          >
-            <div className="flex items-start gap-3">
-              {st.technology.logoUrl && (
-                <img
-                  src={st.technology.logoUrl}
-                  alt={st.technology.name}
-                  width={32}
-                  height={32}
-                  className="rounded mt-0.5"
-                />
-              )}
-              <div className="flex-1 min-w-0">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-black text-blue-600 dark:text-blue-400">
-                    {st.technology.name[0]}
-                  </span>
-                  <span className="text-lg font-semibold text-zinc-950 dark:text-white">
-                    {st.technology.name.slice(1)}
-                  </span>
-                  {st.technology.vendor && (
-                    <span className="text-sm text-zinc-400 dark:text-zinc-500 ml-1">
-                      by {st.technology.vendor}
+      {/* Two-column layout: tech cards left, description right */}
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Left column: technology cards */}
+        <div className="lg:w-1/2 flex flex-col gap-4">
+          {stack.technologies.map((st) => (
+            <Link
+              key={st.technologyId}
+              href={`/t/${st.technology.slug}`}
+              className="group rounded-lg border border-zinc-950/10 dark:border-white/10 p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors"
+            >
+              <div className="flex items-start gap-3">
+                {st.technology.logoUrl && (
+                  <img
+                    src={st.technology.logoUrl}
+                    alt={st.technology.name}
+                    width={32}
+                    height={32}
+                    className="rounded mt-0.5"
+                  />
+                )}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-xl font-black text-blue-600 dark:text-blue-400">
+                      {st.technology.name}
+                    </span>
+                    {st.technology.vendor && (
+                      <span className="text-sm text-zinc-400 dark:text-zinc-500 ml-1">
+                        by {st.technology.vendor}
+                      </span>
+                    )}
+                  </div>
+                  {st.technology.description && (
+                    <Text className="mt-1 text-sm line-clamp-2">
+                      {st.technology.description}
+                    </Text>
+                  )}
+                  {st.technology.githubStars > 0 && (
+                    <span className={`mt-2 inline-flex items-center gap-1 text-xs ${starColorClass(st.technology.githubStars)}`}>
+                      ★ {st.technology.githubStars.toLocaleString()}
                     </span>
                   )}
                 </div>
-                {st.technology.description && (
-                  <Text className="mt-1 text-sm line-clamp-2">
-                    {st.technology.description}
-                  </Text>
-                )}
-                {st.technology.githubStars > 0 && (
-                  <span className={`mt-2 inline-flex items-center gap-1 text-xs ${starColorClass(st.technology.githubStars)}`}>
-                    ★ {st.technology.githubStars.toLocaleString()}
-                  </span>
-                )}
               </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Right column: description (sticky) */}
+        <div className="lg:w-1/2">
+          <div className="lg:sticky lg:top-8 rounded-lg bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-950/5 dark:border-white/10 p-6">
+            <div className="prose prose-sm dark:prose-invert prose-zinc max-w-none">
+              <ReactMarkdown>{stack.description}</ReactMarkdown>
             </div>
-          </Link>
-        ))}
+          </div>
+        </div>
       </div>
 
-      {/* LLM Description */}
-      <div className="mt-8 rounded-lg bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-950/5 dark:border-white/10 p-6">
-        <Text className="!text-base leading-relaxed whitespace-pre-line">{stack.description}</Text>
-      </div>
-
-      {/* Actions */}
-      <div className="mt-8 flex items-center gap-3">
-        {canReroll && (
-          <RerollButton acronym={stack.acronym} rerollsRemaining={2 - rerollsUsed} />
-        )}
-        <RelinquishButton acronym={stack.acronym} />
-      </div>
+      {/* Actions — only visible to the stack creator */}
+      {isOwner && (
+        <div className="mt-8 flex items-center gap-3">
+          {canReroll && (
+            <RerollButton acronym={stack.acronym} rerollsRemaining={2 - rerollsUsed} />
+          )}
+          <RelinquishButton acronym={stack.acronym} />
+        </div>
+      )}
 
       {/* Ad placeholder for future use */}
       {/* <div className="ad-slot" data-ad-size="300x250" /> */}

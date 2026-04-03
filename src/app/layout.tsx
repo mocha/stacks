@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import { StackedLayout } from "@/components/catalyst/stacked-layout";
 import {
@@ -12,8 +12,8 @@ import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { AuthButton } from "@/components/AuthButton";
 
-const inter = Inter({
-  variable: "--font-inter",
+const firaCode = Fira_Code({
+  variable: "--font-fira-code",
   subsets: ["latin"],
 });
 
@@ -39,8 +39,8 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white dark:bg-zinc-900 font-[family-name:var(--font-inter)]">
+    <html lang="en" className={`${firaCode.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-white dark:bg-zinc-900 ">
         <StackedLayout
           navbar={
             <Navbar>
